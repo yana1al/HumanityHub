@@ -19,6 +19,18 @@ Humanity Hub serves as a platform to connect individuals and organizations inter
 ### Others:
 - JavaScript: The primary programming language used throughout the application.
 
+### Project Scope:
+
+The project will focus on building the MVP (Minimum Viable Product) with the following features:
+
+- User registration and authentication system.
+- Testimony from the User(each review will contribute $ for Social Cause
+- The donation management system allows users to donate food, clothes, and monetary contributions.
+- Event coordination system for organizing and participating in local community events such as tree planting, street cleaning, etc.
+- The mental health support section provides suicide prevention guidelines and resources.
+- Virtual/In-person happy hours.
+- User profile management.
+
 ### Deploy @ Heroku
 
 ## Git Jar: Alima Sharma
