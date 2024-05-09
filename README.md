@@ -1,6 +1,8 @@
 # Humanity Hub
 "Mobilizing Hearts, Empowering Hands, Building a Better World."
 
+<img width="828" alt="Screenshot 2024-05-09 at 12 33 01 PM" src="https://github.com/yana1al/HumanityHub/assets/160801353/3a47782a-b26c-4529-9b98-a4ea18ab7342">
+
 
 ## About this App
 
@@ -31,10 +33,23 @@ The project will focus on building the MVP (Minimum Viable Product) with the fol
 - Virtual/In-person happy hours.
 - User profile management.
 
+### [Project Trello Here](https://trello.com/invite/b/ZZSTtiZV/ATTIb5bf214061bbd4fda278e825fa695c18614FEF11/humanityhub)
+
 ### Deploy @ Heroku
+
+## WireFrame below
+
+- <img width="1020" alt="wireframe1" src="https://github.com/yana1al/HumanityHub/assets/160801353/e56f1ec9-a0c9-46ea-a5a3-f6c4a787874c">
+- <img width="1079" alt="Wireframe2" src="https://github.com/yana1al/HumanityHub/assets/160801353/049c615f-081e-443f-bb8b-3c9cf1ac6d8c">
+
+## Powerpoint:
+[HUMANITY HUB (HH).pptx](https://github.com/yana1al/HumanityHub/files/15266929/HUMANITY.HUB.HH.pptx)
+
+
 
 ## Git Jar: Alima Sharma
 [LinkedIn](https://www.linkedin.com/in/alimasharma/)
+
 
 
 
