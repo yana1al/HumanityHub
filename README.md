@@ -44,7 +44,7 @@ The project will focus on building the MVP (Minimum Viable Product) with the fol
 
 ### [Project Trello Here](https://trello.com/invite/b/ZZSTtiZV/ATTIb5bf214061bbd4fda278e825fa695c18614FEF11/humanityhub)
 
-### Deploy @ Heroku
+
 
 ## WireFrame below
 
@@ -56,7 +56,7 @@ The project will focus on building the MVP (Minimum Viable Product) with the fol
 [HUMANITY HUB (HH).pptx](https://github.com/yana1al/HumanityHub/files/15267470/HUMANITY.HUB.HH.pptx)
 
 
-
+### Deploy @ Heroku
 
 ## Git Jar: Alima Sharma
 [LinkedIn](https://www.linkedin.com/in/alimasharma/)
