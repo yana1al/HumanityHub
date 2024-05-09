@@ -1,4 +1,4 @@
-# Humanity Hub
+# Humanity Hub (HH)
 "Mobilizing Hearts, Empowering Hands, Building a Better World."
 
 <img width="828" alt="Screenshot 2024-05-09 at 12 33 01 PM" src="https://github.com/yana1al/HumanityHub/assets/160801353/3a47782a-b26c-4529-9b98-a4ea18ab7342">
