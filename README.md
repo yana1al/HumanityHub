@@ -52,7 +52,9 @@ The project will focus on building the MVP (Minimum Viable Product) with the fol
 - <img width="1079" alt="Wireframe2" src="https://github.com/yana1al/HumanityHub/assets/160801353/049c615f-081e-443f-bb8b-3c9cf1ac6d8c">
 
 ## Powerpoint:
-[HUMANITY HUB (HH).pptx](https://github.com/yana1al/HumanityHub/files/15266929/HUMANITY.HUB.HH.pptx)
+
+[HUMANITY HUB (HH).pptx](https://github.com/yana1al/HumanityHub/files/15267470/HUMANITY.HUB.HH.pptx)
+
 
 
 
