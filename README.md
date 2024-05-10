@@ -48,6 +48,14 @@ The project will focus on building the MVP (Minimum Viable Product) with the fol
 
 ### [Project Trello Here](https://trello.com/invite/b/ZZSTtiZV/ATTIb5bf214061bbd4fda278e825fa695c18614FEF11/humanityhub)
 
+
+# Diagrams:
+
+## ERD:
+
+<img width="1155" alt="Screenshot 2024-05-09 at 8 46 31 PM" src="https://github.com/yana1al/HumanityHub/assets/160801353/8d66f05a-57d5-496a-9795-6cec62d2e66c">
+
+
 ## APP COMPONENTS:
 
 <img width="869" alt="Screenshot 2024-05-09 at 8 12 46 PM" src="https://github.com/yana1al/HumanityHub/assets/160801353/411b1a4b-a1b7-46b1-a0c5-b22fe8a24323">
@@ -59,7 +67,7 @@ The project will focus on building the MVP (Minimum Viable Product) with the fol
 
 ## Powerpoint:
 
-[HUMANITY HUB (HH).pptx](https://github.com/yana1al/HumanityHub/files/15270000/HUMANITY.HUB.HH.pptx)
+[HUMANITY HUB (HH).pptx](https://github.com/yana1al/HumanityHub/files/15270118/HUMANITY.HUB.HH.pptx)
 
 ### Deploy @ Heroku(link available soon)
 
