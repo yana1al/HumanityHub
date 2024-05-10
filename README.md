@@ -17,16 +17,18 @@ Humanity Hub serves as a platform to connect individuals and organizations inter
 
 ### Frontend:
 - React: A JavaScript library for building user interfaces.
+- Axios or Fetch for HTTP requests
 
 ### Authentication:
 - JSON Web Tokens (JWT)
 - Google OAuth
 
 ## API Endpoints
-- GET /API/local events: Retrieve local event locations via Google Maps
-- GET /API/donations: Retrieve donation areas for food and clothes.
+- GET /3rd party API(google)/local events: Retrieve local event locations
+- GET /3rd party API(google)/donations: Retrieve donation areas for food and clothes.
 - POST /API/register: Register a new user.
 - POST /API/login: Log in an existing user.
+- POST /API/Zoomlink for virtual happy hours: CRUD. (MVP)
 
 ### Others:
 - JavaScript: The primary programming language used throughout the application.
@@ -40,7 +42,7 @@ The project will focus on building the MVP (Minimum Viable Product) with the fol
 - The donation management system allows users to donate food, clothes, and monetary contributions.
 - Event coordination system for organizing and participating in local community events such as tree planting, street cleaning, etc.
 - Resources: The mental health support section provides suicide prevention guidelines and resources.
-- Virtual/In-person happy hours info(Able to update dates and times).
+- Virtual/In-person happy hours info(CRUD).
 - User profile management.
 
 ### [Project Trello Here](https://trello.com/invite/b/ZZSTtiZV/ATTIb5bf214061bbd4fda278e825fa695c18614FEF11/humanityhub)
