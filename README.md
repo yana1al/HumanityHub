@@ -6,7 +6,7 @@
 
 ## About this App
 
-Humanity Hub serves as a platform to connect individuals and organizations interested in making a positive impact on society. It provides features such as donation management, event coordination, and suicide prevention guidelines to empower users to contribute to social causes in meaningful ways. It is a social cause application aimed at fostering community engagement and facilitating acts of kindness and support.
+Humanity Hub serves as a platform to connect individuals and organizations interested in making a positive impact on society. It provides features such as donation management, event coordination, and suicide prevention guidelines to empower users to contribute to social causes in meaningful ways. It is a social cause application that fosters community engagement and facilitates acts of kindness and support.
 
 ## Technologies Used
 
@@ -20,12 +20,13 @@ Humanity Hub serves as a platform to connect individuals and organizations inter
 
 ### Authentication:
 - JSON Web Tokens (JWT)
+- Google OAuth
 
 ## API Endpoints
-- GET /api/local events: Retrieve a list of local events.
-- GET /api/local donations: Retrieve a list of donations.
-- POST /api/register: Register a new user.
-- POST /api/login: Log in an existing user.
+- GET /API/local events: Retrieve local event locations via Google Maps
+- GET /API/donations: Retrieve donation areas for food and clothes.
+- POST /API/register: Register a new user.
+- POST /API/login: Log in an existing user.
 
 ### Others:
 - JavaScript: The primary programming language used throughout the application.
@@ -45,7 +46,6 @@ The project will focus on building the MVP (Minimum Viable Product) with the fol
 ### [Project Trello Here](https://trello.com/invite/b/ZZSTtiZV/ATTIb5bf214061bbd4fda278e825fa695c18614FEF11/humanityhub)
 
 
-
 ## WireFrame below
 
 - <img width="1020" alt="wireframe1" src="https://github.com/yana1al/HumanityHub/assets/160801353/e56f1ec9-a0c9-46ea-a5a3-f6c4a787874c">
@@ -54,9 +54,6 @@ The project will focus on building the MVP (Minimum Viable Product) with the fol
 ## Powerpoint:
 
 [HUMANITY HUB (HH).pptx](https://github.com/yana1al/HumanityHub/files/15267689/HUMANITY.HUB.HH.pptx)
-
-
-
 
 
 ### Deploy @ Heroku
