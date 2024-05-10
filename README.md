@@ -55,7 +55,8 @@ The project will focus on building the MVP (Minimum Viable Product) with the fol
 
 ## Powerpoint:
 
-[HUMANITY HUB (HH).pptx](https://github.com/yana1al/HumanityHub/files/15269184/HUMANITY.HUB.HH.pptx)
+[HUMANITY HUB (HH).pptx](https://github.com/yana1al/HumanityHub/files/15269318/HUMANITY.HUB.HH.pptx)
+
 
 
 ### Deploy @ Heroku
