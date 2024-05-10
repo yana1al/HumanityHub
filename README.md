@@ -6,7 +6,7 @@
 
 ## About this App
 
-Humanity Hub serves as a platform to connect individuals and organizations interested in making a positive impact on society. It provides features such as donation management, event coordination, and suicide prevention guidelines to empower users to contribute to social causes in meaningful ways. It is a social cause application that fosters community engagement and facilitates acts of kindness and support.
+Humanity Hub serves as a platform to connect individuals and organizations interested in positively impacting society. It provides features such as donation management, event coordination, and suicide prevention guidelines to empower users to contribute meaningfully to social causes. It is a social cause application that fosters community engagement and facilitates acts of kindness and support.
 
 ## Technologies Used
 
@@ -53,12 +53,12 @@ The project will focus on building the MVP (Minimum Viable Product) with the fol
 
 ## Powerpoint:
 
-[HUMANITY HUB (HH).pptx](https://github.com/yana1al/HumanityHub/files/15267689/HUMANITY.HUB.HH.pptx)
+[HUMANITY HUB (HH).pptx](https://github.com/yana1al/HumanityHub/files/15269184/HUMANITY.HUB.HH.pptx)
 
 
 ### Deploy @ Heroku
 
-## Git Jar: Alima Sharma
+## Developer: Alima Sharma
 [LinkedIn](https://www.linkedin.com/in/alimasharma/)
 
 
