@@ -14,11 +14,11 @@ const Nav = () => {
   };
 
   const handleMenuClick = () => {
-    setMenuOpen(!menuOpen); 
+    setMenuOpen(!menuOpen); // Toggle menu open/close state
   };
 
   const handleMenuItemClick = (section) => {
-    setMenuOpen(false); 
+    setMenuOpen(false); // Close the menu when a menu item is clicked
     switch (section) {
       case "about":
         navigate("/about");
@@ -39,20 +39,9 @@ const Nav = () => {
 
   return (
     <nav className="navbar">
-      <div className="menu-icon" onClick={handleMenuClick}>
-        <FontAwesomeIcon icon={faBars} />
-      </div>
       <div className="logo-container">
         <Link to="/" className="logo">HH</Link> {/* Logo routes to home page */}
       </div>
-      {menuOpen && (
-        <div className="menu-list">
-          <div className="menu-item" onClick={() => handleMenuItemClick("about")}>About Us</div>
-          <div className="menu-item" onClick={() => handleMenuItemClick("donations")}>Donations</div>
-          <div className="menu-item" onClick={() => handleMenuItemClick("events")}>Events</div>
-          <div className="menu-item" onClick={() => handleMenuItemClick("login")}>Login</div>
-        </div>
-      )}
       <div className="search-bar">
         <input
           type="text"
@@ -62,6 +51,17 @@ const Nav = () => {
         />
         <button onClick={handleSearch}>Search</button>
       </div>
+      <div className="menu-icon" onClick={handleMenuClick}>
+        <FontAwesomeIcon icon={faBars} />
+      </div>
+      {menuOpen && (
+        <div className="menu-list">
+          <div className="menu-item" onClick={() => handleMenuItemClick("about")}>About Us</div>
+          <div className="menu-item" onClick={() => handleMenuItemClick("donations")}>Donations</div>
+          <div className="menu-item" onClick={() => handleMenuItemClick("events")}>Events</div>
+          <div className="menu-item" onClick={() => handleMenuItemClick("login")}>Login</div>
+        </div>
+      )}
     </nav>
   );
 };
