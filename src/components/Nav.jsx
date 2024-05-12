@@ -1,25 +1,55 @@
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../App.css";
 
 const Nav = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleSearch = () => {
     navigate(`/events?search=${encodeURIComponent(searchQuery)}`);
   };
 
+  const handleMenuClick = () => {
+    setMenuOpen(!menuOpen); // Toggle menu open/close state
+  };
+
+  const handleMenuItemClick = (section) => {
+    setMenuOpen(false); 
+    switch (section) {
+      case "about":
+        navigate("/about");
+        break;
+      case "donations":
+        navigate("/donations");
+        break;
+      case "events":
+        navigate("/events");
+        break;
+      case "login":
+        navigate("/login");
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
     <nav className="navbar">
-      <div className="logo">HH</div>
+      <Link to="/" className="logo">HH</Link> {/* Fixed logo navigation */}
+      <div className="menu" onClick={handleMenuClick}>
+        <div className="menu-title">Access</div>
+        {menuOpen && (
+          <div className="menu-list">
+            <div className="menu-item" onClick={() => handleMenuItemClick("about")}>About Us</div>
+            <div className="menu-item" onClick={() => handleMenuItemClick("donations")}>Donations</div>
+            <div className="menu-item" onClick={() => handleMenuItemClick("events")}>Events</div>
+            <div className="menu-item" onClick={() => handleMenuItemClick("login")}>Login</div>
+          </div>
+        )}
+      </div>
       <div>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/donations">Donations</Link>
-        <Link to="/events">Events</Link>
-        <Link to="/logIn">Log In</Link>
-
         <input
           type="text"
           value={searchQuery}

@@ -1,42 +1,215 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+body {
+  margin: 0;
+}
+
+div {
+  background-size: cover;
+}
+
+.navbar {
+  display: flex;
+}
+
+/* .home-container {
+  margin: 40px;
+  padding: 50px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #e0cfcf;
+} */
+
+h1 ,h2{
+  font-size: 2em;
+  margin-bottom: 20px;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  text-align: center;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.navbar {
+  color: rgb(37, 34, 55);
+  background: linear-gradient(to right, #b1c0ca, rgb(163, 98, 98));
+  padding: 1em;
+  min-height: 2em;
+  font-family: 'Georgia';
+  font-size: large;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
   }
-  to {
-    transform: rotate(360deg);
+
+  .logo {
+    font-size: 2rem;
+    font-weight:bold;
+    color: #120b0b; 
+    text-shadow: 2px 2px 4px rgba(97, 82, 130, 0.96); 
   }
+  
+.navbar a {
+  color: #150d0d;
+  text-decoration:wavy;
+  font-size: 18px;
+  margin-left: 1em;
+  font-weight: bold;
+  margin-right: 1em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
 }
 
-.card {
-  padding: 2em;
+main {
+  flex-grow: 1; 
 }
 
-.read-the-docs {
-  color: #888;
+footer {
+  background: linear-gradient(to right, #cad1d5, rgb(160, 92, 49));
+  color: #3a3838;
+  padding: 2px;
+  text-align: center;
+  position: fixed; 
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+.park-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.parks-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+  align-items: center; 
+  width: 100%; 
+}
+
+.park-item {
+  border: 1px solid #beafaf;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.park-item:hover {
+  background-color: #e0d3d3;
+}
+
+.park-link {
+  display: block;
+  padding: 10px;
+  text-decoration:solid;
+  color: #776b6b;
+}
+
+.park-details {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 100px;
+  background-color: #c9d2d6;
+  
+}
+
+.park-details h2 {
+  margin-top: 0;
+}
+
+.park-details p {
+  margin: 6px 0;
+}
+
+.auth-container {
+  max-width: 3000px;
+  margin: 8rem;
+  padding: 100px;
+  background-color: #e4e8ead3;
+  border-radius: 60px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.password-input-container {
+  position:relative;
+}
+
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.ticket-container {
+  max-width: 300px;
+  margin: 5rem;
+  padding: 50px;
+  background-color: #5d6e76d3;
+  border-radius: 60px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+label {
+  display:grid;
+  margin-bottom: 1px;
+}
+
+
+input[type=""]
+ {
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #828587;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #748fad;
+}
+
+.about-container {
+  margin: 40px;
+  padding: 50px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #ececec;
+  text-align: center;
+}
+
+.tickets {
+text-align: center;
+}
+
+.home {
+  
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 50px 20px;
+  color: white;
 }
