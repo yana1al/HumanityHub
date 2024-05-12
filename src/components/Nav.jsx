@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 import "../App.css";
 
 const Nav = () => {
@@ -12,7 +14,7 @@ const Nav = () => {
   };
 
   const handleMenuClick = () => {
-    setMenuOpen(!menuOpen); // Toggle menu open/close state
+    setMenuOpen(!menuOpen); 
   };
 
   const handleMenuItemClick = (section) => {
@@ -37,19 +39,21 @@ const Nav = () => {
 
   return (
     <nav className="navbar">
-      <Link to="/" className="logo">HH</Link> {/* Fixed logo navigation */}
-      <div className="menu" onClick={handleMenuClick}>
-        <div className="menu-title">Access</div>
-        {menuOpen && (
-          <div className="menu-list">
-            <div className="menu-item" onClick={() => handleMenuItemClick("about")}>About Us</div>
-            <div className="menu-item" onClick={() => handleMenuItemClick("donations")}>Donations</div>
-            <div className="menu-item" onClick={() => handleMenuItemClick("events")}>Events</div>
-            <div className="menu-item" onClick={() => handleMenuItemClick("login")}>Login</div>
-          </div>
-        )}
+      <div className="menu-icon" onClick={handleMenuClick}>
+        <FontAwesomeIcon icon={faBars} />
       </div>
-      <div>
+      <div className="logo-container">
+        <Link to="/" className="logo">HH</Link> {/* Logo routes to home page */}
+      </div>
+      {menuOpen && (
+        <div className="menu-list">
+          <div className="menu-item" onClick={() => handleMenuItemClick("about")}>About Us</div>
+          <div className="menu-item" onClick={() => handleMenuItemClick("donations")}>Donations</div>
+          <div className="menu-item" onClick={() => handleMenuItemClick("events")}>Events</div>
+          <div className="menu-item" onClick={() => handleMenuItemClick("login")}>Login</div>
+        </div>
+      )}
+      <div className="search-bar">
         <input
           type="text"
           value={searchQuery}

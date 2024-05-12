@@ -30,7 +30,7 @@ const App = () => {
       <Nav user={user} handleLogOut={handleLogOut} />
       <main>
         <Routes>
-        <Route path="/" element={<Link to="/"><Home /></Link>} />
+        <Route path="/" element= {<Home />} />
           <Route path="/about" element={<About />} />
           {/* <Route path="/login" element={<Login setUser={setUser} />} />
           <Route path="/register" element={<Register />} />

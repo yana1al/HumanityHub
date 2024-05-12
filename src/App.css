@@ -10,13 +10,14 @@ div {
   display: flex;
 }
 
-/* .home-container {
+
+.home-container {
   margin: 40px;
   padding: 50px;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #e0cfcf;
-} */
+}
 
 h1 ,h2{
   font-size: 2em;
@@ -51,7 +52,7 @@ p {
   
 .navbar a {
   color: #150d0d;
-  text-decoration:wavy;
+  text-decoration: none;
   font-size: 18px;
   margin-left: 1em;
   font-weight: bold;
@@ -78,57 +79,7 @@ footer {
   bottom: 0;
   width: 100%;
 }
-.park-container {
-  display: flex;
-  justify-content: space-evenly;
-  margin-top: 20px;
-  flex-wrap: wrap;
-}
 
-.parks-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; 
-  align-items: center; 
-  width: 100%; 
-}
-
-.park-item {
-  border: 1px solid #beafaf;
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-.park-item:hover {
-  background-color: #e0d3d3;
-}
-
-.park-link {
-  display: block;
-  padding: 10px;
-  text-decoration:solid;
-  color: #776b6b;
-}
-
-.park-details {
-  margin-top: 20px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 100px;
-  background-color: #c9d2d6;
-  
-}
-
-.park-details h2 {
-  margin-top: 0;
-}
-
-.park-details p {
-  margin: 6px 0;
-}
 
 .auth-container {
   max-width: 3000px;
@@ -153,14 +104,7 @@ footer {
   cursor: pointer;
 }
 
-.ticket-container {
-  max-width: 300px;
-  margin: 5rem;
-  padding: 50px;
-  background-color: #5d6e76d3;
-  border-radius: 60px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+
 
 .form-group {
   margin-bottom: 10px;
@@ -198,18 +142,17 @@ button:hover {
   background-color: #ececec;
   text-align: center;
 }
-
-.tickets {
-text-align: center;
+.access-list {
+  position: absolute;
+  top: 50px; /* Adjust the top position as needed */
+  right:auto;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  z-index: 1000; /* Ensure the access list appears above other elements */
 }
 
-.home {
-  
-  height: 80vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  padding: 50px 20px;
-  color: white;
+.menu-item {
+  cursor: pointer;
+  margin-bottom: 10px;
 }
