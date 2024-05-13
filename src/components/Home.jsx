@@ -15,19 +15,19 @@ const Home = () => {
     { 
       id: 2, 
       name: "Yana Bhandari", 
-      testimony: "I'm grateful for the opportunities provided by Humanity Hub.", 
+      testimony: "I'm grateful for the opportunities provided by this organization.", 
       rating: 5 
     },
     { 
       id: 3, 
       name: "Manju Sharma", 
-      testimony: "The work done by this platform is truly inspiring.", 
+      testimony: "The work done by this organization is truly inspiring.", 
       rating: 5 
     },
     { 
       id: 4, 
       name: "Pompom SB", 
-      testimony: "I've had a wonderful experience volunteering with this platform.", 
+      testimony: "I've had a wonderful experience volunteering with this organization.", 
       rating: 5 
     }
   ];
@@ -38,6 +38,14 @@ const Home = () => {
       stars.push(<FontAwesomeIcon key={i} icon={faStar} className="star-icon" />);
     }
     return stars;
+  };
+
+  const donateForTestimony = (testimony) => {
+    const donationAmount = 10; // Example donation amount
+    console.log(`Donating $${donationAmount} for the testimony by ${testimony.name}`);
+    // Add your donation logic here
+    // For example, you can send an API request to process the donation
+    // You can also update the UI to indicate that the donation was successful
   };
 
   return (
@@ -55,6 +63,7 @@ const Home = () => {
               {renderStars(testimony.rating)}
             </div>
             <p>- {testimony.name}</p>
+            <button onClick={() => donateForTestimony(testimony)}>Donate $</button>
           </div>
         ))}
       </div>

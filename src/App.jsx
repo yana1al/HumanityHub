@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
-import { Route, Routes, Link } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Nav from "./components/Nav";
 import Home from "./components/Home";
 import About from "./components/About";
+import Events from "./components/Events";
+import Donations from "./components/Donations";
+
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -30,9 +33,9 @@ const App = () => {
       <Nav user={user} handleLogOut={handleLogOut} />
       <main>
         <Routes>
-        <Route path="/" element= {<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          
+          <Route path="/events" element={<Events />} /> 
         </Routes>
       </main>
       <footer>
