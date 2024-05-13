@@ -93,6 +93,7 @@ const Home = () => {
       <div className="support-links">
         <Link to="/donate" className="donate-link">Donate</Link>
         <Link to="/volunteer" className="volunteer-link">Volunteer</Link>
+        <Link to="/happy-hour-form" className="happy-hour-link">Add Happy Hour</Link>
       </div>
     </div>
   );

@@ -12,10 +12,10 @@ div {
 
 
 .home-container {
-  margin: 40px;
-  padding: 50px;
+  margin: 60px;
+  padding: 60px;
   border: 1px solid #d4c3c3;
-  border-radius: 5px;
+  border-radius: 8px;
   background-color: #c9d4c0;
 }
 
@@ -33,12 +33,13 @@ p {
 
 .navbar {
   color: rgb(37, 34, 55);
-  background: linear-gradient(to right, #b1c0ca, rgb(163, 98, 98));
+  background: linear-gradient(to right, #b1c0ca, rgb(136, 142, 94));
   padding: 1em;
   min-height: 2em;
-  font-family: 'Georgia';
+  font-family:cursive;
   font-size: large;
-  width: 90%;
+  width: 95%;
+  position: fixed;
   align-items: center;
   justify-content: space-between;
   }
@@ -70,9 +71,9 @@ main {
 }
 
 footer {
-  background: linear-gradient(to right, #cad1d5, rgb(160, 92, 49));
+  background: linear-gradient(to right, #cad1d5, rgb(71, 115, 88));
   color: #3a3838;
-  padding: 2px;
+  padding: 1px;
   text-align: center;
   position: fixed; 
   left: 0;
