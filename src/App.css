@@ -19,15 +19,42 @@ div {
   background-color: #c9d4c0;
 }
 
-h1 ,h2{
-  font-size: 2em;
-  margin-bottom: 20px;
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Align items (testimonies and "How did WE do?") to the left */
+}
+
+.testimonies-container {
+  display: flex;
+  width: 90%; /* Ensure testimonies container spans the full width */
+  justify-content: space-between; /* Distribute space between testimonies and "How did WE do?" */
+}
+
+.testimonies {
+  width: calc(50% - 10px); /* Adjust width of testimonies container */
+}
+
+.how-did-we-do {
+  width: calc(20% - 10px); /* Adjust width of "How did WE do?" container */
+}
+
+
+.support-links {
+  display: flex;
+  justify-content: space-between; 
+  width: 90%; 
+}
+
+h3 ,h2{
+  font-size: 1em;
+  margin-bottom: 30px;
   text-align: center;
 }
 
 p {
-  font-size: 1.2em;
-  line-height: 1.6;
+  font-size: 1em;
+  line-height: 1.5;
   text-align: center;
 }
 
@@ -68,6 +95,7 @@ p {
 
 main {
   flex-grow: 1; 
+  padding: 80px; 
 }
 
 footer {

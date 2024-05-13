@@ -50,50 +50,54 @@ const Home = () => {
 
   return (
     <div className="home">
-      <h1>Welcome to Humanity Hub (HH)</h1>
+      <h2>Welcome to Humanity Hub (HH)</h2>
       <p>
         Welcome to Humanity Hub (HH) - Mobilizing Hearts, Empowering Hands, Building a Better World. Your gateway to making a difference in the world. Our landing page is designed to introduce you to our platform and inspire you to get involved in social causes that matter to you.
       </p>
-      <h2>Testimonies</h2>
-      <div className="testimonies">
-        {testimonies.map((testimony) => (
-          <div key={testimony.id} className="testimony">
-            <p>{testimony.testimony}</p>
-            <div className="rating">
-              {renderStars(testimony.rating)}
+      <div className="testimonies-container">
+      <div className="testimonies" style={{ marginTop: '20px' }}>
+          <h3>Testimonies</h3>
+          {testimonies.map((testimony) => (
+            <div key={testimony.id} className="testimony">
+              <p>{testimony.testimony}</p>
+              <div className="rating">
+                {renderStars(testimony.rating)}
+              </div>
+              <p>- {testimony.name}</p>
+              <p>Donated Amount: ${testimony.donatedAmount}</p>
+              <button onClick={() => donateForTestimony(testimony)}>Donate $</button>
             </div>
-            <p>- {testimony.name}</p>
-            <p>Donated Amount: ${testimony.donatedAmount}</p>
-            <button onClick={() => donateForTestimony(testimony)}>Donate $</button>
-          </div>
-        ))}
+          ))}
+        </div>
+        <div className="how-did-we-do">
+          <h3>How did WE do?</h3>
+          <form onSubmit={handleSubmit}>
+            <label>
+              Name:
+              <input type="text" name="name" value={testimonyFormData.name} onChange={handleChange} />
+            </label>
+            <label>
+              Testimony:
+              <textarea name="testimony" value={testimonyFormData.testimony} onChange={handleChange} />
+            </label>
+            <label>
+              Rating:
+              <select name="rating" value={testimonyFormData.rating} onChange={handleChange}>
+                {[1, 2, 3, 4, 5].map((rating) => (
+                  <option key={rating} value={rating}>{rating}</option>
+                ))}
+              </select>
+            </label>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
       </div>
-      <h2>Submit Testimony</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Name:
-          <input type="text" name="name" value={testimonyFormData.name} onChange={handleChange} />
-        </label>
-        <label>
-          Testimony:
-          <textarea name="testimony" value={testimonyFormData.testimony} onChange={handleChange} />
-        </label>
-        <label>
-          Rating:
-          <select name="rating" value={testimonyFormData.rating} onChange={handleChange}>
-            {[1, 2, 3, 4, 5].map((rating) => (
-              <option key={rating} value={rating}>{rating}</option>
-            ))}
-          </select>
-        </label>
-        <button type="submit">Submit</button>
-      </form>
-      <h2>Support Us</h2>
-      <p>If you'd like to support our cause, you can make a donation or volunteer with us:</p>
+      <h3>Want to Join Us?</h3>
+      <p>Support Us by joining. Follow the link below:</p>
       <div className="support-links">
         <Link to="/donate" className="donate-link">Donate</Link>
         <Link to="/volunteer" className="volunteer-link">Volunteer</Link>
-        <Link to="/happy-hour-form" className="happy-hour-link">Add Happy Hour</Link>
+        <Link to="/happyHour" className="happyHour-link">Happy Hour</Link>
       </div>
     </div>
   );
