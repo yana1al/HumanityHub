@@ -59,6 +59,7 @@ const Nav = () => {
           <div className="menu-item" onClick={() => handleMenuItemClick("about")}>About Us</div>
           <div className="menu-item" onClick={() => handleMenuItemClick("donations")}>Donations</div>
           <div className="menu-item" onClick={() => handleMenuItemClick("events")}>Events</div>
+          <div className="menu-item" onClick={() => handleMenuItemClick("happyhour")}>HappyHour</div>
           <div className="menu-item" onClick={() => handleMenuItemClick("login")}>Login</div>
         </div>
       )}

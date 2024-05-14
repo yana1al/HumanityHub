@@ -95,7 +95,7 @@ const Home = () => {
       <h3>Want to Join Us?</h3>
       <p>Support Us by joining. Follow the link below:</p>
       <div className="support-links">
-        <Link to="/donate" className="donate-link">Donate</Link>
+        <Link to="/donations" className="donations-link">Donations</Link>
         <Link to="/volunteer" className="volunteer-link">Volunteer</Link>
         <Link to="/happyHour" className="happyHour-link">Happy Hour</Link>
       </div>

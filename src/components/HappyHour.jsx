@@ -1,84 +1,37 @@
-// HappyHourForm.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const HappyHourForm = ({ onSubmit }) => {
-  const [formData, setFormData] = useState({
-    title: "",
-    description: "",
-    date: "",
-    time: "",
-    location: "",
-    type: "virtual", // Default to virtual
-    zoomLink: "", // Only for virtual happy hours
-  });
+const HappyHour = ({ eventId }) => {
+  const [happyHour, setHappyHour] = useState(null);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await axios.post("/api/happy-hours", formData); // Adjust endpoint as per your API
-      onSubmit(); // Trigger callback to update happy hours list
-      // Clear form data after submission
-      setFormData({
-        title: "",
-        description: "",
-        date: "",
-        time: "",
-        location: "",
-        type: "virtual",
-        zoomLink: "",
+  useEffect(() => {
+    // Fetch Happy Hour details from backend
+    axios.get(`/api/happy-hours/${eventId}`)
+      .then(response => {
+        setHappyHour(response.data);
+      })
+      .catch(error => {
+        console.error("Error fetching Happy Hour details:", error);
       });
-    } catch (error) {
-      console.error("Error submitting happy hour:", error);
-    }
+  }, [eventId]);
+
+  const handleJoinZoomMeeting = (zoomLink) => {
+    window.open(zoomLink, "_blank"); // Open Zoom meeting link in a new tab
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Title:
-        <input type="text" name="title" value={formData.title} onChange={handleChange} />
-      </label>
-      <label>
-        Description:
-        <textarea name="description" value={formData.description} onChange={handleChange} />
-      </label>
-      <label>
-        Date:
-        <input type="date" name="date" value={formData.date} onChange={handleChange} />
-      </label>
-      <label>
-        Time:
-        <input type="time" name="time" value={formData.time} onChange={handleChange} />
-      </label>
-      <label>
-        Location:
-        <input type="text" name="location" value={formData.location} onChange={handleChange} />
-      </label>
-      <label>
-        Type:
-        <select name="type" value={formData.type} onChange={handleChange}>
-          <option value="virtual">Virtual</option>
-          <option value="in-person">In-person</option>
-        </select>
-      </label>
-      {formData.type === "virtual" && (
-        <label>
-          Zoom Link:
-          <input type="text" name="zoomLink" value={formData.zoomLink} onChange={handleChange} />
-        </label>
+    <div>
+      {happyHour && (
+        <div>
+          <h2>{happyHour.title}</h2>
+          <p>Date: {happyHour.date}</p>
+          <p>Time: {happyHour.time}</p>
+          <p>Description: {happyHour.description}</p>
+          <button onClick={() => handleJoinZoomMeeting(happyHour.zoomLink)}>Join Zoom Meeting</button>
+        </div>
       )}
-      <button type="submit">Submit</button>
-    </form>
+    </div>
   );
 };
 
-export default HappyHourForm;
+export default HappyHour;
