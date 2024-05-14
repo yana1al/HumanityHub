@@ -7,6 +7,7 @@ import About from "./components/About";
 import Events from "./components/Events";
 import Donations from "./components/Donations";
 import Resources from "./components/Resources";
+import HappyHour from "./components/HappyHour";
 
 
 const App = () => {
@@ -38,7 +39,7 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/events" element={<Events />} /> 
           <Route path="/donations" element={<Donations />} /> 
-          <Route path="/resources" element={<Resources />} /> 
+          <Route path="/happyHour" element={<HappyHour />} /> 
         </Routes>
       </main>
       <footer>

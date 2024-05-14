@@ -40,7 +40,7 @@ const Home = () => {
   };
 
   const donateForTestimony = (testimony) => {
-    const donationAmount = 10; // Example donation amount
+    const donationAmount = 1; 
     console.log(`Donating $${donationAmount} for the testimony by ${testimony.name}`);
     // Add your donation logic here
     // For example, you can send an API request to process the donation
@@ -97,7 +97,7 @@ const Home = () => {
       <div className="support-links">
         <Link to="/donations" className="donations-link">Donations</Link>
         <Link to="/volunteer" className="volunteer-link">Volunteer</Link>
-        <Link to="/happyHour" className="happyHour-link">Happy Hour</Link>
+        <Link to="/happyHour" className="happyHour-link">HappyHour</Link>
       </div>
     </div>
   );

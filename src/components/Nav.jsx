@@ -10,7 +10,7 @@ const Nav = () => {
   const navigate = useNavigate();
 
   const handleSearch = () => {
-    navigate(`/events?search=${encodeURIComponent(searchQuery)}`);
+    navigate(`/resources?search=${encodeURIComponent(searchQuery)}`);
   };
 
   const handleMenuClick = () => {
@@ -50,9 +50,9 @@ const Nav = () => {
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder="Explore Events..."
+          placeholder="Find Resources..."
         />
-        <button onClick={handleSearch}>Search</button>
+        <button onClick={handleSearch}>Here</button>
       </div>
       <div className="menu-icon" onClick={handleMenuClick}>
         <FontAwesomeIcon icon={faBars} />

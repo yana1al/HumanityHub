@@ -1,4 +1,5 @@
 import React from "react";
+import "../App.css";
 
 const Resources = () => {
   const handleExternalLinkClick = (url) => {
@@ -6,103 +7,117 @@ const Resources = () => {
   };
 
   return (
-    <div>
-      <h1>Resources:</h1>
-      <div>
-        <h2><u>Here are some important notes for suicide prevention:</u></h2>
-        <p>
-          - Recognize the warning signs of suicide.
-          <br />
-          - Listen actively and non-judgmentally to individuals who may be struggling.
-          <br />
-          - Encourage individuals to seek professional help.
-          <br />
-          - Provide support and reassurance to those in need.
-        </p>
+    <div className="resources-container">
+        
+      <div className="section">
+        
+        <div className="section-title">
+          <u>Important Notes for Suicide Prevention:</u>
+        </div>
+        <div className="section-text">
+          <p>
+            - Recognize the warning signs of suicide.
+            <br />
+            - Listen actively and non-judgmentally to individuals who may be struggling.
+            <br />
+            - Encourage individuals to seek professional help.
+            <br />
+            - Provide support and reassurance to those in need.
+          </p>
+        </div>
       </div>
-      <div>
-        <h2>Mental Health Prevention Guidelines</h2>
-        <p>
-          <u>Here are some guidelines for maintaining mental health:</u>
+
+      <div className="section">
+        <div className="section-title">
+            <u>Mental Health Prevention Guidelines:</u>
+            </div>
+        <div className="section-text">
+          
           <p>
             - Practice self-care and prioritize your well-being.
-          </p>
-          <p>
+            <br />
             - Stay connected with supportive friends and family members.
-          </p>
-          <p>
+            <br />
             - Engage in regular physical activity and maintain a healthy lifestyle.
-          </p>
-          <p>
+            <br />
             - Seek professional help if you experience persistent symptoms of mental illness.
           </p>
-        </p>
+        </div>
       </div>
-      <div>
-        <h2>External Resources</h2>
-        <p>
-          <h3>Here are some external links to resources for further information:</h3>
-          <br />
-          <a
-            href="https://www.mentalhealth.gov/"
-            onClick={(e) => {
-              e.preventDefault();
-              handleExternalLinkClick("https://www.mentalhealth.gov/");
-            }}
-          >
-            MentalHealth.gov
-          </a>
-          <br />
-          <a
-            href="https://www.nami.org/"
-            onClick={(e) => {
-              e.preventDefault();
-              handleExternalLinkClick("https://www.nami.org/");
-            }}
-          >
-            National Alliance on Mental Illness (NAMI)
-          </a>
-          <br />
-          <a
-            href="https://suicidepreventionlifeline.org/"
-            onClick={(e) => {
-              e.preventDefault();
-              handleExternalLinkClick("https://suicidepreventionlifeline.org/");
-            }}
-          >
-            National Suicide Prevention Lifeline
-          </a>
-          <br />
-          <a
-            href="https://www.who.int/mental_health/en/"
-            onClick={(e) => {
-              e.preventDefault();
-              handleExternalLinkClick("https://www.who.int/mental_health/en/");
-            }}
-          >
-            World Health Organization - Mental Health
-          </a>
-          <br />
-          <a
-            href="https://www.samhsa.gov/find-help/national-helpline"
-            onClick={(e) => {
-              e.preventDefault();
-              handleExternalLinkClick("https://www.samhsa.gov/find-help/national-helpline");
-            }}
-          >
-            SAMHSA National Helpline
-          </a>
-          <br />
-          <a
-            href="https://afsp.org/"
-            onClick={(e) => {
-              e.preventDefault();
-              handleExternalLinkClick("https://afsp.org/");
-            }}
-          >
-            American Foundation for Suicide Prevention (AFSP)
-          </a>
-        </p>
+
+      <div className="section">
+        <div className="section-title">External Resources for further Information:</div>
+        <div className="section-text">
+         
+          <ul className="external-links">
+            <li>
+              <a
+                href="https://www.mentalhealth.gov/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleExternalLinkClick("https://www.mentalhealth.gov/");
+                }}
+              >
+                MentalHealth.gov
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.nami.org/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleExternalLinkClick("https://www.nami.org/");
+                }}
+              >
+                National Alliance on Mental Illness (NAMI)
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://suicidepreventionlifeline.org/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleExternalLinkClick("https://suicidepreventionlifeline.org/");
+                }}
+              >
+                National Suicide Prevention Lifeline
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.who.int/mental_health/en/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleExternalLinkClick("https://www.who.int/mental_health/en/");
+                }}
+              >
+                World Health Organization - Mental Health
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.samhsa.gov/find-help/national-helpline"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleExternalLinkClick("https://www.samhsa.gov/find-help/national-helpline");
+                }}
+              >
+                SAMHSA National Helpline
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://afsp.org/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleExternalLinkClick("https://afsp.org/");
+                }}
+              >
+                American Foundation for Suicide Prevention (AFSP)
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );
