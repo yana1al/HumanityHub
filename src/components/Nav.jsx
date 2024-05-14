@@ -29,6 +29,9 @@ const Nav = () => {
       case "events":
         navigate("/events");
         break;
+      case "resources":
+        navigate("/resources");
+        break;
       case "login":
         navigate("/login");
         break;
@@ -59,7 +62,7 @@ const Nav = () => {
           <div className="menu-item" onClick={() => handleMenuItemClick("about")}>About Us</div>
           <div className="menu-item" onClick={() => handleMenuItemClick("donations")}>Donations</div>
           <div className="menu-item" onClick={() => handleMenuItemClick("events")}>Events</div>
-          <div className="menu-item" onClick={() => handleMenuItemClick("happyhour")}>HappyHour</div>
+          <div className="menu-item" onClick={() => handleMenuItemClick("resources")}>Resources</div>
           <div className="menu-item" onClick={() => handleMenuItemClick("login")}>Login</div>
         </div>
       )}

@@ -1,16 +1,18 @@
 import React, { useState } from "react";
-import axios from "axios"; // Import axios for making API requests
+import axios from "axios";
 
 const Donations = () => {
   const [formData, setFormData] = useState({
-    donationType: "",
-    amount: "", 
-    date: "", 
-    location: "", 
-    donationArea: "", 
+    amount: 1,
+    name: "",
+    location: "",
+    donationType: "money",
     description: "",
+    zipCode: "",
   });
-  const [donationSuccess, setDonationSuccess] = useState(false); // State to track donation success
+  const [donationSuccess, setDonationSuccess] = useState(false);
+  const [donationLocations, setDonationLocations] = useState([]);
+  const [selectedItemType, setSelectedItemType] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,83 +25,133 @@ const Donations = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      
       if (formData.donationType === "money") {
-        // Perform API call or other logic for submitting monetary donation
-        // For demonstration purposes, simulate API call with axios
-        await axios.post("/api/donations", formData); 
+        const response = await axios.post("https://humanity-hub1-3599a88da879.herokuapp.com/", formData);
+        console.log("Donation successful:", response.data);
         setDonationSuccess(true);
       } else {
-       
-        alert("Please find a donation box in your local area for food and clothes donations.");
+        // Handle other donation types like books and clothes
+        alert("Donation type not yet implemented");
       }
     } catch (error) {
-      console.error("Error submitting donation:", error);
+      console.error("Error donating:", error);
     }
+  };
+
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.get(`https://humanity-hub1-3599a88da879.herokuapp.com/donations?zipCode=${formData.zipCode}`);
+      setDonationLocations(response.data);
+    } catch (error) {
+      console.error("Error searching for donation locations:", error);
+    }
+  };
+
+  const handleItemTypeChange = (e) => {
+    setSelectedItemType(e.target.value);
   };
 
   return (
     <div>
-      <h2>Donate</h2>
-      {donationSuccess && <p>Donation successfully submitted!</p>} {/* Display success message */}
-      <form onSubmit={handleSubmit}>
+      <h1>Donation Box</h1>
+      {donationSuccess && <p>Donation successfully submitted!</p>}
+      <div>
+        <h3>Monetary Donation</h3>
+        <form onSubmit={handleSubmit}>
+          <label>
+            Amount ($$):
+            <input
+              type="number"
+              name="amount"
+              min="1"
+              max="100"
+              value={formData.amount}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Name:
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Location:
+            <input
+              type="text"
+              name="location"
+              value={formData.location}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Description:
+            <textarea
+              name="description"
+              value={formData.description}
+              onChange={handleChange}
+            />
+          </label>
+          <button type="submit">Donate Now</button>
+        </form>
+        </div>
+      <div>
+        <h3>Find Other donations on your local Area</h3>
+        <form onSubmit={handleSearch}>
+          <label>
+            Find by Zip Code:
+            <input
+              type="text"
+              name="zipCode"
+              value={formData.zipCode}
+              onChange={handleChange}
+            />
+          </label>
+          <button type="submit">Search</button>
+        </form>
         <label>
-          Amount ($$):
-          <input
-            type="number"
-            name="amount"
-            value={formData.amount}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Date:
-          <input
-            type="date"
-            name="date"
-            value={formData.date}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Location (City, State, Country):
-          <input
-            type="text"
-            name="location"
-            value={formData.location}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Donation Area (Zip Code or City):
-          <input
-            type="text"
-            name="donationArea"
-            value={formData.donationArea}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Donation Type:
-          <select
-            name="donationType"
-            value={formData.donationType}
-            onChange={handleChange}
-          >
-            <option value="">Select Donation Type</option>
-            <option value="money">Money (Virtual)</option>
+          Filter by Item Type:
+          <select value={selectedItemType} onChange={handleItemTypeChange}>
+            <option value="">All</option>
+            <option value="clothes">Clothes</option>
+            <option value="toys">Toys</option>
+            <option value="books">Books</option>
+            <option value="food">Food</option>
           </select>
         </label>
-        <label>
-          Description:
-          <textarea
-            name="description"
-            value={formData.description}
-            onChange={handleChange}
-          />
-        </label>
-        <button type="submit">Submit</button>
-      </form>
+      </div>
+      <div>
+        
+        {/* Display donation locations for clothes based on selectedItemType */}
+        {selectedItemType === "clothes" && (
+          // Display donation locations for clothes
+          <ul>
+            {donationLocations
+              .filter((location) => location.itemType === "clothes")
+              .map((location) => (
+                <li key={location.id}>{location.name}</li>
+              ))}
+          </ul>
+        )}
+      </div>
+      <div>
+        
+        {/* Display donation locations for books based on selectedItemType */}
+        {selectedItemType === "books" && (
+          // Display donation locations for books
+          <ul>
+            {donationLocations
+              .filter((location) => location.itemType === "books")
+              .map((location) => (
+                <li key={location.id}>{location.name}</li>
+              ))}
+          </ul>
+        )}
+      </div>
     </div>
   );
 };
