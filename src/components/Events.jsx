@@ -21,7 +21,7 @@ const Events = () => {
           }
         };
     
-        const response = await axios.get("https://api.predicthq.com/v1/events/", config);
+        const response = await axios.get("https://humanity-hub1-3599a88da879.herokuapp.com/", config);
     
         if (Array.isArray(response.data)) {
           setEvents(response.data);
