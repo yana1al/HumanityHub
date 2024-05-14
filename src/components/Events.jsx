@@ -12,10 +12,17 @@ const Events = () => {
     useEffect(() => {
       fetchEvents();
     }, []);
-  
     const fetchEvents = async () => {
       try {
-        const response = await axios.get("https://your-backend-api-url/events");
+        const accessToken = ij6IWsuUyjvhKgEe68SOBWxQNLNT4XiB8xjzE89o
+        const config = {
+          headers: {
+            Authorization: `Bearer ${accessToken}`
+          }
+        };
+    
+        const response = await axios.get("https://api.predicthq.com/v1/events/", config);
+    
         if (Array.isArray(response.data)) {
           setEvents(response.data);
           setSelectedEvent(response.data[0]);
@@ -26,7 +33,7 @@ const Events = () => {
         setError("Failed to fetch events. Please try again later.");
       }
     };
-  
+    
     const handleEventClick = (event) => {
       setSelectedEvent(event);
     };
