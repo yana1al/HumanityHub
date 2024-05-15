@@ -1,18 +1,32 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import Client from "../services/apis"; 
 
 const Register = () => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [dob, setDob] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false); 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/auth/register", {
+      
+      if (password !== confirmPassword) {
+        console.error("Passwords do not match");
+        return;
+      }
+
+      
+      const response = await Client.post("/auth/register", {
+        firstName,
+        lastName,
+        dob,
         username,
         email,
         password,
@@ -30,6 +44,24 @@ const Register = () => {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
+          placeholder="First Name"
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Last Name"
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
+        />
+        <input
+          type="date"
+          placeholder="Date of Birth"
+          value={dob}
+          onChange={(e) => setDob(e.target.value)}
+        />
+        <input
+          type="text"
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
@@ -45,10 +77,17 @@ const Register = () => {
         <div className="password-input-container">
           <input
             type={showPassword ? "text" : "password"}
-            placeholder="Password"
+            placeholder="Create Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            autoComplete="current-password"
+            autoComplete="new-password"
+          />
+          <input
+            type={showPassword ? "text" : "password"}
+            placeholder="Confirm Password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            autoComplete="new-password"
           />
           <button
             type="button"

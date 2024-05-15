@@ -20,10 +20,10 @@ Client.interceptors.request.use(
 export const donate = async (donationsData) => {
   try {
     const response = await Client.post("/api/donations", donationsData);
-    return response.data; // Return the data from the response if needed
+    return response.data; 
   } catch (error) {
     console.error("Error donating:", error);
-    throw error; // Rethrow the error for handling in the component
+    throw error; 
   }
 };
 export default Client;

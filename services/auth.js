@@ -1,5 +1,5 @@
 
-import Client from "./api";
+import Client from "..services/apis";
 
 export const login = async (userData) => {
   try {
