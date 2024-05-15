@@ -1,34 +1,20 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Client from "../services/apis"; 
+import { useNavigate, Link } from "react-router-dom";
+import Client from "../services/apis";
 
 const Register = () => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [dob, setDob] = useState("");
+  const [fullName, setFullName] = useState("");
   const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false); 
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      
-      if (password !== confirmPassword) {
-        console.error("Passwords do not match");
-        return;
-      }
-
-      
       const response = await Client.post("/auth/register", {
-        firstName,
-        lastName,
-        dob,
+        fullName,
         username,
-        email,
         password,
       });
       console.log(response.data);
@@ -44,50 +30,22 @@ const Register = () => {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="First Name"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Last Name"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-        />
-        <input
-          type="date"
-          placeholder="Date of Birth"
-          value={dob}
-          onChange={(e) => setDob(e.target.value)}
+          placeholder="Full Name"
+          value={fullName}
+          onChange={(e) => setFullName(e.target.value)}
         />
         <input
           type="text"
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          autoComplete="username"
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          autoComplete="email"
         />
         <div className="password-input-container">
           <input
             type={showPassword ? "text" : "password"}
-            placeholder="Create Password"
+            placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            autoComplete="new-password"
-          />
-          <input
-            type={showPassword ? "text" : "password"}
-            placeholder="Confirm Password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            autoComplete="new-password"
           />
           <button
             type="button"
@@ -99,6 +57,9 @@ const Register = () => {
         </div>
         <button type="submit">Register</button>
       </form>
+      <p>
+        Already have an account? <Link to="/login">Login here</Link>.
+      </p>
     </div>
   );
 };

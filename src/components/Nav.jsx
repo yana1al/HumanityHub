@@ -7,10 +7,8 @@ import "../App.css";
 const Nav = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
-  const [errorMessage, setErrorMessage] = useState(""); 
   const navigate = useNavigate();
 
-  
   const handleLogout = () => {
     // Clear authentication token or user session from localStorage
     localStorage.removeItem("token");
@@ -23,11 +21,11 @@ const Nav = () => {
   };
 
   const handleMenuClick = () => {
-    setMenuOpen(!menuOpen); 
+    setMenuOpen(!menuOpen); // Toggle menu open/close state
   };
 
   const handleMenuItemClick = (section) => {
-    setMenuOpen(false); 
+    setMenuOpen(false); // Close the menu when a menu item is clicked
     switch (section) {
       case "about":
         navigate("/about");
@@ -49,24 +47,18 @@ const Nav = () => {
     }
   };
 
-  // Function to handle displaying error message
-  const handleErrorMessage = (message) => {
-    setErrorMessage(message);
-    setTimeout(() => {
-      setErrorMessage("");
-    }, 3000); // Clear the error message after 3 seconds
-  };
+  const isAuthenticated = localStorage.getItem("token");
 
   return (
     <nav className="navbar">
-     <div className="logo-container">
-  <u>
-    <Link to="/" className="logo">
-    <span style={{ fontFamily: "Georgia", color: "#120b0b", textShadow: "10px 3px 4px rgba(97, 82, 130, 0.96)" }}>HumanityHub..</span>
-    <span style={{ fontFamily: "cursive", fontWeight: "bold" }}>HH</span>
-    </Link>
-  </u>
-</div>
+      <div className="logo-container">
+        <u>
+          <Link to="/" className="logo">
+            <span style={{ fontFamily: "Georgia", color: "#120b0b", textShadow: "10px 3px 4px rgba(97, 82, 130, 0.96)" }}>HumanityHub..</span>
+            <span style={{ fontFamily: "cursive", fontWeight: "bold" }}>HH</span>
+          </Link>
+        </u>
+      </div>
 
       <div className="search-bar">
         <input
@@ -77,25 +69,27 @@ const Nav = () => {
         />
         <button onClick={handleSearch}>Here</button>
       </div>
+
       <div className="menu-icon" onClick={handleMenuClick}>
         <FontAwesomeIcon icon={faBars} />
       </div>
+
       {menuOpen && (
         <div className="menu-list">
-        <div className="menu-item" onClick={() => handleMenuItemClick("about")}>About Us</div>
-        <div className="menu-item" onClick={() => handleMenuItemClick("donations")}>Donations</div>
-        <div className="menu-item" onClick={() => handleMenuItemClick("events")}>Events</div>
-        <div className="menu-item" onClick={() => handleMenuItemClick("resources")}>Resources</div>
-        {/* Check if user is authenticated to display appropriate menu item */}
-        {localStorage.getItem("token") ? (
-          <div className="menu-item" onClick={handleLogout}>Logout</div>
-        ) : (
-          <div className="menu-item" onClick={() => handleMenuItemClick("login")}>Login</div>
-        )}
-      </div>
-    )}
-  </nav>
-);
+          <div className="menu-item" onClick={() => handleMenuItemClick("about")}>About Us</div>
+          <div className="menu-item" onClick={() => handleMenuItemClick("donations")}>Donations</div>
+          <div className="menu-item" onClick={() => handleMenuItemClick("events")}>Events</div>
+          <div className="menu-item" onClick={() => handleMenuItemClick("resources")}>Resources</div>
+          {/* Check if user is authenticated to display appropriate menu item */}
+          {isAuthenticated ? (
+            <div className="menu-item" onClick={handleLogout}>Logout</div>
+          ) : (
+            <div className="menu-item" onClick={() => handleMenuItemClick("login")}>Login</div>
+          )}
+        </div>
+      )}
+    </nav>
+  );
 };
 
 export default Nav;
