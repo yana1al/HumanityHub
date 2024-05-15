@@ -9,6 +9,14 @@ const Nav = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 
+  // Function to handle logout
+  const handleLogout = () => {
+    // Clear authentication token or user session from localStorage
+    localStorage.removeItem("token");
+    // Redirect to login page or any other appropriate action
+    navigate("/login");
+  };
+
   const handleSearch = () => {
     navigate(`/resources?search=${encodeURIComponent(searchQuery)}`);
   };
@@ -42,9 +50,15 @@ const Nav = () => {
 
   return (
     <nav className="navbar">
-      <div className="logo-container">
-        <Link to="/" className="logo">HH</Link> {/* Logo routes to home page */}
-      </div>
+     <div className="logo-container">
+  <u>
+    <Link to="/" className="logo">
+    <span style={{ fontFamily: "Georgia", color: "#120b0b", textShadow: "10px 3px 4px rgba(97, 82, 130, 0.96)" }}>HumanityHub..</span>
+    <span style={{ fontFamily: "cursive", fontWeight: "bold" }}>HH</span>
+    </Link>
+  </u>
+</div>
+
       <div className="search-bar">
         <input
           type="text"
@@ -63,7 +77,12 @@ const Nav = () => {
           <div className="menu-item" onClick={() => handleMenuItemClick("donations")}>Donations</div>
           <div className="menu-item" onClick={() => handleMenuItemClick("events")}>Events</div>
           <div className="menu-item" onClick={() => handleMenuItemClick("resources")}>Resources</div>
-          <div className="menu-item" onClick={() => handleMenuItemClick("login")}>Login</div>
+         
+          {localStorage.getItem("token") ? (
+            <div className="menu-item" onClick={handleLogout}>Logout</div>
+          ) : (
+            <div className="menu-item" onClick={() => handleMenuItemClick("login")}>Login</div>
+          )}
         </div>
       )}
     </nav>

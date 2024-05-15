@@ -95,13 +95,7 @@ p {
   justify-content: space-between;
   }
 
-  .logo {
-    font-size: 2rem;
-    font-weight:bold;
-    color: #120b0b; 
-    text-shadow: 2px 2px 4px rgba(97, 82, 130, 0.96); 
-  }
-  
+    
 .navbar a {
   color: #150d0d;
   text-decoration: none;
