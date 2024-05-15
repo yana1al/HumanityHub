@@ -8,12 +8,10 @@ const Nav = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const isAuthenticated = localStorage.getItem("token");
 
-  
   const handleLogout = () => {
-    
     localStorage.removeItem("token");
-    
     navigate("/login");
   };
 
@@ -22,11 +20,11 @@ const Nav = () => {
   };
 
   const handleMenuClick = () => {
-    setMenuOpen(!menuOpen); 
+    setMenuOpen(!menuOpen);
   };
 
   const handleMenuItemClick = (section) => {
-    setMenuOpen(false); 
+    setMenuOpen(false);
     switch (section) {
       case "about":
         navigate("/about");
@@ -73,11 +71,10 @@ const Nav = () => {
       {menuOpen && (
         <div className="menu-list">
           <div className="menu-item" onClick={() => handleMenuItemClick("about")}>About Us</div>
-          <div className="menu-item" onClick={() => handleMenuItemClick("donations")}>Donations</div>
-          <div className="menu-item" onClick={() => handleMenuItemClick("events")}>Events</div>
+          {isAuthenticated && <div className="menu-item" onClick={() => handleMenuItemClick("donations")}>Donations</div>}
+          {isAuthenticated && <div className="menu-item" onClick={() => handleMenuItemClick("events")}>Events</div>}
           <div className="menu-item" onClick={() => handleMenuItemClick("resources")}>Resources</div>
-          
-          {localStorage.getItem("token") ? (
+          {isAuthenticated ? (
             <div className="menu-item" onClick={handleLogout}>LogOut</div>
           ) : (
             <div className="menu-item" onClick={() => handleMenuItemClick("login")}>LogIn</div>
