@@ -25,7 +25,7 @@ const Login = () => {
 
   return (
     <div className="auth-container">
-      <h2>Login</h2>
+      <h2>LogIn</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -50,7 +50,7 @@ const Login = () => {
             {showPassword ? "Hide" : "Show"}
           </button>
         </div>
-        <button type="submit">Login</button>
+        <button type="submit">LogIn</button>
       </form>
       <p>
         New user? <Link to="/register">Register here</Link>.
