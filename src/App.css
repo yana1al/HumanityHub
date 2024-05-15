@@ -12,9 +12,9 @@ div {
 
 
 .home-container {
-  margin: 60px;
+  margin: 70px;
   padding: 60px;
-  border: 1px solid #d4c3c3;
+  border: 3px solid #d4c3c3;
   border-radius: 8px;
   background: linear-gradient(to right, #b1c0ca, rgb(171, 192, 176));
   
@@ -28,19 +28,33 @@ div {
 }
 
 .testimonies-container {
+  background: linear-gradient(to right, #b1c0ca, rgb(192, 171, 181));
   display: flex;
   width: 90%; 
+  border-radius: 70px;
   justify-content: space-between; 
 }
 
 .testimonies {
-  width: calc(50% - 10px); 
+  width: calc(60% - 45px); 
 }
 
 .how-did-we-do {
-  width: calc(20% - 10px); 
+  width: calc(30% - 10px); 
 }
 
+.join-us {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 60px;
+}
+
+.join-us-content {
+  background: linear-gradient(to right, #b1c0ca, rgb(183, 171, 192));
+  padding: 30px;
+  border-radius: 75px;
+}
 
 .support-links {
   display: flex;
@@ -95,6 +109,7 @@ p {
   min-height: 100vh; 
 }
 
+
 main {
   flex-grow: 1; 
   padding: 80px; 
@@ -111,7 +126,13 @@ footer {
   left: 0;
   bottom: 0;
   width: 100%;
+  margin-top: 20px;
 
+}
+
+footer a {
+ 
+  margin-right: 20px;
 }
 
 
@@ -159,7 +180,7 @@ input[type=""]
 
 button {
   background-color: #828587;
-  color: white;
+  color: rgb(32, 32, 38);
   cursor: pointer;
 }
 
@@ -175,6 +196,30 @@ button:hover {
   background-color: #ececec;
   text-align: center;
   background: linear-gradient(to right, #b1c0ca, rgb(228, 235, 230));
+}
+
+.about-section {
+  margin-bottom: 20px;
+}
+
+.about-box {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.about-box h3 {
+  margin-top: 0;
+}
+
+.about-box ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.about-box li {
+  margin-bottom: 10px;
 }
 
 .testimonies {

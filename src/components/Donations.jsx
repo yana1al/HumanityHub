@@ -54,7 +54,7 @@ const Donations = () => {
 
   return (
     <div>
-      <h1>Donation Box</h1>
+      <h1>Want to Donate?</h1>
       {donationSuccess && <p>Donation successfully submitted!</p>}
       <div>
         <h3>Monetary Donation</h3>

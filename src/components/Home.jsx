@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-import "../App.css";
 
 const Home = () => {
   const [testimonyFormData, setTestimonyFormData] = useState({
@@ -11,8 +10,8 @@ const Home = () => {
     rating: 5,
   });
   const [testimonies, setTestimonies] = useState([
-    { id: 1, name: "Anupa Sharma", testimony: "This platform changed my life!", rating: 5, donatedAmount: 0 },
-    { id: 2, name: "Yana Bhandari", testimony: "I'm grateful for the opportunities provided by this organization.", rating: 5, donatedAmount: 0 }
+    { id: 1, name: "Anupa Sharma", testimony: "This platform changed my life!", rating: 5, donatedAmount: 1 },
+    { id: 2, name: "Yana Bhandari", testimony: "I'm grateful for the opportunities provided by this organization.", rating: 5, donatedAmount: 1 }
   ]);
 
   const renderStars = (rating) => {
@@ -33,19 +32,14 @@ const Home = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!testimonyFormData.name || !testimonyFormData.testimony) {
+      alert("Please provide your name and testimony.");
+      return;
+    }
     const newTestimony = { ...testimonyFormData, id: testimonies.length + 1, donatedAmount: 0 };
     setTestimonies([...testimonies, newTestimony]);
     // Reset form data
     setTestimonyFormData({ name: "", testimony: "", rating: 5 });
-  };
-
-  const donateForTestimony = (testimony) => {
-    const donationAmount = 1; 
-    console.log(`Donating $${donationAmount} for the testimony by ${testimony.name}`);
-    // Add your donation logic here
-    // For example, you can send an API request to process the donation
-    // Update the donated amount for the testimony
-    setTestimonies(testimonies.map((t) => (t.id === testimony.id ? { ...t, donatedAmount: t.donatedAmount + donationAmount } : t)));
   };
 
   return (
@@ -54,8 +48,9 @@ const Home = () => {
       <p>
         Welcome to Humanity Hub (HH) - Mobilizing Hearts, Empowering Hands, Building a Better World. Your gateway to making a difference in the world. Our landing page is designed to introduce you to our platform and inspire you to get involved in social causes that matter to you.
       </p>
+
       <div className="testimonies-container">
-      <div className="testimonies" style={{ marginTop: '20px' }}>
+        <div className="testimonies" style={{ marginTop: '20px' }}>
           <h3>Testimonies</h3>
           {testimonies.map((testimony) => (
             <div key={testimony.id} className="testimony">
@@ -65,20 +60,19 @@ const Home = () => {
               </div>
               <p>- {testimony.name}</p>
               <p>Donated Amount: ${testimony.donatedAmount}</p>
-              <button onClick={() => donateForTestimony(testimony)}>Donate $</button>
             </div>
           ))}
         </div>
         <div className="how-did-we-do">
-          <h3>How did WE do?</h3>
+          <h3>Any Suggestions?</h3>
           <form onSubmit={handleSubmit}>
             <label>
               Name:
-              <input type="text" name="name" value={testimonyFormData.name} onChange={handleChange} />
+              <input type="text" name="name" value={testimonyFormData.name} onChange={handleChange} required />
             </label>
             <label>
-              Testimony:
-              <textarea name="testimony" value={testimonyFormData.testimony} onChange={handleChange} />
+              Review:
+              <textarea name="testimony" value={testimonyFormData.testimony} onChange={handleChange} required />
             </label>
             <label>
               Rating:
@@ -88,16 +82,20 @@ const Home = () => {
                 ))}
               </select>
             </label>
-            <button type="submit">Submit</button>
+            <button type="submit">Post & Donate</button>
           </form>
         </div>
-      </div>
-      <h3>Want to Join Us?</h3>
-      <p>Support Us by joining. Follow the link below:</p>
-      <div className="support-links">
-        <Link to="/donations" className="donations-link">Donations</Link>
-        <Link to="/volunteer" className="volunteer-link">Volunteer</Link>
-        <Link to="/happyHour" className="happyHour-link">HappyHour</Link>
+        <div className="join-us">
+          <div className="join-us-content">
+            <h3>Many More....</h3>
+            <p>Support Us by joining. Follow the link below:</p>
+            <div className="support-links">
+              <Link to="/donations" className="donations-link">Donations</Link>
+              <Link to="/volunteer" className="volunteer-link">Volunteer</Link>
+              <Link to="/happyHour" className="happyHour-link">HappyHour</Link>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

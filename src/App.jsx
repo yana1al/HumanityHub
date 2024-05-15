@@ -5,12 +5,15 @@ import Nav from "./components/Nav";
 import Home from "./components/Home";
 import About from "./components/About";
 import Events from "./components/Events";
+import LogIn from "../pages/LogIn";
+import Register from "../pages/Register"
 import Donations from "./components/Donations";
 import Resources from "./components/Resources";
 import HappyHour from "./components/HappyHour";
 import PrivacyPolicyDetails from "./components/PrivacyPolicyDetails";
 import ConnectUs from "./components/ConnectUs";
 import SubscribeUs from "./components/SubscribeUs";
+import Volunteer from "./components/Volunteer";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -46,6 +49,9 @@ const App = () => {
           <Route path="/privacyPolicyDetails" element={<PrivacyPolicyDetails />} />
           <Route path="/connectUs" element={<ConnectUs />} />
           <Route path="/subscribeUs" element={<SubscribeUs />} />
+          <Route path="/logIn" element={<LogIn setUser={setUser} />} />
+          <Route path="/Register" element={<Register setUser={setUser} />} />
+          <Route path="/Volunteer" element={<Volunteer />} />
         </Routes>
       </main>
       <footer>
