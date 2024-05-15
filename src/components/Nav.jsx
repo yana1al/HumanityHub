@@ -7,9 +7,10 @@ import "../App.css";
 const Nav = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(""); 
   const navigate = useNavigate();
 
-  // Function to handle logout
+  
   const handleLogout = () => {
     // Clear authentication token or user session from localStorage
     localStorage.removeItem("token");
@@ -22,11 +23,11 @@ const Nav = () => {
   };
 
   const handleMenuClick = () => {
-    setMenuOpen(!menuOpen); // Toggle menu open/close state
+    setMenuOpen(!menuOpen); 
   };
 
   const handleMenuItemClick = (section) => {
-    setMenuOpen(false); // Close the menu when a menu item is clicked
+    setMenuOpen(false); 
     switch (section) {
       case "about":
         navigate("/about");
@@ -46,6 +47,14 @@ const Nav = () => {
       default:
         break;
     }
+  };
+
+  // Function to handle displaying error message
+  const handleErrorMessage = (message) => {
+    setErrorMessage(message);
+    setTimeout(() => {
+      setErrorMessage("");
+    }, 3000); // Clear the error message after 3 seconds
   };
 
   return (
@@ -73,20 +82,20 @@ const Nav = () => {
       </div>
       {menuOpen && (
         <div className="menu-list">
-          <div className="menu-item" onClick={() => handleMenuItemClick("about")}>About Us</div>
-          <div className="menu-item" onClick={() => handleMenuItemClick("donations")}>Donations</div>
-          <div className="menu-item" onClick={() => handleMenuItemClick("events")}>Events</div>
-          <div className="menu-item" onClick={() => handleMenuItemClick("resources")}>Resources</div>
-         
-          {localStorage.getItem("token") ? (
-            <div className="menu-item" onClick={handleLogout}>Logout</div>
-          ) : (
-            <div className="menu-item" onClick={() => handleMenuItemClick("login")}>Login</div>
-          )}
-        </div>
-      )}
-    </nav>
-  );
+        <div className="menu-item" onClick={() => handleMenuItemClick("about")}>About Us</div>
+        <div className="menu-item" onClick={() => handleMenuItemClick("donations")}>Donations</div>
+        <div className="menu-item" onClick={() => handleMenuItemClick("events")}>Events</div>
+        <div className="menu-item" onClick={() => handleMenuItemClick("resources")}>Resources</div>
+        {/* Check if user is authenticated to display appropriate menu item */}
+        {localStorage.getItem("token") ? (
+          <div className="menu-item" onClick={handleLogout}>Logout</div>
+        ) : (
+          <div className="menu-item" onClick={() => handleMenuItemClick("login")}>Login</div>
+        )}
+      </div>
+    )}
+  </nav>
+);
 };
 
 export default Nav;
