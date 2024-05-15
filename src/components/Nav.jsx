@@ -9,10 +9,11 @@ const Nav = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 
+  
   const handleLogout = () => {
-    // Clear authentication token or user session from localStorage
+    
     localStorage.removeItem("token");
-    // Redirect to login page or any other appropriate action
+    
     navigate("/login");
   };
 
@@ -21,11 +22,11 @@ const Nav = () => {
   };
 
   const handleMenuClick = () => {
-    setMenuOpen(!menuOpen); // Toggle menu open/close state
+    setMenuOpen(!menuOpen); 
   };
 
   const handleMenuItemClick = (section) => {
-    setMenuOpen(false); // Close the menu when a menu item is clicked
+    setMenuOpen(false); 
     switch (section) {
       case "about":
         navigate("/about");
@@ -47,8 +48,6 @@ const Nav = () => {
     }
   };
 
-  const isAuthenticated = localStorage.getItem("token");
-
   return (
     <nav className="navbar">
       <div className="logo-container">
@@ -59,7 +58,6 @@ const Nav = () => {
           </Link>
         </u>
       </div>
-
       <div className="search-bar">
         <input
           type="text"
@@ -69,22 +67,20 @@ const Nav = () => {
         />
         <button onClick={handleSearch}>Here</button>
       </div>
-
       <div className="menu-icon" onClick={handleMenuClick}>
         <FontAwesomeIcon icon={faBars} />
       </div>
-
       {menuOpen && (
         <div className="menu-list">
           <div className="menu-item" onClick={() => handleMenuItemClick("about")}>About Us</div>
           <div className="menu-item" onClick={() => handleMenuItemClick("donations")}>Donations</div>
           <div className="menu-item" onClick={() => handleMenuItemClick("events")}>Events</div>
           <div className="menu-item" onClick={() => handleMenuItemClick("resources")}>Resources</div>
-          {/* Check if user is authenticated to display appropriate menu item */}
-          {isAuthenticated ? (
-            <div className="menu-item" onClick={handleLogout}>Logout</div>
+          
+          {localStorage.getItem("token") ? (
+            <div className="menu-item" onClick={handleLogout}>LogOut</div>
           ) : (
-            <div className="menu-item" onClick={() => handleMenuItemClick("login")}>Login</div>
+            <div className="menu-item" onClick={() => handleMenuItemClick("login")}>LogIn</div>
           )}
         </div>
       )}

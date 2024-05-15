@@ -15,6 +15,7 @@ const Login = () => {
         usernameOrEmail,
         password,
       });
+      localStorage.setItem("token", response.data.token);
       console.log(response.data);
       navigate("/");
     } catch (error) {

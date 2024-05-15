@@ -1,20 +1,20 @@
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import Client from "../services/apis";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Register = () => {
-  const [fullName, setFullName] = useState("");
   const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await Client.post("/auth/register", {
-        fullName,
+      const response = await axios.post("/auth/register", {
         username,
+        email,
         password,
       });
       console.log(response.data);
@@ -30,15 +30,17 @@ const Register = () => {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Full Name"
-          value={fullName}
-          onChange={(e) => setFullName(e.target.value)}
-        />
-        <input
-          type="text"
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          autoComplete="username"
+        />
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          autoComplete="email"
         />
         <div className="password-input-container">
           <input
@@ -46,6 +48,7 @@ const Register = () => {
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            autoComplete="current-password"
           />
           <button
             type="button"
@@ -57,9 +60,6 @@ const Register = () => {
         </div>
         <button type="submit">Register</button>
       </form>
-      <p>
-        Already have an account? <Link to="/login">Login here</Link>.
-      </p>
     </div>
   );
 };
