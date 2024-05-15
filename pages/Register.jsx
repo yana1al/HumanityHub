@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import Client from "../services/api";
+import Client from "../services/api";
 
 const Register = () => {
   const [username, setUsername] = useState("");
