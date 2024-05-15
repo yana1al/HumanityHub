@@ -68,6 +68,14 @@ h3 ,h2{
   text-align: center;
 }
 
+h1 {
+  margin-bottom: 30px;
+  text-align: center;
+  font-family: cursive;
+  text-shadow: #d4c3c3;
+  text-decoration-color: #a17990d3;
+  
+}
 p {
   font-size: 1em;
   line-height: 1.5;
@@ -232,13 +240,13 @@ button:hover {
 }
 
 .resources-container {
-  max-width: 1000px;
+  max-width: 4000px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 70px;
   font-family: Georgia, 'Times New Roman', Times, serif;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(1000px, 1fr));
+  grid-gap: 10px;
   
 }
 
@@ -250,7 +258,7 @@ button:hover {
 }
 
 .section-title {
-  font-size: 1.5rem;
+  font-size: 1rem;
   color: #776e6e;
   margin-bottom: 10px;
 }
@@ -258,4 +266,5 @@ button:hover {
 .section-text {
   font-size: 1rem;
   color: #0d0c0c;
+  
 }

@@ -43,6 +43,7 @@ const About = () => {
       <div className="about-section">
         <div className="about-box">
           <h3>Our Story</h3>
+          {/* <img src="path/to/your/image.jpg" alt="Our Story" /> */}
           <p>
             Humanity Hub was founded in response to the growing need for collective action to address social issues. Since our inception, we have supported communities nationwide, providing aid to those in need during natural disasters such as the Nepal earthquake in 2015 and wildfires in Canada, texas, Califonia. We have also focused on education initiatives, distributing books and resources to underserved areas to promote learning and empowerment.
           </p>
