@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import { donate } from "../services/apis";
 
 const Donations = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +13,9 @@ const Donations = () => {
   const [donationSuccess, setDonationSuccess] = useState(false);
   const [donationLocations, setDonationLocations] = useState([]);
   const [selectedItemType, setSelectedItemType] = useState("");
+  const [donationAmount, setDonationAmount] = useState("");
+  const [clientSecret, setClientSecret] = useState("");
+  const [paymentError, setPaymentError] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -50,6 +53,17 @@ const Donations = () => {
 
   const handleItemTypeChange = (e) => {
     setSelectedItemType(e.target.value);
+  };
+
+  const handleDonation = async (e) => {
+    e.preventDefault();
+    try {
+      const { clientSecret } = await donate(donationAmount);
+      setClientSecret(clientSecret);
+    } catch (error) {
+      console.error("Error donating:", error);
+      setPaymentError("Failed to process donation. Please try again.");
+    }
   };
 
   return (
@@ -98,7 +112,7 @@ const Donations = () => {
           </label>
           <button type="submit">Donate Now</button>
         </form>
-        </div>
+      </div>
       <div>
         <h3>Find Other donations on your local Area</h3>
         <form onSubmit={handleSearch}>
@@ -125,32 +139,40 @@ const Donations = () => {
         </label>
       </div>
       <div>
-        
-        {/* Display donation locations for clothes based on selectedItemType */}
-        {selectedItemType === "clothes" && (
-          // Display donation locations for clothes
-          <ul>
-            {donationLocations
-              .filter((location) => location.itemType === "clothes")
-              .map((location) => (
-                <li key={location.id}>{location.name}</li>
-              ))}
-          </ul>
+        {/* Display donation locations based on selectedItemType */}
+        {selectedItemType && (
+          <div>
+            <h3>Donation Locations</h3>
+            <ul>
+              {donationLocations
+                .filter((location) => location.itemType === selectedItemType)
+                .map((location) => (
+                  <li key={location.id}>{location.name}</li>
+                ))}
+            </ul>
+          </div>
         )}
       </div>
       <div>
-        
-        {/* Display donation locations for books based on selectedItemType */}
-        {selectedItemType === "books" && (
-          // Display donation locations for books
-          <ul>
-            {donationLocations
-              .filter((location) => location.itemType === "books")
-              .map((location) => (
-                <li key={location.id}>{location.name}</li>
-              ))}
-          </ul>
+        <h3>Donate Now</h3>
+        {clientSecret ? (
+          <form action="/pay" method="POST">
+            <input type="hidden" name="clientSecret" value={clientSecret} />
+            <button type="submit">Pay Now</button>
+          </form>
+        ) : (
+          <form onSubmit={handleDonation}>
+            <input
+              type="number"
+              placeholder="Enter donation amount"
+              value={donationAmount}
+              onChange={(e) => setDonationAmount(e.target.value)}
+              required
+            />
+            <button type="submit">Donate</button>
+          </form>
         )}
+        {paymentError && <p>{paymentError}</p>}
       </div>
     </div>
   );

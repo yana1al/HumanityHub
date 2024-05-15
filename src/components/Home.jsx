@@ -36,7 +36,7 @@ const Home = () => {
       alert("Please provide your name and testimony.");
       return;
     }
-    const newTestimony = { ...testimonyFormData, id: testimonies.length + 1, donatedAmount: 0 };
+    const newTestimony = { ...testimonyFormData, id: testimonies.length + 1, donatedAmount: 1 };
     setTestimonies([...testimonies, newTestimony]);
     // Reset form data
     setTestimonyFormData({ name: "", testimony: "", rating: 5 });

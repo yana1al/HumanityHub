@@ -1,3 +1,4 @@
+// apis.js
 import axios from "axios";
 
 export const BASE_URL = "https://humanity-hub1-3599a88da879.herokuapp.com/";
@@ -17,13 +18,14 @@ Client.interceptors.request.use(
   }
 );
 
-export const donate = async (donationsData) => {
+export const donate = async (donationAmount) => {
   try {
-    const response = await Client.post("/api/donations", donationsData);
+    const response = await Client.post("/api/donations", { amount: donationAmount });
     return response.data; 
   } catch (error) {
     console.error("Error donating:", error);
     throw error; 
   }
 };
+
 export default Client;
