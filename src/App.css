@@ -98,7 +98,7 @@ p {
 main {
   flex-grow: 1; 
   padding: 80px; 
-  background: linear-gradient(to right, #b1c0ca, rgb(203, 230, 230));
+  background: linear-gradient(to right, #e2e7ea, rgb(228, 237, 237));
   
 }
 
@@ -111,6 +111,7 @@ footer {
   left: 0;
   bottom: 0;
   width: 100%;
+
 }
 
 
