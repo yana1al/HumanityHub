@@ -37,6 +37,17 @@ const Events = () => {
     }
   };
 
+  const handleLocationChange = (e) => {
+    const { name, value } = e.target;
+    setEventData((prevData) => ({
+      ...prevData,
+      location: {
+        ...prevData.location,
+        [name]: value
+      }
+    }));
+  };
+
   const handleSubmitCreateEvent = async (e) => {
     e.preventDefault();
     try {
