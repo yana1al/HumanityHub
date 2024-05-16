@@ -63,7 +63,7 @@ const Home = () => {
                 {renderStars(testimony.rating)}
               </div>
               <p>- {testimony.name}</p>
-              <p>Donated Amount: ${testimony.donatedAmount}</p>
+              <p>Subsidy: ${testimony.donatedAmount}</p>
             </div>
           ))}
         </div>

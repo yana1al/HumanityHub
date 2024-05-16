@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import Client from "../services/apis";
+import GoogleLoginButton from "./GoogleLoginButton"
 
 
 const LogIn = () => {
