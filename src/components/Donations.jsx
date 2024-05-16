@@ -77,7 +77,7 @@ const Donations = () => {
       <div>
         <h3>Monetary Donation</h3>
         <form onSubmit={handleSubmit}>
-          <label>
+          {/* <label>
             Amount ($$):
             <input
               type="number"
@@ -113,8 +113,8 @@ const Donations = () => {
               value={formData.description}
               onChange={handleChange}
             />
-          </label>
-          <button type="submit">Donate Now</button>
+          </label> */}
+          <button type="submit">Donation for Campaign</button>
         </form>
       </div>
       <div>
@@ -157,7 +157,7 @@ const Donations = () => {
           </div>
         )}
       </div>
-      <div>
+      {/* <div>
         <h3>Donate Now</h3>
         {clientSecret ? (
           <form action="/pay" method="POST">
@@ -177,7 +177,7 @@ const Donations = () => {
           </form>
         )}
         {paymentError && <p>{paymentError}</p>}
-      </div>
+      </div> */}
     </div>
   );
 };
