@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-
 const Events = () => {
   const [events, setEvents] = useState([]);
+  const [searchQuery, setSearchQuery] = useState({ zipCode: "", city: "" });
   const [eventData, setEventData] = useState({
     title: "",
     description: "",
@@ -19,35 +19,28 @@ const Events = () => {
   });
 
   useEffect(() => {
-    
     fetchEvents();
   }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setEventData((prevData) => ({
-      ...prevData,
-      [name]: value
-    }));
-  };
-
-  const handleLocationChange = (e) => {
-    const { name, value } = e.target;
-    setEventData((prevData) => ({
-      ...prevData,
-      location: {
-        ...prevData.location,
+    if (name === "zipCode" || name === "city") {
+      setSearchQuery((prevQuery) => ({
+        ...prevQuery,
         [name]: value
-      }
-    }));
+      }));
+    } else {
+      setEventData((prevData) => ({
+        ...prevData,
+        [name]: value
+      }));
+    }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmitCreateEvent = async (e) => {
     e.preventDefault();
     try {
-      // Create an event using the API function
       await axios.post("/api/events", eventData);
-      // Reset the form data
       setEventData({
         title: "",
         description: "",
@@ -61,28 +54,37 @@ const Events = () => {
           zipCode: ""
         }
       });
-      // Refetch events after creating a new event
       fetchEvents();
     } catch (error) {
       console.error("Error creating event:", error);
     }
   };
 
-  const fetchEvents = async () => {
+  const handleSubmitSearchEvents = async (e) => {
+    e.preventDefault();
     try {
-      // Fetch events based on zip code and city
-      if (eventData.location.zipCode) {
-        const data = await fetchEventsByZipCode(eventData.location.zipCode);
-        setEvents(data);
-      } else if (eventData.location.city) {
-        const data = await fetchEventsByCity(eventData.location.city);
-        setEvents(data);
-      }
+      const response = await axios.get("https://your-heroku-app.herokuapp.com/events", {
+        params: searchQuery
+      });
+      
+      console.log("Search results:", response.data);
+  
+      // Redirect to GlobalGiving website
+      window.location.href = "https://www.globalgiving.org/";
     } catch (error) {
       console.error("Failed to fetch events:", error);
     }
   };
- 
+  
+  const fetchEvents = async () => {
+    try {
+      const response = await axios.get("https://humanity-hub1-3599a88da879.herokuapp.com/events");
+      setEvents(response.data);
+    } catch (error) {
+      console.error("Failed to fetch events:", error);
+    }
+  };
+
   const usStates = [
     "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware",
     "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky",
@@ -92,7 +94,6 @@ const Events = () => {
     "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"
   ];
 
-  
   const countries = [
     "United States", "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda",
     "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh",
@@ -121,55 +122,71 @@ const Events = () => {
   ];
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Title:
-        <input type="text" name="title" value={eventData.title} onChange={handleChange} />
-      </label>
-      <label>
-        Description:
-        <textarea name="description" value={eventData.description} onChange={handleChange} />
-      </label>
-      <label>
-        Date:
-        <input type="date" name="date" value={eventData.date} onChange={handleChange} />
-      </label>
-      <label>
-        Time:
-        <input type="time" name="time" value={eventData.time} onChange={handleChange} />
-      </label>
-      <label>
-        Street Name:
-        <input type="text" name="address" value={eventData.location.address} onChange={handleLocationChange} />
-      </label>
-      <label>
-        City:
-        <input type="text" name="city" value={eventData.location.city} onChange={handleLocationChange} />
-      </label>
-      <label>
-        State:
-        <select name="state" value={eventData.location.state} onChange={handleLocationChange}>
-          <option value="">Select State</option>
-          {usStates.map((state) => (
-            <option key={state} value={state}>{state}</option>
-          ))}
-        </select>
-      </label>
-      <label>
-        Country:
-        <select name="country" value={eventData.location.country} onChange={handleLocationChange}>
-          <option value="">Select Country</option>
-          {countries.map((country) => (
-            <option key={country} value={country}>{country}</option>
-          ))}
-        </select>
-      </label>
-      <label>
-        Zip Code:
-        <input type="text" name="zipCode" value={eventData.location.zipCode} onChange={handleLocationChange} />
-      </label>
-      <button type="submit">Create Event</button>
-    </form>
+    <div>
+      <form onSubmit={handleSubmitSearchEvents}>
+        <label>
+          Zip Code:
+          <input type="text" name="zipCode" value={searchQuery.zipCode} onChange={handleChange} />
+        </label>
+        <label>
+          City:
+          <input type="text" name="city" value={searchQuery.city} onChange={handleChange} />
+        </label>
+        <button type="submit">Search Events</button>
+      </form>
+      <form onSubmit={handleSubmitCreateEvent}>
+        <label>
+          Title:
+          <input type="text" name="title" value={eventData.title} onChange={handleChange} />
+        </label>
+        <label>
+          Description:
+          <input type="text" name="description" value={eventData.description} onChange={handleChange} />
+        </label>
+        <label>
+          Date:
+          <input type="date" name="date" value={eventData.date} onChange={handleChange} />
+        </label>
+        <label>
+          Time:
+          <input type="time" name="time" value={eventData.time} onChange={handleChange} />
+        </label>
+        <label>
+          Address:
+          <input type="text" name="address" value={eventData.location.address} onChange={handleChange} />
+        </label>
+        <label>
+          City:
+          <input type="text" name="city" value={eventData.location.city} onChange={handleLocationChange} />
+        </label>
+        <label>
+          State:
+          <select name="state" value={eventData.location.state} onChange={handleLocationChange}>
+            {usStates.map((state, index) => (
+              <option key={index} value={state}>{state}</option>
+            ))}
+          </select>
+        </label>
+        <label>
+          Country:
+          <select name="country" value={eventData.location.country} onChange={handleLocationChange}>
+            {countries.map((country, index) => (
+              <option key={index} value={country}>{country}</option>
+            ))}
+          </select>
+        </label>
+        <label>
+          Zip Code:
+          <input type="text" name="zipCode" value={eventData.location.zipCode} onChange={handleLocationChange} />
+        </label>
+        <button type="submit">Create Event</button>
+      </form>
+      <ul>
+        {events.map((event) => (
+          <li key={event.id}>{event.title}</li>
+        ))}
+      </ul>
+    </div>
   );
 };
 
