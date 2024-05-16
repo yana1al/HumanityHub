@@ -48,6 +48,50 @@ const Events = () => {
     }));
   };
 
+  const handleCityChange = (e) => {
+    const { value } = e.target;
+    setEventData((prevData) => ({
+      ...prevData,
+      location: {
+        ...prevData.location,
+        city: value
+      }
+    }));
+  };
+
+  const handleStateChange = (e) => {
+    const { value } = e.target;
+    setEventData((prevData) => ({
+      ...prevData,
+      location: {
+        ...prevData.location,
+        state: value
+      }
+    }));
+  };
+
+  const handleCountryChange = (e) => {
+    const { value } = e.target;
+    setEventData((prevData) => ({
+      ...prevData,
+      location: {
+        ...prevData.location,
+        country: value
+      }
+    }));
+  };
+
+  const handleZipCodeChange = (e) => {
+    const { value } = e.target;
+    setEventData((prevData) => ({
+      ...prevData,
+      location: {
+        ...prevData.location,
+        zipCode: value
+      }
+    }));
+  };
+
   const handleSubmitCreateEvent = async (e) => {
     e.preventDefault();
     try {
@@ -168,11 +212,11 @@ const Events = () => {
         </label>
         <label>
           City:
-          <input type="text" name="city" value={eventData.location.city} onChange={handleLocationChange} />
+          <input type="text" name="city" value={eventData.location.city} onChange={handleCityChange} />
         </label>
         <label>
           State:
-          <select name="state" value={eventData.location.state} onChange={handleLocationChange}>
+          <select name="state" value={eventData.location.state} onChange={handleStateChange}>
             {usStates.map((state, index) => (
               <option key={index} value={state}>{state}</option>
             ))}
@@ -180,7 +224,7 @@ const Events = () => {
         </label>
         <label>
           Country:
-          <select name="country" value={eventData.location.country} onChange={handleLocationChange}>
+          <select name="country" value={eventData.location.country} onChange={handleCountryChange}>
             {countries.map((country, index) => (
               <option key={index} value={country}>{country}</option>
             ))}
@@ -188,7 +232,7 @@ const Events = () => {
         </label>
         <label>
           Zip Code:
-          <input type="text" name="zipCode" value={eventData.location.zipCode} onChange={handleLocationChange} />
+          <input type="text" name="zipCode" value={eventData.location.zipCode} onChange={handleZipCodeChange} />
         </label>
         <button type="submit">Create Event</button>
       </form>
