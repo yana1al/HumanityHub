@@ -8,6 +8,7 @@ import Events from "./components/Events";
 import Donations from "./components/Donations";
 import LogIn from "../pages/LogIn";
 import Register from "../pages/Register";
+import GoogleLoginButton from "./components/GoogleLoginButton"; 
 import Resources from "./components/Resources";
 import HappyHour from "./components/HappyHour";
 import PrivacyPolicyDetails from "./components/PrivacyPolicyDetails";
@@ -51,6 +52,7 @@ const App = () => {
           <Route path="/connectUs" element={<ConnectUs />} />
           <Route path="/subscribeUs" element={<SubscribeUs />} />
           <Route path="/logIn" element={<LogIn setUser={setUser} />} />
+          <Route path="/googleLoginButton" element={<GoogleLoginButton setUser={setUser} />} />
           <Route path="/register" element={<Register setUser={setUser} />} />
           <Route path="/volunteer" element={<Volunteer />} />
         </Routes>

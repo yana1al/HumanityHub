@@ -1,11 +1,12 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import Client from "../services/apis";
+
 
 const LogIn = () => {
   const [usernameOrEmail, setUsernameOrEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false); 
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -52,6 +53,7 @@ const LogIn = () => {
         </div>
         <button type="submit">LogIn</button>
       </form>
+      <GoogleLoginButton /> {/* Add GoogleLoginButton component */}
       <p>
         New user? <Link to="/register">Register here</Link>.
       </p>

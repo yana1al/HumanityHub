@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import Client from "../services/apis";
 
 const Register = () => {
@@ -61,7 +61,7 @@ const Register = () => {
         <button type="submit">Register</button>
       </form>
       <p>
-        Memenr with Us? <Link to="/login">Login here</Link>.
+        Member with Us? <Link to="/login">Login here</Link>.
       </p>
     
     </div>
