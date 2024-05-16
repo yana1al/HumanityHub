@@ -47,6 +47,7 @@ const Events = () => {
       }
     }));
   };
+  
 
   const handleCityChange = (e) => {
     const { value } = e.target;
@@ -207,10 +208,11 @@ const Events = () => {
           <input type="time" name="time" value={eventData.time} onChange={handleChange} />
         </label>
         <label>
-          Address:
-          <input type="text" name="address" value={eventData.location.address} onChange={handleChange} />
-        </label>
         <label>
+          Address:
+          <input type="text" name="address" value={eventData.location.address} onChange={handleLocationChange} />
+        </label>
+
           City:
           <input type="text" name="city" value={eventData.location.city} onChange={handleCityChange} />
         </label>
@@ -236,11 +238,15 @@ const Events = () => {
         </label>
         <button type="submit">Create Event</button>
       </form>
-      <ul>
-        {events.map((event) => (
-          <li key={event.id}>{event.title}</li>
-        ))}
-      </ul>
+      {events.length > 0 ? (
+  <ul>
+    {events.map((event) => (
+      <li key={event.id}>{event.title}</li>
+    ))}
+  </ul>
+) : (
+  <p>No events available</p>
+)}
     </div>
   );
 };
