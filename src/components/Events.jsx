@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { fetchEventsByZipCode, fetchEventsByCity } from "..services/apis"; // Import the API functions
+
 
 const Events = () => {
   const [events, setEvents] = useState([]);
@@ -19,7 +19,7 @@ const Events = () => {
   });
 
   useEffect(() => {
-    // Fetch events when the component mounts
+    
     fetchEvents();
   }, []);
 
