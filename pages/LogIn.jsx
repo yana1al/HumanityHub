@@ -54,7 +54,7 @@ const LogIn = () => {
         </div>
         <button type="submit">LogIn</button>
       </form>
-      <GoogleLoginButton /> {/* Add GoogleLoginButton component */}
+      <GoogleLoginButton /> 
       <p>
         New user? <Link to="/register">Register here</Link>.
       </p>
