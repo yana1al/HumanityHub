@@ -1,5 +1,5 @@
 
-import Client from "..services/apis";
+import axios from "axios";
 
 export const login = async (userData) => {
   try {

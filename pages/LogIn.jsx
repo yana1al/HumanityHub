@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import Client from "../services/apis";
 
-const Login = () => {
+const LogIn = () => {
   const [usernameOrEmail, setUsernameOrEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false); 
@@ -25,7 +25,7 @@ const Login = () => {
 
   return (
     <div className="auth-container">
-      <h2>LogIn</h2>
+      <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -59,4 +59,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LogIn;

@@ -6,15 +6,15 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Events from "./components/Events";
 import Donations from "./components/Donations";
-import LogIn from "./pages/LogIn";
-import Register from "./pages/Register";
+import LogIn from "../pages/LogIn";
+import Register from "../pages/Register";
 import Resources from "./components/Resources";
 import HappyHour from "./components/HappyHour";
 import PrivacyPolicyDetails from "./components/PrivacyPolicyDetails";
 import ConnectUs from "./components/ConnectUs";
 import SubscribeUs from "./components/SubscribeUs";
 import Volunteer from "./components/Volunteer";
-import { checkSession } from "./services/auth";
+import { checkSession } from "../services/auth";
 
 const App = () => {
   const [user, setUser] = useState(null);

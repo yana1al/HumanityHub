@@ -1,4 +1,4 @@
-// apis.js
+
 import axios from "axios";
 
 export const BASE_URL = "https://humanity-hub1-3599a88da879.herokuapp.com/";

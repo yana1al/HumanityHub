@@ -60,6 +60,10 @@ const Register = () => {
         </div>
         <button type="submit">Register</button>
       </form>
+      <p>
+        Memenr with Us? <Link to="/login">Login here</Link>.
+      </p>
+    
     </div>
   );
 };

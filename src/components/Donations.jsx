@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { donate } from "../services/apis";
+import axios from "axios";
 
 const Donations = () => {
   const [formData, setFormData] = useState({
