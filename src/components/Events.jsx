@@ -19,7 +19,7 @@ const Events = () => {
   });
 
   useEffect(() => {
-    // fetchEvents();
+    fetchEvents();
   }, []);
 
 console.log("events", events)
@@ -112,7 +112,7 @@ console.log("events", events)
           zipCode: ""
         }
       });
-      // fetchEvents();
+       fetchEvents();
     } catch (error) {
       console.error("Error creating event:", error);
     }
@@ -121,7 +121,7 @@ console.log("events", events)
   const handleSubmitSearchEvents = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.get("https://your-heroku-app.herokuapp.com/events", {
+      const response = await axios.get("https://humanity-hub1-3599a88da879.herokuapp.com/events", {
         params: searchQuery
       });
       
@@ -136,8 +136,8 @@ console.log("events", events)
   
   const fetchEvents = async () => {
     try {
-      // const response = await axios.get("https://humanity-hub1-3599a88da879.herokuapp.com/events");
-      // setEvents(response.data);
+      const response = await axios.get("https://humanity-hub-back-0e67c67407b5.herokuapp.com/");
+      setEvents(response.data);
     } catch (error) {
       console.error("Failed to fetch events:", error);
     }
