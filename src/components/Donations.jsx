@@ -29,13 +29,17 @@ const Donations = () => {
     e.preventDefault();
     try {
       if (formData.donationType === "money") {
-        const response = await axios.post("https://humanity-hub1-3599a88da879.herokuapp.com/", formData);
+        const response = await axios.post("https://humanity-hub1-3599a88da879.herokuapp.com/");
         console.log("Donation successful:", response.data);
         setDonationSuccess(true);
       } else {
         // Handle other donation types like books and clothes
-        alert("Donation type not yet implemented");
+        const response = await axios.post("https://humanity-hub1-3599a88da879.herokuapp.com/", formData);
+        console.log("Donation successful:", response.data);
+        setDonationSuccess(true);
       }
+      // Redirect to Stripe website
+      window.location.href = "https://stripe.com"; 
     } catch (error) {
       console.error("Error donating:", error);
     }
