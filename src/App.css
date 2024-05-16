@@ -12,10 +12,10 @@ div {
 
 
 .home-container {
-  margin: 70px;
-  padding: 60px;
-  border: 3px solid #d4c3c3;
-  border-radius: 8px;
+  margin: 10px;
+  padding: 20px;
+  border: 30px solid #2d222985;
+  border-radius: 100px;
   background: linear-gradient(to right, #b1c0ca, rgb(171, 192, 176));
   
 }
@@ -25,6 +25,18 @@ div {
   flex-direction: column;
   align-items: center; 
   
+}
+
+.home h1 {
+  font-size: 2rem; /* Increase font size */
+}
+
+.welcome-message {
+  margin-bottom: 20px; /* Add some space below the welcome message */
+}
+
+.about-link {
+  margin-top: 20px; /* Add some space above the "About" link */
 }
 
 .testimonies-container {
@@ -47,12 +59,12 @@ div {
   position: absolute;
   bottom: 0;
   right: 0;
-  padding: 60px;
+  padding: 1px;
 }
 
 .join-us-content {
   background: linear-gradient(to right, #b1c0ca, rgb(183, 171, 192));
-  padding: 30px;
+  padding: 25px;
   border-radius: 75px;
 }
 
