@@ -46,7 +46,7 @@ const Home = () => {
     <div className="home">
       <h1> Humanity Hub (HH)</h1>
       <p>
-        Welcome to Humanity Hub (HH) - Mobilizing Hearts, Empowering Hands, Building a Better World. Your gateway to making a difference in the world. Our landing page is designed to introduce you to our platform and inspire you to get involved in social causes that matter to you.
+        Welcome to Humanity Hub (HH) - Mobilizing Hearts, Empowering Hands, Building a Better World. Your gateway to making a difference in the world. Our landing page is designed to introduce you to our platform and inspire you to get involved in social causes that matter to you. Want to know more about us? Please subscribe now and get daily Newsletter. We are her to support you all, so do YOU! Healping Hands are always what we encourage for!!!  
       </p>
 
       <div className="testimonies-container">
