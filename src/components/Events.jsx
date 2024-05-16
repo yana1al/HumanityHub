@@ -22,6 +22,8 @@ const Events = () => {
     fetchEvents();
   }, []);
 
+console.log("events", events)
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     if (name === "zipCode" || name === "city") {
