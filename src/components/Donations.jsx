@@ -39,7 +39,7 @@ const Donations = () => {
         setDonationSuccess(true);
       }
       // Redirect to Stripe website
-      window.location.href = "https://stripe.com"; 
+      window.location.href = "https://dashboard.stripe.com/test/payment-links/create"; 
     } catch (error) {
       console.error("Error donating:", error);
     }
