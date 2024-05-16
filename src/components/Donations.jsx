@@ -143,7 +143,7 @@ const Donations = () => {
         </label>
       </div>
       <div>
-        {/* Display donation locations based on selectedItemType */}
+        
         {selectedItemType && (
           <div>
             <h3>Donation Locations</h3>

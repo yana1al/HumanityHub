@@ -8,7 +8,7 @@ const Events = () => {
 
     useEffect(() => {
         fetchEventsData();
-    }, [zipCode, city]); // Fetch events data whenever zip code or city changes
+    }, [zipCode, city]); 
 
     const fetchEventsData = async () => {
         try {
