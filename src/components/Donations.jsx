@@ -77,44 +77,9 @@ const Donations = () => {
       <div>
         <h3>Monetary Donation</h3>
         <form onSubmit={handleSubmit}>
-          {/* <label>
-            Amount ($$):
-            <input
-              type="number"
-              name="amount"
-              min="1"
-              max="100"
-              value={formData.amount}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Name:
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Location:
-            <input
-              type="text"
-              name="location"
-              value={formData.location}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Description:
-            <textarea
-              name="description"
-              value={formData.description}
-              onChange={handleChange}
-            />
-          </label> */}
+          
           <button type="submit">Donation for Campaign</button>
+          <h4>Securely, redirect to Payment Page</h4>
         </form>
       </div>
       <div>
@@ -157,27 +122,7 @@ const Donations = () => {
           </div>
         )}
       </div>
-      {/* <div>
-        <h3>Donate Now</h3>
-        {clientSecret ? (
-          <form action="/pay" method="POST">
-            <input type="hidden" name="clientSecret" value={clientSecret} />
-            <button type="submit">Pay Now</button>
-          </form>
-        ) : (
-          <form onSubmit={handleDonation}>
-            <input
-              type="number"
-              placeholder="Enter donation amount"
-              value={donationAmount}
-              onChange={(e) => setDonationAmount(e.target.value)}
-              required
-            />
-            <button type="submit">Donate</button>
-          </form>
-        )}
-        {paymentError && <p>{paymentError}</p>}
-      </div> */}
+    
     </div>
   );
 };
