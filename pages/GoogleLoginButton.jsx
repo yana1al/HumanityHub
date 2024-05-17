@@ -7,7 +7,7 @@ const GoogleLoginButton = () => {
 
   useEffect(() => {
     // Fetch Google client ID and redirect URI from backend
-    axios.get("/api/config/google")
+    axios.get("/auth/google")
       .then(response => {
         setClientId(response.data.clientId);
         setRedirectUri(response.data.redirectUri);
