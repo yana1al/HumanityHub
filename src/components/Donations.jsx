@@ -79,7 +79,7 @@ const Donations = () => {
         <form onSubmit={handleSubmit}>
           
           <button type="submit">Donation for Campaign</button>
-          <h4>Securely, redirect to Payment Page</h4>
+          <p>Securely, redirect to Payment Page</p>
         </form>
       </div>
       <div>

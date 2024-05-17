@@ -18,7 +18,7 @@ const GoogleLoginButton = () => {
   }, []);
 
   const handleGoogleLogin = () => {
-    window.location.href = `https://accounts.google.com/o/oauth2/v2/auth` +
+    window.location.href = `https://yourdomain.com/login/auth/google` +
       `?response_type=code` +
       `&client_id=${process.env.GOOGLE_CLIENT_ID}` +
       `&redirect_uri=${process.env.GOOGLE_CALLBACK}` +
