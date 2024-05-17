@@ -18,10 +18,10 @@ const GoogleLoginButton = () => {
 
   const handleGoogleLogin = () => {
     window.location.href = `https://accounts.google.com/o/oauth2/auth` +
-      `?response_type=code` +
+      `?response_type=token` +
       `&client_id=${clientId}` +
       `&redirect_uri=${redirectUri}` +
-      `&scope=email%20profile`;
+      `&scope={scope}`;
   };
 
   return (
