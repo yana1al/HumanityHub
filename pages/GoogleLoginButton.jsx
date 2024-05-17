@@ -20,8 +20,8 @@ const GoogleLoginButton = () => {
   const handleGoogleLogin = () => {
     window.location.href = `https://accounts.google.com/o/oauth/v2/auth` +
       `?response_type=code` +
-      `&client_id=${process.env.GOOGLE_CLIENT_ID}` +
-      `&redirect_uri=${process.env.GOOGLE_CALLBACK}` +
+      `&client_id=${clientId}` +
+      `&redirect_uri=${redirectUri}` +
       `&scope=email%20profile`;
   };
 

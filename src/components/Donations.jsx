@@ -1,5 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
+import GoogleMapReact from 'google-map-react';
+
+const Marker = ({ text }) => <div>{text}</div>;
 
 const Donations = () => {
   const [formData, setFormData] = useState({
@@ -13,9 +16,14 @@ const Donations = () => {
   const [donationSuccess, setDonationSuccess] = useState(false);
   const [donationLocations, setDonationLocations] = useState([]);
   const [selectedItemType, setSelectedItemType] = useState("");
-  const [donationAmount, setDonationAmount] = useState("");
-  const [clientSecret, setClientSecret] = useState("");
-  const [paymentError, setPaymentError] = useState("");
+  // const [donationAmount, setDonationAmount] = useState("");
+  // const [clientSecret, setClientSecret] = useState("");
+  // const [paymentError, setPaymentError] = useState("");
+
+  useEffect(() => {
+    // Fetch donation locations when component mounts
+    fetchDonationLocations();
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -45,8 +53,7 @@ const Donations = () => {
     }
   };
 
-  const handleSearch = async (e) => {
-    e.preventDefault();
+  const fetchDonationLocations = async () => {
     try {
       const response = await axios.get(`https://humanity-hub1-3599a88da879.herokuapp.com/donations?zipCode=${formData.zipCode}`);
       setDonationLocations(response.data);
@@ -57,17 +64,6 @@ const Donations = () => {
 
   const handleItemTypeChange = (e) => {
     setSelectedItemType(e.target.value);
-  };
-
-  const handleDonation = async (e) => {
-    e.preventDefault();
-    try {
-      const { clientSecret } = await donate(donationAmount);
-      setClientSecret(clientSecret);
-    } catch (error) {
-      console.error("Error donating:", error);
-      setPaymentError("Failed to process donation. Please try again.");
-    }
   };
 
   return (
@@ -84,7 +80,7 @@ const Donations = () => {
       </div>
       <div>
         <h3>Find Other donations on your local Area</h3>
-        <form onSubmit={handleSearch}>
+        <form onSubmit={fetchDonationLocations}>
           <label>
             Find by Zip Code:
             <input
@@ -107,22 +103,22 @@ const Donations = () => {
           </select>
         </label>
       </div>
-      <div>
-        
-        {selectedItemType && (
-          <div>
-            <h3>Donation Locations</h3>
-            <ul>
-              {donationLocations
-                .filter((location) => location.itemType === selectedItemType)
-                .map((location) => (
-                  <li key={location.id}>{location.name}</li>
-                ))}
-            </ul>
-          </div>
-        )}
+      <div style={{ height: '400px', width: '100%' }}>
+        <h3>Donation Locations</h3>
+        <GoogleMapReact
+          defaultCenter={{ lat: 37.7749, lng: -122.4194 }} // Default center for the map (San Francisco)
+          defaultZoom={10} // Default zoom level
+        >
+          {donationLocations.map((location) => (
+            <Marker
+              key={location.id}
+              lat={location.latitude}
+              lng={location.longitude}
+              text={location.name}
+            />
+          ))}
+        </GoogleMapReact>
       </div>
-    
     </div>
   );
 };
