@@ -6,9 +6,9 @@ const GoogleLoginButton = () => {
   const [redirectUri, setRedirectUri] = useState('');
 
   useEffect(() => {
-    // Fetch Google client ID and redirect URI from backend
     axios.get("/auth/google")
       .then(response => {
+        console.log("Google config:", response.data); // Log the response
         setClientId(response.data.clientId);
         setRedirectUri(response.data.redirectUri);
       })
@@ -16,13 +16,14 @@ const GoogleLoginButton = () => {
         console.error("Error fetching Google config:", error);
       });
   }, []);
+  
 
   const handleGoogleLogin = () => {
     if (clientId && redirectUri) {
       window.location.href = `https://accounts.google.com/o/oauth2/v2/auth` +
         `?response_type=code` +
-        `&client_id=${process.env.GOOGLE_CLIENT_ID}` +
-        `&redirect_uri=${process.env.GOOGLE_CALLBACK}` +
+        `&client_id=${clientId}` +
+        `&redirect_uri=${redirectUri}` +
         `&scope=email%20profile`;
     } else {
       console.error("Client ID or Redirect URI is missing");
