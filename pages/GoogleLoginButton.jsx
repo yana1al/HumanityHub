@@ -18,7 +18,7 @@ const GoogleLoginButton = () => {
   }, []);
 
   const handleGoogleLogin = () => {
-    window.location.href = `https://yourdomain.com/login/auth/google` +
+    window.location.href = `https://humanity-hub1-3599a88da879.herokuapp.com/login/auth/google` +
       `?response_type=code` +
       `&client_id=${process.env.GOOGLE_CLIENT_ID}` +
       `&redirect_uri=${process.env.GOOGLE_CALLBACK}` +
