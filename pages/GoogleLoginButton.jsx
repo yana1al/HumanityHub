@@ -21,7 +21,7 @@ const GoogleLoginButton = () => {
       `?response_type=code` +
       `&client_id=${clientId}` +
       `&redirect_uri=${redirectUri}` +
-      `&scope={scope}
+      `&scope=email%20profile`;
   };
 
   return (
