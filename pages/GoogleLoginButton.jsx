@@ -6,7 +6,6 @@ const GoogleLoginButton = () => {
   const [redirectUri, setRedirectUri] = useState('');
 
   useEffect(() => {
-    // Fetch Google client ID and redirect URI from backend
     axios.get("/auth/google")
       .then(response => {
         setClientId(response.data.clientId);
@@ -18,7 +17,7 @@ const GoogleLoginButton = () => {
   }, []);
 
   const handleGoogleLogin = () => {
-    window.location.href = `https://accounts.google.com/o/oauth/v2/auth` +
+    window.location.href = `https://accounts.google.com/o/oauth2/v2/auth` +
       `?response_type=code` +
       `&client_id=${clientId}` +
       `&redirect_uri=${redirectUri}` +
