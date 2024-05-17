@@ -128,7 +128,7 @@ console.log("events", events)
       console.log("Search results:", response.data);
   
       // Redirect to GlobalGiving website
-      window.location.href = "https://api.globalgiving.org/api/public/projectservice/campaign/{campaignId}/projects";
+      window.location.href = "https://www.globalgiving.org/search/?size=25&nextPage=1&sortField=sortorder&loadAllResults=true";
     } catch (error) {
       console.error("Failed to fetch events:", error);
     }
