@@ -14,7 +14,7 @@ div {
 .home-container {
   margin: 10px;
   padding: 20px;
-  border: 30px solid #2d222985;
+  border: 3px solid #2d222985;
   border-radius: 100px;
   background: linear-gradient(to right, #b1c0ca, rgb(171, 192, 176));
   
@@ -32,7 +32,7 @@ div {
 }
 
 .welcome-message {
-  margin-bottom: 20px; /* Add some space below the welcome message */
+  margin-bottom: 60px; /* Add some space below the welcome message */
 }
 
 .about-link {
@@ -40,38 +40,42 @@ div {
 }
 
 .testimonies-container {
-  background: linear-gradient(to right, #b1c0ca, rgb(192, 171, 181));
-  display: flex;
-  width: 90%; 
+  background:-moz-linear-gradient(to right, #b1c0ca, rgb(192, 171, 181));
+  display:block;;
+  width: 100%; 
   border-radius: 70px;
   justify-content: space-between; 
 }
-
 .testimonies {
-  width: calc(60% - 45px); 
+  background: linear-gradient(to right, #b1c0ca, rgb(216, 212, 219));
+  margin-bottom: 50px;
+  padding: 20px;
+  text-align:justify;
+  width: calc(50% - 100px); 
+  border-radius: inherit;
 }
 
 .how-did-we-do {
-  width: calc(30% - 10px); 
+  width: calc(50% - 170px); 
 }
 
 .join-us {
   position: absolute;
   bottom: 0;
   right: 0;
-  padding: 1px;
+  padding: .5px;
 }
 
 .join-us-content {
   background: linear-gradient(to right, #b1c0ca, rgb(183, 171, 192));
-  padding: 25px;
-  border-radius: 75px;
+  padding: 4px;
+  border-radius: 9px;
 }
 
 .support-links {
   display: flex;
   justify-content: space-between; 
-  width: 90%; 
+  width: 100%; 
 }
 
 h3 ,h2{
@@ -93,6 +97,7 @@ p {
   line-height: 1.5;
   text-align: center;
 }
+
 
 .navbar {
   color: rgb(37, 34, 55);
@@ -236,14 +241,7 @@ button:hover {
   margin-bottom: 10px;
 }
 
-.testimonies {
-  margin-bottom: 20px;
-  padding: 20px;
-  border: 1px solid #a5cdaa;
-  border-radius: 55px;
-  background-color: #f0f0f0;
-  text-align:right; 
-}
+
 
 .resources-container {
   max-width: 4000px;
