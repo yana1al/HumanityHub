@@ -48,7 +48,6 @@ const Home = () => {
         <Link to="/about">Want to Know Us? Hop on In!</Link>
       </div>
      
-
       <div className="testimonies-container">
         <div className="testimonies" style={{ marginTop: '20px' }}>
           <h3>Testimonies</h3>
@@ -85,7 +84,15 @@ const Home = () => {
             <button type="submit">Post & Donate</button>
           </form>
         </div>
-       
+        
+        <div className="partnered-with">
+          <u><h1>Partnered with:</h1></u>
+          <ul>
+            <li><a href="https://www.globalgiving.org/" target="_blank" rel="noopener noreferrer">GlobalGiving</a></li>
+            <li><a href="https://dashboard.stripe.com/test/dashboard" target="_blank" rel="noopener noreferrer">Stripe</a></li>
+          </ul> 
+        </div>
+        
         <div className="join-us">
           <div className="join-us-content">
             <h3>Many More....</h3>
@@ -96,18 +103,7 @@ const Home = () => {
               <Link to="/happyHour" className="happyHour-link">HappyHour</Link>
             </div>
           </div>
-          
-          <h2>Our Partners</h2>
-          <p>
-            We are proud to partner with these great organizations:
-          </p>
-          <ul>
-            <a href="https://www.globalgiving.org/" target="_blank" rel="noopener noreferrer">GlobalGiving</a>
-            <a href="https://dashboard.stripe.com/test/dashboard" target="_blank" rel="noopener noreferrer">Stripe</a>
-          </ul>
-        
         </div>
-       
       </div>
     </div>
   );

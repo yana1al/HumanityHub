@@ -34,7 +34,7 @@ div {
 }
 
 .welcome-message {
-  background-image: url('./humanit.png'); /* Adjust the path if necessary */
+  background-image: url('./humanit.png'); 
   background-size:contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -60,17 +60,17 @@ div {
 .testimonies-container {
   background:-moz-linear-gradient(to right, #b1c0ca, rgb(192, 171, 181));
   display:block;;
-  width: 100%; 
+  width: 90%; 
   border-radius: 70px;
   justify-content: space-between; 
 }
 
 .testimonies {
   background: linear-gradient(to right, #b1c0ca, rgb(216, 212, 219));
-  margin-bottom: 50px;
-  padding: 20px;
+  margin-bottom: 70px;
+  padding: 30px;
   text-align:justify;
-  width: calc(50% - 100px); 
+  width: calc(70% - 6px); 
   border-radius: inherit;
   
 }
@@ -80,17 +80,39 @@ div {
   
 }
 
+
 .join-us {
   position: absolute;
-  bottom: 0;
-  right: 0;
-  padding: 7px;
+  bottom: -500px;
+  right: -10px;
+  padding: 95px;
+}
+
+.partnered-with {
+  text-align: center;
+  margin-top: 20px;
+  border: 7px solid #67465b85;
+  border-radius: 100px;
+}
+
+.partnered-with h2 {
+  text-decoration: underline;
+}
+
+.partnered-with ul {
+  list-style-type:georgian;
+  padding: 0;
+}
+
+.partnered-with li {
+  display: inline-block;
+  margin: 0 10px;
 }
 
 .join-us-content {
   background: linear-gradient(to right, #b1c0ca, rgb(183, 171, 192));
-  padding: 5px;
-  border-radius: 15px;
+  padding: 25px;
+  border-radius: 60px;
 }
 
 .support-links {
@@ -153,7 +175,7 @@ p {
 main {
   flex-grow: 1; 
   padding: 80px; 
-  /* background: linear-gradient(to right, #e2e7ea, rgb(228, 237, 237)); */
+  
   
 }
 
@@ -277,7 +299,7 @@ button:hover {
   padding: 40px;
   border: 4px solid #8aba82;
   border-radius: 55px;
-  /* background: linear-gradient(to right, #b1c0ca, rgb(228, 235, 230)); */
+  
 }
 
 .section-title {
