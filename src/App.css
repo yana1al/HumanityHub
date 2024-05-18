@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  
 }
 
 div {
@@ -16,7 +17,7 @@ div {
   padding: 20px;
   border: 3px solid #2d222985;
   border-radius: 100px;
-  background: linear-gradient(to right, #b1c0ca, rgb(171, 192, 176));
+   
   
 }
 
@@ -24,19 +25,36 @@ div {
   display: flex;
   flex-direction: column;
   align-items: center; 
-  
+    
 }
 
 .home h1 {
-  font-size: 2rem; /* Increase font size */
+  font-size: 2rem;
+   
 }
 
 .welcome-message {
-  margin-bottom: 60px; /* Add some space below the welcome message */
+  background-image: url('./humanit.png'); /* Adjust the path if necessary */
+  background-size:contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 20px;
+  color: white;
+  text-align: center; 
+  height: 280px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-message a {
+  color: rgb(21, 21, 17);
+  font-size: 24px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
 }
 
 .about-link {
-  margin-top: 20px; /* Add some space above the "About" link */
+  margin-top: 30px; 
 }
 
 .testimonies-container {
@@ -46,6 +64,7 @@ div {
   border-radius: 70px;
   justify-content: space-between; 
 }
+
 .testimonies {
   background: linear-gradient(to right, #b1c0ca, rgb(216, 212, 219));
   margin-bottom: 50px;
@@ -53,23 +72,25 @@ div {
   text-align:justify;
   width: calc(50% - 100px); 
   border-radius: inherit;
+  
 }
 
 .how-did-we-do {
   width: calc(50% - 170px); 
+  
 }
 
 .join-us {
   position: absolute;
   bottom: 0;
   right: 0;
-  padding: .5px;
+  padding: 7px;
 }
 
 .join-us-content {
   background: linear-gradient(to right, #b1c0ca, rgb(183, 171, 192));
-  padding: 4px;
-  border-radius: 9px;
+  padding: 5px;
+  border-radius: 15px;
 }
 
 .support-links {
@@ -132,7 +153,7 @@ p {
 main {
   flex-grow: 1; 
   padding: 80px; 
-  background: linear-gradient(to right, #e2e7ea, rgb(228, 237, 237));
+  /* background: linear-gradient(to right, #e2e7ea, rgb(228, 237, 237)); */
   
 }
 
@@ -241,8 +262,6 @@ button:hover {
   margin-bottom: 10px;
 }
 
-
-
 .resources-container {
   max-width: 4000px;
   margin: 0 auto;
@@ -258,7 +277,7 @@ button:hover {
   padding: 40px;
   border: 4px solid #8aba82;
   border-radius: 55px;
-  background: linear-gradient(to right, #b1c0ca, rgb(228, 235, 230));
+  /* background: linear-gradient(to right, #b1c0ca, rgb(228, 235, 230)); */
 }
 
 .section-title {

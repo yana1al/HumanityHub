@@ -76,3 +76,11 @@ The project will focus on building the MVP (Minimum Viable Product) with the fol
 
 
  # Backend link : [Here](https://github.com/yana1al/HumanityHub_backend)
+ #Backend Deployed: [Heroku](https://humanity-hub-back-0e67c67407b5.herokuapp.com/)
+
+ #Credit: 
+ [Home page img](https://www.pngitem.com/middle/hJxwhm_transparent-praying-clipart-open-praying-hands-clipart-hd/)
+ [Stripe](https://dashboard.stripe.com/test/dashboard)
+ [Global Giving](https://www.globalgiving.org/)
+ [Youtube video](https://www.youtube.com/watch?v=wfH-W7oXEo8&t=13s)
+ [Stackover](https://stackoverflow.com/questions/11485271/google-oauth-2-authorization-error-redirect-uri-mismatch)

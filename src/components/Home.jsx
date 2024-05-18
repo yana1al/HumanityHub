@@ -43,14 +43,10 @@ const Home = () => {
   };
 
   return (
-    
+    <div className="home-container">
       <div className="welcome-message">
-        <h2>
-          Welcome to Humanity Hub (HH) - Mobilizing Hearts, Empowering Hands,
-          Building a Better World. Helping Hands are always what we encourage
-          for!!! We are here for better Movement!{" "}
-          <Link to="/about">Want to Know Us? Hop on In!</Link>
-        </h2>
+        <Link to="/about">Want to Know Us? Hop on In!</Link>
+      </div>
      
 
       <div className="testimonies-container">
