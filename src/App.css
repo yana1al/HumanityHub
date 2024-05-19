@@ -22,8 +22,7 @@ main {
   padding: 20px;
   border: 2px solid #64704385;
   border-radius: 100px;
-  background-image: url(./IMG_1347.jpeg);
-  background-size: contain;
+  background-size:initial;
   background-position:bottom;
   
     
@@ -31,7 +30,7 @@ main {
 
 .home {
   display: flex;
-  flex-direction: column;
+  flex-direction: grid;
   align-items: center; 
   
     

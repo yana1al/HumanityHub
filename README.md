@@ -84,3 +84,4 @@ The project will focus on building the MVP (Minimum Viable Product) with the fol
  [Global Giving](https://www.globalgiving.org/)
  [Youtube video](https://www.youtube.com/watch?v=wfH-W7oXEo8&t=13s)
  [Stackover](https://stackoverflow.com/questions/11485271/google-oauth-2-authorization-error-redirect-uri-mismatch)
+ [Background Img](https://www.freepik.com/free-photo/top-view-paper-style-community-map_25403784.htm#page=2&query=social%20causes&position=9&from_view=keyword&track=ais_user_b&uuid=a3c3e146-954a-4910-bc98-bc5f53282b40)

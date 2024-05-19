@@ -16,9 +16,6 @@ const Donations = () => {
   const [donationSuccess, setDonationSuccess] = useState(false);
   const [donationLocations, setDonationLocations] = useState([]);
   const [selectedItemType, setSelectedItemType] = useState("");
-  // const [donationAmount, setDonationAmount] = useState("");
-  // const [clientSecret, setClientSecret] = useState("");
-  // const [paymentError, setPaymentError] = useState("");
 
   useEffect(() => {
     // Fetch donation locations when component mounts
@@ -37,12 +34,12 @@ const Donations = () => {
     e.preventDefault();
     try {
       if (formData.donationType === "money") {
-        const response = await axios.post("https://humanity-hub1-3599a88da879.herokuapp.com/");
+        const response = await axios.post("https://humanity-hub-back-0e67c67407b5.herokuapp.com/");
         console.log("Donation successful:", response.data);
         setDonationSuccess(true);
       } else {
         // Handle other donation types like books and clothes
-        const response = await axios.post("https://humanity-hub1-3599a88da879.herokuapp.com/", formData);
+        const response = await axios.post("https://humanity-hub-back-0e67c67407b5.herokuapp.com/", formData);
         console.log("Donation successful:", response.data);
         setDonationSuccess(true);
       }
@@ -55,7 +52,7 @@ const Donations = () => {
 
   const fetchDonationLocations = async () => {
     try {
-      const response = await axios.get(`https://humanity-hub1-3599a88da879.herokuapp.com/donations?zipCode=${formData.zipCode}`);
+      const response = await axios.get(`https://humanity-hub-back-0e67c67407b5.herokuapp.com/donations?zipCode=${formData.zipCode}`);
       setDonationLocations(response.data);
     } catch (error) {
       console.error("Error searching for donation locations:", error);
@@ -73,13 +70,12 @@ const Donations = () => {
       <div>
         <h3>Monetary Donation</h3>
         <form onSubmit={handleSubmit}>
-          
           <button type="submit">Donation for Campaign</button>
           <p>Securely, redirect to Payment Page</p>
         </form>
       </div>
       <div>
-        <h3>Find Other donations on your local Area</h3>
+        <h3>Find Other donations in your local Area</h3>
         <form onSubmit={fetchDonationLocations}>
           <label>
             Find by Zip Code:
@@ -109,12 +105,13 @@ const Donations = () => {
       <div style={{ height: '400px', width: '100%' }}>
         <h3>Donation Locations</h3>
         <GoogleMapReact
+          bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAP_API_KEY }}
           defaultCenter={{ lat: 37.7749, lng: -122.4194 }} // Default center for the map (San Francisco)
           defaultZoom={10} // Default zoom level
         >
-          {donationLocations.map((location) => (
+          {donationLocations.map((location, index) => (
             <Marker
-              key={location.id}
+              key={index}
               lat={location.latitude}
               lng={location.longitude}
               text={location.name}

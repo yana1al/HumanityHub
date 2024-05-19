@@ -90,7 +90,7 @@ const Events = () => {
           ))}
         </ul>
       ) : (
-        <p>No events available</p>
+        <h2>See you there!</h2>
       )}
     </div>
   );
