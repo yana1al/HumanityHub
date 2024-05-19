@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { loadStripe } from "@stripe/stripe-js";
 import GoogleMapReact from 'google-map-react';
 
 const Marker = ({ text }) => <div>{text}</div>;
+
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
 const Donations = () => {
   const [formData, setFormData] = useState({
@@ -18,9 +21,8 @@ const Donations = () => {
   const [selectedItemType, setSelectedItemType] = useState("");
 
   useEffect(() => {
-    // Fetch donation locations when component mounts
     fetchDonationLocations();
-  }, []);
+  }, [formData.zipCode]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -32,27 +34,54 @@ const Donations = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (formData.donationType === "money") {
+      await handleMonetaryDonation();
+    } else {
+      await handleItemDonation();
+    }
+  };
+
+  const handleMonetaryDonation = async () => {
     try {
-      if (formData.donationType === "money") {
-        const response = await axios.post("https://humanity-hub-back-0e67c67407b5.herokuapp.com/");
-        console.log("Donation successful:", response.data);
-        setDonationSuccess(true);
+      const stripe = await stripePromise;
+      const response = await axios.post("https://humanity-hub-back-0e67c67407b5.herokuapp.com/api/donations", {
+        amount: formData.amount * 100, // Stripe expects the amount in cents
+      });
+      const { clientSecret } = response.data;
+      const result = await stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: stripe.elements().create('card'),
+          billing_details: {
+            name: formData.name,
+          },
+        },
+      });
+
+      if (result.error) {
+        console.error("Payment failed:", result.error.message);
       } else {
-        // Handle other donation types like books and clothes
-        const response = await axios.post("https://humanity-hub-back-0e67c67407b5.herokuapp.com/", formData);
-        console.log("Donation successful:", response.data);
+        console.log("Payment successful!");
         setDonationSuccess(true);
       }
-      // Redirect to Stripe website
-      window.location.href = "https://buy.stripe.com/test_9AQeX39JE34G4kU5kk"; 
+    } catch (error) {
+      console.error("Error processing payment:", error);
+    }
+  };
+
+  const handleItemDonation = async () => {
+    try {
+      const response = await axios.post("https://humanity-hub-back-0e67c67407b5.herokuapp.com/api/donations", formData);
+      console.log("Donation successful:", response.data);
+      setDonationSuccess(true);
     } catch (error) {
       console.error("Error donating:", error);
     }
   };
 
-  const fetchDonationLocations = async () => {
+  const fetchDonationLocations = async (e) => {
+    if (e) e.preventDefault();
     try {
-      const response = await axios.get(`https://humanity-hub-back-0e67c67407b5.herokuapp.com/donations?zipCode=${formData.zipCode}`);
+      const response = await axios.get(`https://humanity-hub-back-0e67c67407b5.herokuapp.com/api/donations/donation-locations?zipCode=${formData.zipCode}`);
       setDonationLocations(response.data);
     } catch (error) {
       console.error("Error searching for donation locations:", error);
@@ -70,8 +99,26 @@ const Donations = () => {
       <div>
         <h3>Monetary Donation</h3>
         <form onSubmit={handleSubmit}>
-          <button type="submit">Donation for Campaign</button>
-          <p>Securely, redirect to Payment Page</p>
+          <label>
+            Amount:
+            <input
+              type="number"
+              name="amount"
+              value={formData.amount}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Name on Card:
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+            />
+          </label>
+          <button type="submit">Donate for Campaign</button>
+          <p>Securely redirected to Payment Page</p>
         </form>
       </div>
       <div>
@@ -106,8 +153,8 @@ const Donations = () => {
         <h3>Donation Locations</h3>
         <GoogleMapReact
           bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAP_API_KEY }}
-          defaultCenter={{ lat: 37.7749, lng: -122.4194 }} // Default center for the map (San Francisco)
-          defaultZoom={10} // Default zoom level
+          defaultCenter={{ lat: 37.7749, lng: -122.4194 }}
+          defaultZoom={10}
         >
           {donationLocations.map((location, index) => (
             <Marker
