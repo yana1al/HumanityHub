@@ -64,11 +64,11 @@ const Donations = () => {
   return (
     <div>
       <h1>Want to Donate?</h1>
-      <h2>Your Gift Transforms Lives</h2>
+      <u><h2>Your Gift Transforms Lives</h2></u>
         
       {donationSuccess && <p>Donation successfully submitted!</p>}
       <div>
-        <h3>Monetary Donation</h3>
+        <h3>Monetary Donation:</h3>
         <p>
           Only 0.9% of donations make it to organizations dedicated to all humans or living beings. We're changing that.
         </p>
@@ -83,7 +83,7 @@ const Donations = () => {
         </p>
         <form onSubmit={handleSubmit}>
           <button type="submit">Donation for Campaign</button>
-          <p>Securely, redirect to Payment Page</p>
+          <h6>Securely, redirect to Payment Page</h6>
         </form>
       </div>
       <div>
