@@ -16,12 +16,8 @@ const Donations = () => {
   const [donationSuccess, setDonationSuccess] = useState(false);
   const [donationLocations, setDonationLocations] = useState([]);
   const [selectedItemType, setSelectedItemType] = useState("");
-  // const [donationAmount, setDonationAmount] = useState("");
-  // const [clientSecret, setClientSecret] = useState("");
-  // const [paymentError, setPaymentError] = useState("");
 
   useEffect(() => {
-    // Fetch donation locations when component mounts
     fetchDonationLocations();
   }, []);
 
@@ -36,29 +32,28 @@ const Donations = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      if (formData.donationType === "money") {
-        const response = await axios.post("https://humanity-hub1-3599a88da879.herokuapp.com/");
-        console.log("Donation successful:", response.data);
-        setDonationSuccess(true);
-      } else {
-        // Handle other donation types like books and clothes
-        const response = await axios.post("https://humanity-hub1-3599a88da879.herokuapp.com/", formData);
-        console.log("Donation successful:", response.data);
-        setDonationSuccess(true);
-      }
-      // Redirect to Stripe website
+      const response = await axios.post("https://humanity-hub1-3599a88da879.herokuapp.com/", formData);
+      console.log("Donation successful:", response.data);
+      setDonationSuccess(true);
       window.location.href = "https://buy.stripe.com/test_9AQeX39JE34G4kU5kk"; 
     } catch (error) {
       console.error("Error donating:", error);
     }
   };
 
-  const fetchDonationLocations = async () => {
+  const fetchDonationLocations = async (e) => {
+    if (e) e.preventDefault();
     try {
       const response = await axios.get(`https://humanity-hub1-3599a88da879.herokuapp.com/donations?zipCode=${formData.zipCode}`);
-      setDonationLocations(response.data);
+      if (Array.isArray(response.data)) {
+        setDonationLocations(response.data);
+      } else {
+        console.error("Unexpected response format:", response.data);
+        setDonationLocations([]);
+      }
     } catch (error) {
       console.error("Error searching for donation locations:", error);
+      setDonationLocations([]);
     }
   };
 
@@ -73,7 +68,6 @@ const Donations = () => {
       <div>
         <h3>Monetary Donation</h3>
         <form onSubmit={handleSubmit}>
-          
           <button type="submit">Donation for Campaign</button>
           <p>Securely, redirect to Payment Page</p>
         </form>
@@ -109,6 +103,7 @@ const Donations = () => {
       <div style={{ height: '400px', width: '100%' }}>
         <h3>Donation Locations</h3>
         <GoogleMapReact
+          bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAP_API_KEY }}
           defaultCenter={{ lat: 37.7749, lng: -122.4194 }} // Default center for the map (San Francisco)
           defaultZoom={10} // Default zoom level
         >
