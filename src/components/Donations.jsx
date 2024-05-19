@@ -73,13 +73,13 @@ const Donations = () => {
       <div>
         <h3>Monetary Donation</h3>
         <form onSubmit={handleSubmit}>
-        
-          <button type="submit">Donate for Campaign</button>
-          <p>Securely redirected to Payment Page</p>
+          
+          <button type="submit">Donation for Campaign</button>
+          <p>Securely, redirect to Payment Page</p>
         </form>
       </div>
       <div>
-        <h3>Find Other donations in your local Area</h3>
+        <h3>Find Other donations on your local Area</h3>
         <form onSubmit={fetchDonationLocations}>
           <label>
             Find by Zip Code:
@@ -109,13 +109,12 @@ const Donations = () => {
       <div style={{ height: '400px', width: '100%' }}>
         <h3>Donation Locations</h3>
         <GoogleMapReact
-          bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAP_API_KEY }}
-          defaultCenter={{ lat: 37.7749, lng: -122.4194 }}
-          defaultZoom={10}
+          defaultCenter={{ lat: 37.7749, lng: -122.4194 }} // Default center for the map (San Francisco)
+          defaultZoom={10} // Default zoom level
         >
-          {donationLocations.map((location, index) => (
+          {donationLocations.map((location) => (
             <Marker
-              key={index}
+              key={location.id}
               lat={location.latitude}
               lng={location.longitude}
               text={location.name}
