@@ -16,6 +16,9 @@ const Donations = () => {
   const [donationSuccess, setDonationSuccess] = useState(false);
   const [donationLocations, setDonationLocations] = useState([]);
   const [selectedItemType, setSelectedItemType] = useState("");
+  // const [donationAmount, setDonationAmount] = useState("");
+  // const [clientSecret, setClientSecret] = useState("");
+  // const [paymentError, setPaymentError] = useState("");
 
   useEffect(() => {
     // Fetch donation locations when component mounts
@@ -34,12 +37,12 @@ const Donations = () => {
     e.preventDefault();
     try {
       if (formData.donationType === "money") {
-        const response = await axios.post("https://humanity-hub-back-0e67c67407b5.herokuapp.com/");
+        const response = await axios.post("https://humanity-hub1-3599a88da879.herokuapp.com/");
         console.log("Donation successful:", response.data);
         setDonationSuccess(true);
       } else {
         // Handle other donation types like books and clothes
-        const response = await axios.post("https://humanity-hub-back-0e67c67407b5.herokuapp.com/", formData);
+        const response = await axios.post("https://humanity-hub1-3599a88da879.herokuapp.com/", formData);
         console.log("Donation successful:", response.data);
         setDonationSuccess(true);
       }
@@ -52,7 +55,7 @@ const Donations = () => {
 
   const fetchDonationLocations = async () => {
     try {
-      const response = await axios.get(`https://humanity-hub-back-0e67c67407b5.herokuapp.com/donations?zipCode=${formData.zipCode}`);
+      const response = await axios.get(`https://humanity-hub1-3599a88da879.herokuapp.com/donations?zipCode=${formData.zipCode}`);
       setDonationLocations(response.data);
     } catch (error) {
       console.error("Error searching for donation locations:", error);
@@ -62,7 +65,6 @@ const Donations = () => {
   const handleItemTypeChange = (e) => {
     setSelectedItemType(e.target.value);
   };
-
 
   return (
     <div>
