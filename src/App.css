@@ -32,8 +32,7 @@ main {
   display: flex;
   flex-direction: grid;
   align-items: center; 
-  
-    
+     
 }
 
 .home h1 {

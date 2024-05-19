@@ -64,9 +64,23 @@ const Donations = () => {
   return (
     <div>
       <h1>Want to Donate?</h1>
+      <h2>Your Gift Transforms Lives</h2>
+        
       {donationSuccess && <p>Donation successfully submitted!</p>}
       <div>
         <h3>Monetary Donation</h3>
+        <p>
+          Only 0.9% of donations make it to organizations dedicated to all humans or living beings. We're changing that.
+        </p>
+        <p>
+          All lives are creating revolutionary change in their communities.
+        </p>
+        <p>
+          They are overcoming incredible challenges to their safety, success, and human rights to ensure equal opportunity for everyone. Your gift supports that transformational work.
+        </p>
+        <p>
+          We fuel movements to end civil wars, get leaders elected, and secure laws giving new protection to millions of marginalized people. Imagine what else we can do together—are you in?
+        </p>
         <form onSubmit={handleSubmit}>
           <button type="submit">Donation for Campaign</button>
           <p>Securely, redirect to Payment Page</p>

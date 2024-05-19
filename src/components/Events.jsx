@@ -46,10 +46,10 @@ const Events = () => {
 
   const predefinedEvents = [
     {
-      title: "Diversity",
+      title: "Humanity Hub Conference",
       location: "San Francisco, 800 Market St",
       date: "June 19 2024",
-      time: "10:00 AM"
+      time: "8:00 AM"
     },
     {
       title: "Support Abortion",
@@ -60,7 +60,7 @@ const Events = () => {
   ];
 
   return (
-    <div>
+    <div className="events-container">
       <form onSubmit={handleSubmitSearchEvents}>
         <label>
           Zip Code:
@@ -73,22 +73,27 @@ const Events = () => {
         <button type="submit">Affiliated Campaign with Global Giving</button>
       </form>
       <h2>Join the Campaign:</h2>
-      {predefinedEvents.map((event, index) => (
-        <div key={index}>
-          <h3>{event.title}</h3>
-          <p>
-            <strong>Location:</strong> {event.location}
-            <br />
-            <strong>Date and Time:</strong> {event.date}, {event.time}
-          </p>
-        </div>
-      ))}
+      <div className="events-grid">
+        {predefinedEvents.map((event, index) => (
+          <div key={index} className="event-card">
+            <h3>{event.title}</h3>
+            <p>
+              <strong>Location:</strong> {event.location}
+              <br />
+              <strong>Date and Time:</strong> {event.date}, {event.time}
+            </p>
+          </div>
+        ))}
+      </div>
       {events.length > 0 ? (
-        <ul>
+        <div className="events-grid">
           {events.map((event) => (
-            <li key={event.id}>{event.title}</li>
+            <div key={event.id} className="event-card">
+              <h3>{event.title}</h3>
+              <p>{event.description}</p>
+            </div>
           ))}
-        </ul>
+        </div>
       ) : (
         <h2>See you there!</h2>
       )}
