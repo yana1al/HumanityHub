@@ -5,7 +5,7 @@ import GoogleMapReact from 'google-map-react';
 
 const Marker = ({ text }) => <div>{text}</div>;
 
-const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
+const stripePromise = loadStripe(process.env.STRIPE_SECRET_KEY);
 
 const Donations = () => {
   const [formData, setFormData] = useState({
@@ -99,7 +99,7 @@ const Donations = () => {
       <div>
         <h3>Monetary Donation</h3>
         <form onSubmit={handleSubmit}>
-          <label>
+          {/* <label>
             Amount:
             <input
               type="number"
@@ -116,7 +116,7 @@ const Donations = () => {
               value={formData.name}
               onChange={handleChange}
             />
-          </label>
+          </label> */}
           <button type="submit">Donate for Campaign</button>
           <p>Securely redirected to Payment Page</p>
         </form>
