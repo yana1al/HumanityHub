@@ -44,7 +44,7 @@ const Donations = () => {
   const handleMonetaryDonation = async () => {
     try {
       const stripe = await stripePromise;
-      const response = await axios.post("https://humanity-hub-back-0e67c67407b5.herokuapp.com/api/donations", {
+      const response = await axios.post("https://humanity-hub1-3599a88da879.herokuapp.com/api/donations", {
         amount: formData.amount * 100, // Stripe expects the amount in cents
       });
       const { clientSecret } = response.data;
