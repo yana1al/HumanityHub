@@ -7,12 +7,17 @@ div {
 }
 
 .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 95%;
   display: flex;
-  /* flex-direction: column; */
-  /* align-items: flex-start; */
+  align-items: center;
   color: rgb(37, 34, 55);
   background: linear-gradient(to right, #b1c0ca, #6a6954);
-  text-decoration-color: burlywood;
+  padding: 10px 20px;
+  z-index: 1000;
+  
   
 }
 
@@ -124,6 +129,7 @@ main {
   border: 2px solid #64704385;
   border-radius: 100px;
   position: relative;
+  
 }
 
 .home {
@@ -172,9 +178,9 @@ main {
   position: absolute;
   top: 0;
   right: 0;
-  width: 570px; /* Adjust width as needed to fit your design */
+  width: 757px; /* Adjust width as needed to fit your design */
   height: 30%;
-  background-image: url('./volunteer2.jpeg');
+  background-image: url('./community.jpeg');
   background-position: right;
   background-size: cover;
 }
@@ -184,18 +190,18 @@ main {
   margin-bottom: 70px;
   padding: 30px;
   text-align: justify;
-  width: calc(30% - 5px);
+  width: calc(30% - 200px);
   border-radius: inherit;
 }
 
 .how-did-we-do {
-  width: calc(50% - 170px);
+  width: calc(40% - 70px);
 }
 
 .partnered-with,
 .join-us {
   flex: 1 1 45%;
-  min-width: 300px;
+  min-width: 200px;
   margin-top: 20px;
   padding: 20px;
   border-radius: 20px;
@@ -211,7 +217,7 @@ main {
 }
 
 .partnered-with ul {
-  list-style-type: georgian;
+  list-style-type:armenian;
   padding: 0;
 }
 
