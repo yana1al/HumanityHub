@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-// import { loadStripe } from "@stripe/stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 import GoogleMapReact from 'google-map-react';
 
 const Marker = ({ text }) => <div>{text}</div>;
