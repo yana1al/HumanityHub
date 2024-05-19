@@ -100,6 +100,9 @@ const Donations = () => {
             <option value="toys">Toys</option>
             <option value="books">Books</option>
             <option value="food">Food</option>
+            <option value="refurbishedLaptops">Refurbished Laptops</option>
+            <option value="plants">Plants</option>
+            <option value="shoes">Shoes</option>
           </select>
         </label>
       </div>
