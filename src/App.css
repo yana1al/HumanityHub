@@ -1,6 +1,5 @@
 body {
   margin: 0;
-   
 }
 
 div {
@@ -9,11 +8,113 @@ div {
 
 .navbar {
   display: flex;
+  /* flex-direction: column; */
+  /* align-items: flex-start; */
+  color: rgb(37, 34, 55);
+  background: linear-gradient(to right, #b1c0ca, #6a6954);
+  text-decoration-color: burlywood;
+  
 }
+
+.navbar a {
+  margin: 5px 0;
+}
+
+.logo-container {
+  flex: 1;
+}
+
+.logo {
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo-text-main {
+  font-family: Georgia;
+  color: #120b0b;
+  text-shadow: 10px 3px 4px rgba(97, 82, 130, 0.96);
+}
+
+.logo-text-sub {
+  font-family: cursive;
+  font-weight: bold;
+}
+
+.search-bar {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-bar input {
+  width: 60%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-bar button {
+  padding: 5px 10px;
+  margin-left: 5px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.menu-icon {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+
+.menu-list {
+  position: absolute;
+  top: 60px;
+  right: 30px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.menu-item {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.menu-item:hover {
+  background-color: #f0f0f0;
+}
+
+h3, h2 {
+  font-size: 1em;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 30px;
+  text-align: center;
+  font-family: cursive;
+  text-shadow: #d4c3c3;
+  text-decoration-color: #a17990d3;
+}
+
+p {
+  font-size: 1em;
+  line-height: 1.5;
+  text-align: center;
+}
+
 
 main {
   flex-grow: 1;
-  padding: 80px 20px;
+  padding: 20px;
   padding-top: 100px;
 }
 
@@ -22,33 +123,28 @@ main {
   padding: 20px;
   border: 2px solid #64704385;
   border-radius: 100px;
-  background-size:initial;
-  background-position:bottom;
-  
-    
+  position: relative;
 }
 
 .home {
   display: flex;
   flex-direction: grid;
-  align-items: center; 
-     
+  align-items: center;
 }
 
 .home h1 {
   font-size: 2rem;
-   
 }
 
 .welcome-message {
-  background-image: url('./humanit.png'); 
-  background-size:contain;
+  background-image: url('./humanit.png');
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   padding: 20px;
   color: rgb(191, 172, 172);
-  text-align: center; 
-  height: 280px; 
+  text-align: center;
+  height: 280px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -57,34 +153,43 @@ main {
 .welcome-message a {
   color: rgb(21, 21, 17);
   font-size: 24px;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .about-link {
-  margin-top: 30px; 
+  margin-top: 30px;
 }
 
 .testimonies-container {
-  background:-moz-linear-gradient(to right, #b1c0ca, rgb(192, 171, 181));
-  display:block;;
-  width: 50%; 
+  display: flex;
+  flex-direction: column;
+  background: -moz-linear-gradient(to right, #b1c0ca, rgb(192, 171, 181));
+  position: relative;
   border-radius: 70px;
-  justify-content: space-between; 
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 570px; /* Adjust width as needed to fit your design */
+  height: 30%;
+  background-image: url('./volunteer2.jpeg');
+  background-position: right;
+  background-size: cover;
 }
 
 .testimonies {
   background: linear-gradient(to right, #b1c0ca, rgb(216, 212, 219));
   margin-bottom: 70px;
   padding: 30px;
-  text-align:justify;
-  width: calc(70% - 6px); 
+  text-align: justify;
+  width: calc(30% - 5px);
   border-radius: inherit;
-  
 }
 
 .how-did-we-do {
-  width: calc(50% - 170px); 
-  
+  width: calc(50% - 170px);
 }
 
 .partnered-with,
@@ -106,7 +211,7 @@ main {
 }
 
 .partnered-with ul {
-  list-style-type:georgian;
+  list-style-type: georgian;
   padding: 0;
 }
 
@@ -140,7 +245,8 @@ main {
   background-color: #748fad;
 }
 
-h3 ,h2{
+h3,
+h2 {
   font-size: 1em;
   margin-bottom: 30px;
   text-align: center;
@@ -152,102 +258,77 @@ h1 {
   font-family: cursive;
   text-shadow: #d4c3c3;
   text-decoration-color: #a17990d3;
-  
 }
+
 p {
   font-size: 1em;
   line-height: 1.5;
   text-align: center;
 }
 
-
-.navbar {
-  color: rgb(37, 34, 55);
-  background: linear-gradient(to right, #b1c0ca, rgb(136, 142, 94));
-  padding: 1em;
-  min-height: 2em;
-  font-family:cursive;
-  font-size: large;
-  width: 95%;
-  position: fixed;
-  align-items: center;
-  justify-content: space-between;
-  }
-
-    
-.navbar a {
-  color: #150d0d;
-  text-decoration: none;
-  font-size: 18px;
-  margin-left: 1em;
-  font-weight: bold;
-  margin-right: 1em;
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-.App {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; 
+button[type="submit"] {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #67465b;
+  color: white;
+  cursor: pointer;
 }
 
-@media (max-width: 1024px) {
-  .testimonies-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .testimonies,
-  .how-did-we-do,
-  .partnered-with,
-  .join-us {
-    flex: 1 1 100%;
-    max-width: 100%;
-  }
+.star-icon {
+  color: #ffd700;
 }
 
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .navbar a {
-    margin: 5px 0;
-  }
-
-  main {
-    padding: 20px;
-    padding-top: 100px;
-  }
+input[type="text"],
+select,
+textarea {
+  display: block;
+  width: 100%;
+  padding: 0.5em;
+  font-size: 1em;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 1em;
+  border: 2px solid #5e3b3b;
+  border-radius: 0.5em;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2);
+  transition: border-color 0.3s ease-in-out;
 }
 
-@media (max-width: 480px) {
-  .testimonies-container {
-    flex-direction: column;
-    align-items: center;
-  }
+input[type="text"]:focus,
+select:focus,
+textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
 
-  .testimonies,
-  .how-did-we-do,
-  .partnered-with,
-  .join-us {
-    flex: 1 1 100%;
-    max-width: 100%;
-  }
+button {
+  padding: 0.5em 1em;
+  font-size: 1em;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 0.5em;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
 
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+button:hover {
+  background-color: #0056b3;
+}
 
-  .navbar a {
-    margin: 5px 0;
-  }
-
-  main {
-    padding: 20px;
-    padding-top: 100px;
-  }
+ul {
+  list-style-type: none;
+  padding: 0;
 }
 
 footer {
@@ -255,19 +336,16 @@ footer {
   color: #3a3838;
   padding: 1px;
   text-align: center;
-  position: fixed; 
+  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
   margin-top: 20px;
-
 }
 
 footer a {
- 
   margin-right: 20px;
 }
-
 
 .auth-container {
   max-width: 3000px;
@@ -280,7 +358,7 @@ footer a {
 }
 
 .password-input-container {
-  position:relative;
+  position: relative;
 }
 
 .password-toggle {
@@ -292,19 +370,16 @@ footer a {
   cursor: pointer;
 }
 
-
 .form-group {
   margin-bottom: 10px;
 }
 
 label {
-  display:grid;
+  display: grid;
   margin-bottom: 1px;
 }
 
-
-input[type=""]
- {
+input[type=""] {
   width: 100%;
   padding: 20px;
   border: 1px solid #ccc;
@@ -321,7 +396,6 @@ button:hover {
   background-color: #748fad;
 }
 
-
 .about-container {
   margin: 40px;
   padding: 50px;
@@ -334,7 +408,6 @@ button:hover {
 
 .about-section {
   margin-bottom: 20px;
-  
 }
 
 .about-box {
@@ -358,9 +431,9 @@ button:hover {
 }
 
 .about-box img {
-  width: 450px; 
-  height: 350px; 
-  object-fit: cover; 
+  width: 450px;
+  height: 350px;
+  object-fit: cover;
   margin-bottom: 10px;
 }
 
@@ -374,14 +447,12 @@ button:hover {
   grid-gap: 10px;
   background-image: url(./IMG_1346.jpeg);
   background-size: contain;
-  
 }
 
 .section {
   padding: 40px;
   border: 4px solid #557a90;
   border-radius: 55px;
-  
 }
 
 .section-title {
@@ -393,5 +464,4 @@ button:hover {
 .section-text {
   font-size: 1rem;
   color: #0d0c0c;
-  
 }

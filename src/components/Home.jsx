@@ -104,6 +104,8 @@ const Home = () => {
             </div>
           </div>
         </div>
+
+        <div className="background-image"></div>
       </div>
     </div>
   );
