@@ -49,19 +49,21 @@ const Events = () => {
       title: "Humanity Hub Conference",
       location: "San Francisco, 800 Market St",
       date: "June 19 2024",
-      time: "8:00 AM"
+      time: "8:00 AM",
+      image: "/images/webinar.png"
     },
     {
-      title: "Support Abortion",
+      title: "Support LGBTQ",
       location: "UC Berkeley",
       date: "May 29 2024",
-      time: "2:00 PM onwards"
+      time: "9:00 AM onwards",
+      image: "/images/lgbtq.png"
     }
   ];
 
   return (
     <div className="events-container">
-      <form onSubmit={handleSubmitSearchEvents}>
+      <form onSubmit={handleSubmitSearchEvents} className="search-form">
         <label>
           Zip Code:
           <input type="text" name="zipCode" value={searchQuery.zipCode} onChange={handleChange} />
@@ -73,15 +75,21 @@ const Events = () => {
         <button type="submit">Affiliated Campaign with Global Giving</button>
       </form>
       <h2>Join the Campaign:</h2>
-      <div className="events-grid">
+      <div className="predefined-events">
         {predefinedEvents.map((event, index) => (
           <div key={index} className="event-card">
-            <h3>{event.title}</h3>
-            <p>
-              <strong>Location:</strong> {event.location}
-              <br />
-              <strong>Date and Time:</strong> {event.date}, {event.time}
-            </p>
+            <img src={process.env.PUBLIC_URL + event.image} alt={event.title} className="event-image" />
+            <div className="event-details">
+              <h3>{event.title}</h3>
+              <p>
+                <strong>Location:</strong> 
+                <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.location)}`} target="_blank" rel="noopener noreferrer">
+                  {event.location}
+                </a>
+                <br />
+                <strong>Date and Time:</strong> {event.date}, {event.time}
+              </p>
+            </div>
           </div>
         ))}
       </div>
