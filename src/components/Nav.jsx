@@ -4,15 +4,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import "../App.css";
 
-const Nav = ({ user, handleLogOut }) => {
+const Nav = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
-  const isAuthenticated = localStorage.getItem("token");
+  const token = localStorage.getItem("token");
+  const user = JSON.parse(localStorage.getItem("user")); // Assuming user details are stored in localStorage
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    handleLogOut();
+    localStorage.removeItem("user");
     navigate("/login");
   };
 
@@ -39,16 +40,19 @@ const Nav = ({ user, handleLogOut }) => {
       case "resources":
         navigate("/resources");
         break;
-      case "login":
-        navigate("/login");
-        break;
       case "admin":
         navigate("/admin");
+        break;
+      case "login":
+        navigate("/login");
         break;
       default:
         break;
     }
   };
+
+  const isAuthenticated = !!token;
+  const isAdmin = isAuthenticated && user && user.email.endsWith(".org");
 
   return (
     <nav className="navbar">
@@ -78,7 +82,7 @@ const Nav = ({ user, handleLogOut }) => {
           {isAuthenticated && <div className="menu-item" onClick={() => handleMenuItemClick("donations")}>Donations</div>}
           {isAuthenticated && <div className="menu-item" onClick={() => handleMenuItemClick("events")}>Events</div>}
           <div className="menu-item" onClick={() => handleMenuItemClick("resources")}>Resources</div>
-          {isAuthenticated && <div className="menu-item" onClick={() => handleMenuItemClick("admin")}>Admin</div>}
+          {isAdmin && <div className="menu-item" onClick={() => handleMenuItemClick("admin")}>Admin</div>}
           {isAuthenticated ? (
             <div className="menu-item" onClick={handleLogout}>LogOut</div>
           ) : (

@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { faStar, faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 
-const Home = () => {
+const Home = ({ user, isAdmin }) => {
   const [testimonyFormData, setTestimonyFormData] = useState({
-    name: "",
+    name: user?.name || "",
     testimony: "",
     rating: 5,
   });
@@ -13,6 +13,12 @@ const Home = () => {
     { id: 1, name: "Anupa Sharma", testimony: "This platform changed my life!", rating: 5, donatedAmount: 1 },
     { id: 2, name: "Yana Bhandari", testimony: "I'm grateful for the opportunities provided by this organization.", rating: 5, donatedAmount: 1 }
   ]);
+  const [editingTestimony, setEditingTestimony] = useState(null);
+
+  useEffect(() => {
+    // Fetch testimonies from the backend (mocked here)
+    // In a real app, replace with API call to fetch testimonies
+  }, []);
 
   const renderStars = (rating) => {
     const stars = [];
@@ -36,10 +42,27 @@ const Home = () => {
       alert("Please provide your name and testimony.");
       return;
     }
-    const newTestimony = { ...testimonyFormData, id: testimonies.length + 1, donatedAmount: 1 };
-    setTestimonies([...testimonies, newTestimony]);
-    // Reset form data
-    setTestimonyFormData({ name: "", testimony: "", rating: 5 });
+    if (editingTestimony) {
+      // Update existing testimony
+      setTestimonies(testimonies.map(testimony => 
+        testimony.id === editingTestimony.id ? { ...editingTestimony, ...testimonyFormData } : testimony
+      ));
+      setEditingTestimony(null);
+    } else {
+      // Add new testimony
+      const newTestimony = { ...testimonyFormData, id: testimonies.length + 1, donatedAmount: 1 };
+      setTestimonies([...testimonies, newTestimony]);
+    }
+    setTestimonyFormData({ name: user?.name || "", testimony: "", rating: 5 });
+  };
+
+  const handleEdit = (testimony) => {
+    setEditingTestimony(testimony);
+    setTestimonyFormData(testimony);
+  };
+
+  const handleDelete = (id) => {
+    setTestimonies(testimonies.filter(testimony => testimony.id !== id));
   };
 
   return (
@@ -47,9 +70,8 @@ const Home = () => {
       <div className="welcome-message">
         <Link to="/about">Want to Know Us? Hop on In!</Link>
       </div>
-     
-      <div className="testimonies-container">
       
+      <div className="testimonies-container">
         <div className="testimonies" style={{ marginTop: '20px' }}>
           <h3>Testimonies</h3>
           {testimonies.map((testimony) => (
@@ -60,41 +82,50 @@ const Home = () => {
               </div>
               <p>- {testimony.name}</p>
               <p>Subsidy: ${testimony.donatedAmount}</p>
+              {(user?.name === testimony.name || isAdmin) && (
+                <div className="testimony-actions">
+                  <button onClick={() => handleEdit(testimony)}><FontAwesomeIcon icon={faEdit} /></button>
+                  <button onClick={() => handleDelete(testimony.id)}><FontAwesomeIcon icon={faTrash} /></button>
+                </div>
+              )}
             </div>
           ))}
         </div>
-        <div className="how-did-we-do">
-        <div className="background-image"></div>
-          <h3>Any Suggestions?</h3>
-          <form onSubmit={handleSubmit}>
-            <label>
-              Name:
-              <input type="text" name="name" value={testimonyFormData.name} onChange={handleChange} required />
-            </label>
-            <label>
-              Review:
-              <textarea name="testimony" value={testimonyFormData.testimony} onChange={handleChange} required />
-            </label>
-            <label>
-              Rating:
-              <select name="rating" value={testimonyFormData.rating} onChange={handleChange}>
-                {[1, 2, 3, 4, 5].map((rating) => (
-                  <option key={rating} value={rating}>{rating}</option>
-                ))}
-              </select>
-            </label>
-            <button type="submit">Post & Donate</button>
-          </form>
-        </div>
         
+        {user && (
+          <div className="how-did-we-do">
+            <div className="background-image"></div>
+            <h3>Any Suggestions?</h3>
+            <form onSubmit={handleSubmit}>
+              <label>
+                Name:
+                <input type="text" name="name" value={testimonyFormData.name} onChange={handleChange} readOnly />
+              </label>
+              <label>
+                Review:
+                <textarea name="testimony" value={testimonyFormData.testimony} onChange={handleChange} required />
+              </label>
+              <label>
+                Rating:
+                <select name="rating" value={testimonyFormData.rating} onChange={handleChange}>
+                  {[1, 2, 3, 4, 5].map((rating) => (
+                    <option key={rating} value={rating}>{rating}</option>
+                  ))}
+                </select>
+              </label>
+              <button type="submit">{editingTestimony ? "Update" : "Post & Donate"}</button>
+            </form>
+          </div>
+        )}
+
         <div className="partnered-with">
           <u><h1>Partnered with:</h1></u>
           <ul>
             <li><a href="https://www.globalgiving.org/" target="_blank" rel="noopener noreferrer">GlobalGiving</a></li>
             <li><a href="https://dashboard.stripe.com/test/dashboard" target="_blank" rel="noopener noreferrer">Stripe</a></li>
-          </ul> 
+          </ul>
         </div>
-        
+
         <div className="join-us">
           <div className="join-us-content">
             <h3>Many More....</h3>
@@ -106,8 +137,6 @@ const Home = () => {
             </div>
           </div>
         </div>
-        
-        
       </div>
     </div>
   );

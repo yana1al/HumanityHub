@@ -15,35 +15,47 @@ import PrivacyPolicyDetails from "./components/PrivacyPolicyDetails";
 import ConnectUs from "./components/ConnectUs";
 import SubscribeUs from "./components/SubscribeUs";
 import Volunteer from "./components/Volunteer";
-import AdminHome from "./components/AdminHome";
+import AdminLogIn from "../pages/AdminLogIn";
+import Admin from "./components/Admin"; // Import the Admin component
 import { checkSession } from "../services/auth";
 
-
 const App = () => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null); // State to hold user data
+  const [isAdmin, setIsAdmin] = useState(false); // State to determine if user is admin
 
+  
   const handleLogOut = () => {
     setUser(null);
     localStorage.clear();
   };
 
+ 
   useEffect(() => {
     const checkToken = async () => {
+
       const user = await checkSession();
       setUser(user);
+
+      setIsAdmin(user?.role === "admin"); 
     };
+
 
     const token = localStorage.getItem("token");
     if (token) {
+
       checkToken();
     }
   }, []);
 
   return (
     <div className="App">
+      
       <Nav user={user} handleLogOut={handleLogOut} />
+      
       <main>
+        
         <Routes>
+         
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/events" element={<Events />} />
@@ -57,9 +69,15 @@ const App = () => {
           <Route path="/googleLoginButton" element={<GoogleLoginButton setUser={setUser} />} />
           <Route path="/register" element={<Register setUser={setUser} />} />
           <Route path="/volunteer" element={<Volunteer />} />
-          <Route path="/admin" element={<AdminHome />} />
+
+          
+          {isAdmin && <Route path="/admin" element={<Admin />} />}
+          
+          
+          <Route path="/adminLogin" element={<AdminLogIn />} />
         </Routes>
       </main>
+      
       <footer>
         <Link to="/connectUs">Connect with Us</Link>
         <Link to="/subscribeUs">Subscribe Now</Link>
