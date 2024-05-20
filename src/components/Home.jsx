@@ -49,7 +49,7 @@ const Home = () => {
       </div>
      
       <div className="testimonies-container">
-      <div className="background-image"></div>
+      
         <div className="testimonies" style={{ marginTop: '20px' }}>
           <h3>Testimonies</h3>
           {testimonies.map((testimony) => (
@@ -64,6 +64,7 @@ const Home = () => {
           ))}
         </div>
         <div className="how-did-we-do">
+        <div className="background-image"></div>
           <h3>Any Suggestions?</h3>
           <form onSubmit={handleSubmit}>
             <label>
@@ -105,7 +106,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-
+        
         
       </div>
     </div>

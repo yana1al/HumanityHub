@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import "../App.css";
 
-const Nav = () => {
+const Nav = ({ user, handleLogOut }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
@@ -12,6 +12,7 @@ const Nav = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
+    handleLogOut();
     navigate("/login");
   };
 
@@ -40,6 +41,9 @@ const Nav = () => {
         break;
       case "login":
         navigate("/login");
+        break;
+      case "admin":
+        navigate("/admin");
         break;
       default:
         break;
@@ -74,6 +78,7 @@ const Nav = () => {
           {isAuthenticated && <div className="menu-item" onClick={() => handleMenuItemClick("donations")}>Donations</div>}
           {isAuthenticated && <div className="menu-item" onClick={() => handleMenuItemClick("events")}>Events</div>}
           <div className="menu-item" onClick={() => handleMenuItemClick("resources")}>Resources</div>
+          {isAuthenticated && <div className="menu-item" onClick={() => handleMenuItemClick("admin")}>Admin</div>}
           {isAuthenticated ? (
             <div className="menu-item" onClick={handleLogout}>LogOut</div>
           ) : (

@@ -6,6 +6,12 @@ div {
   background-size: cover;
 }
 
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .navbar {
   position: fixed;
   top: 0;
@@ -17,8 +23,7 @@ div {
   background: linear-gradient(to right, #b1c0ca, #6a6954);
   padding: 10px 20px;
   z-index: 1000;
-  
-  
+   
 }
 
 .navbar a {
@@ -77,6 +82,7 @@ div {
 }
 
 .menu-list {
+  display: none;
   position: absolute;
   top: 60px;
   right: 30px;
@@ -124,17 +130,17 @@ main {
 }
 
 .home-container {
-  margin: 1px;
+  margin: 10px;
   padding: 20px;
   border: 2px solid #64704385;
   border-radius: 100px;
-  position: relative;
+  /* position: relative; */
   
 }
 
 .home {
   display: flex;
-  flex-direction: grid;
+  flex-direction: column;
   align-items: center;
 }
 
@@ -175,14 +181,16 @@ main {
 }
 
 .background-image {
-  position: absolute;
+  position:absolute;
   top: 0;
   right: 0;
-  width: 690px; 
-  height: 40%;
-  background-image: url('./demarketing-ex2-1.png');
-  background-position: right;
-  background-size: cover;
+  width: 450px; 
+  height: 103%;
+  background-image: url('./homepage.png');
+  background-position:2rem;
+  background-size:30rem;
+  background-repeat: no-repeat;
+  
 }
 
 .testimonies {
@@ -190,12 +198,12 @@ main {
   margin-bottom: 70px;
   padding: 30px;
   text-align: justify;
-  width: calc(40% - 200px);
+  width: calc(100% - 200px);
   border-radius: inherit;
 }
 
 .how-did-we-do {
-  width: calc(40% - 70px);
+  width: calc(60% - 70px);
 }
 
 .partnered-with,
@@ -448,8 +456,8 @@ button:hover {
 }
 
 .about-container {
-  margin: 40px;
-  padding: 50px;
+  margin: 20px;
+  padding: 20px;
   border: 3px solid #b0c36b;
   border-radius: 33px;
   background-color: #ececec;
@@ -482,8 +490,8 @@ button:hover {
 }
 
 .about-box img {
-  width: 450px;
-  height: 350px;
+  width: 100%;
+  height: auto;
   object-fit: cover;
   margin-bottom: 10px;
 }
@@ -497,7 +505,7 @@ button:hover {
   grid-template-columns: repeat(auto-fit, minmax(1000px, 1fr));
   grid-gap: 10px;
   background-image: url(./IMG_1346.jpeg);
-  background-size: contain;
+  
 }
 
 .section {
