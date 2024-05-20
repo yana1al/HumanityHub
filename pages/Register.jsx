@@ -18,7 +18,7 @@ const Register = () => {
         password,
       });
       console.log(response.data);
-      navigate("/logIn");
+      navigate("/login");
     } catch (error) {
       console.error("Error registering user:", error);
     }
@@ -33,6 +33,7 @@ const Register = () => {
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          className="auth-input"
           autoComplete="username"
         />
         <input
@@ -40,6 +41,7 @@ const Register = () => {
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          className="auth-input"
           autoComplete="email"
         />
         <div className="password-input-container">
@@ -48,6 +50,7 @@ const Register = () => {
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            className="auth-input"
             autoComplete="current-password"
           />
           <button
@@ -63,7 +66,6 @@ const Register = () => {
       <p>
         Member with Us? <Link to="/login">Login here</Link>.
       </p>
-    
     </div>
   );
 };

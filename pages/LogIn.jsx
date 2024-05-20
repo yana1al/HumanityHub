@@ -3,7 +3,6 @@ import { useNavigate, Link } from "react-router-dom";
 import Client from "../services/apis";
 import GoogleLoginButton from "./GoogleLoginButton"
 
-
 const LogIn = () => {
   const [usernameOrEmail, setUsernameOrEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -34,6 +33,7 @@ const LogIn = () => {
           placeholder="Username or Email"
           value={usernameOrEmail}
           onChange={(e) => setUsernameOrEmail(e.target.value)}
+          className="auth-input"
           autoComplete="username"
         />
         <div className="password-input-container">
@@ -42,6 +42,7 @@ const LogIn = () => {
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            className="auth-input"
             autoComplete="current-password"
           />
           <button

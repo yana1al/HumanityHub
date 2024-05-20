@@ -3,7 +3,10 @@ import React from "react";
 const Volunteer = () => {
   return (
     <div className="volunteer">
-      <h2>Helping Hands @ HH!</h2>
+      
+      <h1>Helping Hands @ HH!</h1>
+        <img src="/images/IMG_1347.jpeg" alt="Helping Hands @ HH!" className="title-image" />
+         
       <p>
         Thank you for your interest in volunteering with Humanity Hub! We
         appreciate your willingness to contribute your time and skills to make
