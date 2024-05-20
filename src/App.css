@@ -178,9 +178,9 @@ main {
   position: absolute;
   top: 0;
   right: 0;
-  width: 757px; /* Adjust width as needed to fit your design */
-  height: 30%;
-  background-image: url('./community.jpeg');
+  width: 690px; 
+  height: 40%;
+  background-image: url('./demarketing-ex2-1.png');
   background-position: right;
   background-size: cover;
 }
@@ -190,7 +190,7 @@ main {
   margin-bottom: 70px;
   padding: 30px;
   text-align: justify;
-  width: calc(30% - 200px);
+  width: calc(40% - 200px);
   border-radius: inherit;
 }
 
