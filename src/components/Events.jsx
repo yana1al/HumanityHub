@@ -54,16 +54,24 @@ const Events = () => {
       image: "/images/webinar.png"
     },
     {
-      title: "Support LGBTQ",
-      location: "UC Berkeley",
-      date: "May 29 2024",
+      title: "SPride Parade",
+      location: "Financial District, SF Bay",
+      date: "June 2 2024",
       time: "9:00 AM onwards",
       image: "/images/lgbtq.png"
-    }
+    },
+    {
+    title: "Spring Festival",
+    location: "San Francisco Ballet School",
+    date: "May 30, 2024",
+    time: "12:00 PM onwards",
+    image: "/image/ballet.png"
+  },
   ];
 
   return (
     <div className="events-container">
+      <h1>Humanity Hub Campaigns & Events</h1>
       <form onSubmit={handleSubmitSearchEvents} className="search-form">
         <label>
           Zip Code:
