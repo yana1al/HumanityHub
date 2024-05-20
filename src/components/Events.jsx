@@ -80,7 +80,7 @@ const Events = () => {
       <div className="predefined-events">
         {predefinedEvents.map((event, index) => (
           <div key={index} className="event-card">
-            <img src={event.image} alt={event.title} className="event-image" />
+            <img src={process.env.PUBLIC_URL + event.image} alt={event.title} className="event-image" />
             <div className="event-details">
               <h3>{event.title}</h3>
               <p>
