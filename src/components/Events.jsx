@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import webinarImage from "../images/webinar.png";
+import lgbtqImage from "../images/lgbtq.png";
 
 const Events = () => {
   const [events, setEvents] = useState([]);
@@ -50,14 +52,14 @@ const Events = () => {
       location: "San Francisco, 800 Market St",
       date: "June 19 2024",
       time: "8:00 AM",
-      image: "/images/webinar.png"
+      image: webinarImage
     },
     {
       title: "Support LGBTQ",
       location: "UC Berkeley",
       date: "May 29 2024",
       time: "9:00 AM onwards",
-      image: "/images/lgbtq.png"
+      image: lgbtqImage
     }
   ];
 
@@ -78,7 +80,7 @@ const Events = () => {
       <div className="predefined-events">
         {predefinedEvents.map((event, index) => (
           <div key={index} className="event-card">
-            <img src={process.env.PUBLIC_URL + event.image} alt={event.title} className="event-image" />
+            <img src={event.image} alt={event.title} className="event-image" />
             <div className="event-details">
               <h3>{event.title}</h3>
               <p>
