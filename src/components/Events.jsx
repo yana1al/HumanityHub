@@ -54,7 +54,7 @@ const Events = () => {
       image: "/images/webinar.png"
     },
     {
-      title: "SPride Parade",
+      title: "Pride Parade",
       location: "Financial District, SF Bay",
       date: "June 2 2024",
       time: "9:00 AM onwards",
@@ -65,7 +65,7 @@ const Events = () => {
     location: "San Francisco Ballet School",
     date: "May 30, 2024",
     time: "12:00 PM onwards",
-    image: "/image/ballet.png"
+    image: "/images/ballet.png"
   },
   ];
 
