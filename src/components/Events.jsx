@@ -26,16 +26,17 @@ const Events = () => {
       const response = await axios.get("https://humanity-hub1-3599a88da879.herokuapp.com/api/events", {
         params: searchQuery
       });
-
-      navigate("https://www.globalgiving.org/search/?size=25&nextPage=1&sortField=sortorder&loadAllResults=true");  // Use navigate
+  
+      // Redirect to the external URL
+      window.location.href = "https://www.globalgiving.org/search/?size=25&nextPage=1&sortField=sortorder&loadAllResults=true";
     } catch (error) {
       console.error("Failed to fetch events:", error);
     }
   };
-
+  
   const fetchEvents = async () => {
     try {
-      const response = await axios.get("https://humanity-hub-back-0e67c67407b5.herokuapp.com/");
+      const response = await axios.get("https://humanity-hub-back-0e67c67407b5.herokuapp.com/api/events");
       setEvents(response.data);
     } catch (error) {
       console.error("Failed to fetch events:", error);
