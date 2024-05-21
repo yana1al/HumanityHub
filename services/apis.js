@@ -48,4 +48,14 @@ export const fetchEventsByCity = async (city) => {
   }
 };
 
+export const createEvent = async (eventData) => {
+  try {
+    const response = await Client.post("/api/events", eventData);
+    return response.data;
+  } catch (error) {
+    console.error("Error creating event:", error);
+    throw error;
+  }
+};
+
 export default Client;
