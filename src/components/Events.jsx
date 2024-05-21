@@ -57,15 +57,28 @@ const Events = () => {
       time: "8:00 AM",
       image: "/images/webinar.png"
     },
-    // Add more predefined events here
-  ];
+  {
+    title: "Pride Parade",
+    location: "Financial District, SF Bay",
+    date: "June 2 2024",
+    time: "9:00 AM onwards",
+    image: "/images/lgbtq.png"
+  },
+  
+  {
+  title: "Spring Festival",
+  location: "San Francisco Ballet School",
+  date: "May 30, 2024",
+  time: "12:00 PM onwards",
+  image: "/images/ballet.png"
+},
+];
 
-  // Render the Events component
   return (
     <div className="events-container">
       {/* Heading */}
       <h1>Humanity Hub Campaigns & Events</h1>
-      {/* Search form */}
+      
       <form onSubmit={handleSubmitSearchEvents} className="search-form">
         <label>
           Zip Code:
@@ -77,10 +90,12 @@ const Events = () => {
         </label>
         <button type="submit">Search Events</button>
       </form>
-      {/* Link to Create New Event page */}
-      <Link to="/createEvents">Create New Event</Link>
-      {/* Display predefined events */}
-      <h2>Join the Campaign:</h2>
+      
+      <Link to="/createEvents">Let's Host Event or Campaign Together</Link> 
+
+      <h2>OR</h2>
+      
+      <h2>Join with Us:</h2>
       <div className="predefined-events">
         {predefinedEvents.map((event, index) => (
           <div key={index} className="event-card">
