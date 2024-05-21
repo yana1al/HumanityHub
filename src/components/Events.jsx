@@ -23,7 +23,7 @@ const Events = () => {
   const handleSubmitSearchEvents = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.get("https://humanity-hub-back-0e67c67407b5.herokuapp.com/api/events", {
+      const response = await axios.get("https://humanity-hub1-3599a88da879.herokuapp.com/api/events", {
         params: searchQuery
       });
 
@@ -35,7 +35,7 @@ const Events = () => {
 
   const fetchEvents = async () => {
     try {
-      const response = await axios.get("https://humanity-hub-back-0e67c67407b5.herokuapp.com/");
+      const response = await axios.get("https://humanity-hub-back-0e67c67407b5.herokuapp.com/api/events");
       setEvents(response.data);
     } catch (error) {
       console.error("Failed to fetch events:", error);
