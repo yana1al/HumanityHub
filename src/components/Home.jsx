@@ -19,8 +19,7 @@ const Home = ({ user, isAdmin }) => {
   const [editingTestimony, setEditingTestimony] = useState(null);
 
   useEffect(() => {
-    // Fetch testimonies from the backend (mocked here)
-    // In a real app, replace with API call to fetch testimonies
+    
   }, []);
 
   const renderStars = (rating) => {
