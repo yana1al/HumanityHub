@@ -1,4 +1,3 @@
-
 import axios from "axios";
 
 export const BASE_URL = "https://humanity-hub1-3599a88da879.herokuapp.com/";
@@ -29,29 +28,75 @@ export const donate = async (donationAmount) => {
 };
 
 export const fetchEventsByZipCode = async (zipCode) => {
-  const response = await axios.get(`https://humanity-hub1-3599a88da879.herokuapp.com/api/events?zipCode=${zipCode}`);
-  return response.data;
+  try {
+    const response = await Client.get(`/api/events`, { params: { zipCode } });
+    if (response.headers['content-type'].includes('application/json')) {
+      return response.data;
+    } else {
+      console.error("Expected JSON response but got:", response);
+      return [];
+    }
+  } catch (error) {
+    console.error("Error fetching events by zip code:", error);
+    throw error;
+  }
 };
 
 export const fetchEventsByCity = async (city) => {
-  const response = await axios.get(`https://humanity-hub1-3599a88da879.herokuapp.com/api/events?city=${city}`);
-  return response.data;
+  try {
+    const response = await Client.get(`/api/events`, { params: { city } });
+    if (response.headers['content-type'].includes('application/json')) {
+      return response.data;
+    } else {
+      console.error("Expected JSON response but got:", response);
+      return [];
+    }
+  } catch (error) {
+    console.error("Error fetching events by city:", error);
+    throw error;
+  }
 };
 
 export const fetchAllEvents = async () => {
-  const response = await axios.get("https://humanity-hub1-3599a88da879.herokuapp.com/api/events");
-  return response.data;
+  try {
+    const response = await Client.get(`/api/events`);
+    if (response.headers['content-type'].includes('application/json')) {
+      return response.data;
+    } else {
+      console.error("Expected JSON response but got:", response);
+      return [];
+    }
+  } catch (error) {
+    console.error("Error fetching all events:", error);
+    throw error;
+  }
 };
 
 export const createEvent = async (eventData) => {
-  const response = await axios.post("https://humanity-hub1-3599a88da879.herokuapp.com/api/events", eventData);
-  return response.data;
+  try {
+    const response = await Client.post(`/api/events`, eventData);
+    if (response.headers['content-type'].includes('application/json')) {
+      return response.data;
+    } else {
+      console.error("Expected JSON response but got:", response);
+      return null;
+    }
+  } catch (error) {
+    console.error("Error creating event:", error);
+    throw error;
+  }
 };
+
 
 export const fetchTestimonies = async () => {
   try {
     const response = await Client.get("/api/testimonies");
-    return response.data;
+    if (response.headers['content-type'].includes('application/json')) {
+      return response.data;
+    } else {
+      console.error("Expected JSON response but got:", response);
+      return [];
+    }
   } catch (error) {
     console.error("Error fetching testimonies:", error);
     throw error;

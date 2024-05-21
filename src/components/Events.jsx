@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { fetchEventsByZipCode, fetchEventsByCity, fetchAllEvents } from "../../services/apis"; // Adjusted path
+import { fetchAllEvents } from "../../services/apis"; // Adjusted path
 
 const Events = () => {
   const [events, setEvents] = useState([]);
   const [searchQuery, setSearchQuery] = useState({ zipCode: "", city: "" });
-  const navigate = useNavigate();
+  
 
   useEffect(() => {
     fetchEvents();
@@ -26,6 +26,7 @@ const Events = () => {
       const response = await axios.get("https://humanity-hub1-3599a88da879.herokuapp.com/api/events", {
         params: searchQuery
       });
+      console.log("Fetched events:", response.data);
   
       // Redirect to the external URL
       window.location.href = "https://www.globalgiving.org/search/?size=25&nextPage=1&sortField=sortorder&loadAllResults=true";
@@ -36,7 +37,7 @@ const Events = () => {
 
   const fetchEvents = async () => {
     try {
-      const response = await fetchAllEvents(); // Fetching all events from your API
+      const response = await fetchAllEvents(); 
       if (Array.isArray(response)) {
         setEvents(response);
       } else {
