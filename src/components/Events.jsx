@@ -88,7 +88,7 @@ const Events = () => {
           City:
           <input type="text" name="city" value={searchQuery.city} onChange={handleChange} />
         </label>
-        <button type="submit">Search Events</button>
+        <button type="submit">Affiliated with Global Giving</button>
       </form>
       
       <Link to="/createEvents">Let's Host Event or Campaign Together</Link> 
