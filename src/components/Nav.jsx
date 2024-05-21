@@ -11,6 +11,9 @@ const Nav = () => {
   const token = localStorage.getItem("token");
   const user = JSON.parse(localStorage.getItem("user")); // Assuming user details are stored in localStorage
 
+  // Define isAuthenticated based on the existence of token and user
+  const isAuthenticated = !!token && !!user;
+
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
@@ -40,8 +43,8 @@ const Nav = () => {
       case "resources":
         navigate("/resources");
         break;
-      case "admin":
-        navigate("/admin");
+      case "createEvents":
+        navigate("/createEvents");
         break;
       case "login":
         navigate("/login");
