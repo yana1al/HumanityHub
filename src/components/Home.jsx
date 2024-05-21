@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const Home = ({ user, isAdmin }) => {
+  console.log(user);
   const [testimonyFormData, setTestimonyFormData] = useState({
     name: user?.name || "",
     testimony: "",
