@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";  
-
+import { fetchEventsByZipCode, fetchEventsByCity, fetchAllEvents } from "../../services/apis"; // Adjusted path
 
 const Events = () => {
   const [events, setEvents] = useState([]);
   const [searchQuery, setSearchQuery] = useState({ zipCode: "", city: "" });
-  const navigate = useNavigate();  // Use useNavigate
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchEvents();
@@ -16,7 +16,7 @@ const Events = () => {
     const { name, value } = e.target;
     setSearchQuery((prevQuery) => ({
       ...prevQuery,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -33,11 +33,11 @@ const Events = () => {
       console.error("Failed to fetch events:", error);
     }
   };
-  
+
   const fetchEvents = async () => {
     try {
-      const response = await axios.get("https://humanity-hub-back-0e67c67407b5.herokuapp.com/api/events");
-      setEvents(response.data);
+      const response = await fetchAllEvents(); // Fetching all events from your API
+      setEvents(response);
     } catch (error) {
       console.error("Failed to fetch events:", error);
     }
@@ -49,21 +49,21 @@ const Events = () => {
       location: "San Francisco, 800 Market St",
       date: "June 19 2024",
       time: "8:00 AM",
-      image: "/images/webinar.png"
+      image: "/images/webinar.png",
     },
     {
       title: "Pride Parade",
       location: "Financial District, SF Bay",
       date: "June 2 2024",
       time: "9:00 AM onwards",
-      image: "/images/lgbtq.png"
+      image: "/images/lgbtq.png",
     },
     {
       title: "Spring Festival",
       location: "San Francisco Ballet School",
       date: "May 30, 2024",
       time: "12:00 PM onwards",
-      image: "/images/ballet.png"
+      image: "/images/ballet.png",
     },
   ];
 
@@ -115,7 +115,6 @@ const Events = () => {
           </div>
         ))}
       </div>
-
     </div>
   );
 };

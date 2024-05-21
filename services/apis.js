@@ -29,33 +29,23 @@ export const donate = async (donationAmount) => {
 };
 
 export const fetchEventsByZipCode = async (zipCode) => {
-  try {
-    const response = await Client.get(`/api/events?zipCode=${zipCode}`);
-    return response.data; 
-  } catch (error) {
-    console.error("Error fetching events by zip code:", error);
-    throw error; 
-  }
+  const response = await axios.get(`https://humanity-hub1-3599a88da879.herokuapp.com/api/events?zipCode=${zipCode}`);
+  return response.data;
 };
 
 export const fetchEventsByCity = async (city) => {
-  try {
-    const response = await Client.get(`/api/events?city=${city}`);
-    return response.data; 
-  } catch (error) {
-    console.error("Error fetching events by city:", error);
-    throw error; 
-  }
+  const response = await axios.get(`https://humanity-hub1-3599a88da879.herokuapp.com/api/events?city=${city}`);
+  return response.data;
+};
+
+export const fetchAllEvents = async () => {
+  const response = await axios.get("https://humanity-hub1-3599a88da879.herokuapp.com/api/events");
+  return response.data;
 };
 
 export const createEvent = async (eventData) => {
-  try {
-    const response = await Client.post("/api/events", eventData);
-    return response.data;
-  } catch (error) {
-    console.error("Error creating event:", error);
-    throw error;
-  }
+  const response = await axios.post("https://humanity-hub1-3599a88da879.herokuapp.com/api/events", eventData);
+  return response.data;
 };
 
 export const fetchTestimonies = async () => {
