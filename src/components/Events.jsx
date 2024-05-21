@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";  // Import useNavigate
-import CreateEvents from './CreateEvents'
+import { Link, useNavigate } from "react-router-dom";  
+
 
 const Events = () => {
   const [events, setEvents] = useState([]);
@@ -115,8 +115,6 @@ const Events = () => {
         ))}
       </div>
 
-      {/* Example usage of CreateEvents component */}
-      <CreateEvents />
     </div>
   );
 };
