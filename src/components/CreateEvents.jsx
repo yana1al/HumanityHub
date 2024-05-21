@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const CreateEvents = () => {
-  const navigate = useNavigate();  // Use useNavigate hook
+  const navigate = useNavigate();  
 
   const [eventData, setEventData] = useState({
     title: "",
@@ -56,7 +56,7 @@ const CreateEvents = () => {
           zipCode: ""
         }
       });
-      navigate("/events");  // Use navigate to programmatically navigate
+      navigate("/events"); 
     } catch (error) {
       console.error("Error creating event:", error);
     }

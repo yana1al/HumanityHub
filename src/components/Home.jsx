@@ -37,25 +37,26 @@ const Home = ({ user, isAdmin }) => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!testimonyFormData.name || !testimonyFormData.testimony) {
-      alert("Please provide your name and testimony.");
-      return;
+    try {
+      if (!testimonyFormData.name || !testimonyFormData.testimony) {
+        alert("Please provide your name and testimony.");
+        return;
+      }
+      const response = await axios.post("/api/testimonies", testimonyFormData);
+      alert("Review posted successfully!");
+      
+      setTestimonyFormData({
+        name: user?.name || "",
+        testimony: "",
+        rating: 5
+      });
+    } catch (error) {
+      console.error("Error posting review:", error);
     }
-    if (editingTestimony) {
-      // Update existing testimony
-      setTestimonies(testimonies.map(testimony => 
-        testimony.id === editingTestimony.id ? { ...editingTestimony, ...testimonyFormData } : testimony
-      ));
-      setEditingTestimony(null);
-    } else {
-      // Add new testimony
-      const newTestimony = { ...testimonyFormData, id: testimonies.length + 1, donatedAmount: 1 };
-      setTestimonies([...testimonies, newTestimony]);
-    }
-    setTestimonyFormData({ name: user?.name || "", testimony: "", rating: 5 });
   };
+  
 
   const handleEdit = (testimony) => {
     setEditingTestimony(testimony);
@@ -93,14 +94,14 @@ const Home = ({ user, isAdmin }) => {
           ))}
         </div>
         
-        {user && (
+        
           <div className="how-did-we-do">
             <div className="background-image"></div>
             <h3>Any Suggestions?</h3>
             <form onSubmit={handleSubmit}>
               <label>
                 Name:
-                <input type="text" name="name" value={testimonyFormData.name} onChange={handleChange} readOnly />
+                <input type="text" name="name" value={testimonyFormData.name} onChange={handleChange} required />
               </label>
               <label>
                 Review:
@@ -117,7 +118,7 @@ const Home = ({ user, isAdmin }) => {
               <button type="submit">{editingTestimony ? "Update" : "Post & Donate"}</button>
             </form>
           </div>
-        )}
+      
 
         <div className="partnered-with">
           <u><h1>Partnered with:</h1></u>
