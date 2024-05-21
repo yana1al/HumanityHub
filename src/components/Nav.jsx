@@ -51,9 +51,6 @@ const Nav = () => {
     }
   };
 
-  const isAuthenticated = !!token;
-  const isAdmin = isAuthenticated && user && user.email.endsWith(".org");
-
   return (
     <nav className="navbar">
       <div className="logo-container">
@@ -81,8 +78,8 @@ const Nav = () => {
           <div className="menu-item" onClick={() => handleMenuItemClick("about")}>About Us</div>
           {isAuthenticated && <div className="menu-item" onClick={() => handleMenuItemClick("donations")}>Donations</div>}
           {isAuthenticated && <div className="menu-item" onClick={() => handleMenuItemClick("events")}>Events</div>}
-          <div className="menu-item" onClick={() => handleMenuItemClick("resources")}>Resources</div>
-           <div className="menu-item" onClick={() => handleMenuItemClick("admin")}>Admin</div>
+           <div className="menu-item" onClick={() => handleMenuItemClick("resources")}>Resources</div>
+           {isAuthenticated && <div className="menu-item" onClick={() => handleMenuItemClick("createEvents")}>New Events</div>}
           {isAuthenticated ? (
             <div className="menu-item" onClick={handleLogout}>LogOut</div>
           ) : (

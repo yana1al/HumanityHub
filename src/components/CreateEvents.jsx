@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const Admin = () => {
+const CreateEvents = () => {
   const [eventData, setEventData] = useState({
     title: "",
     description: "",
@@ -53,6 +53,7 @@ const Admin = () => {
           zipCode: ""
         }
       });
+      history.push("/events");
     } catch (error) {
       console.error("Error creating event:", error);
     }
@@ -95,8 +96,8 @@ const Admin = () => {
   ];
 
   return (
-    <div className="admin-container">
-      <h2>Create Event</h2>
+    <div className="create-event-page">
+      <h2>Host Your Event with HH</h2>
       <form onSubmit={handleSubmit}>
         <label>
           Title:
@@ -151,4 +152,4 @@ const Admin = () => {
   );
 };
 
-export default Admin;
+export default CreateEvents;
