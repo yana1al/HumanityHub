@@ -1,12 +1,12 @@
-// Events.jsx
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
-import CreateEvents from './CreateEvents'; // Ensure this is used within the component
+import { Link, useNavigate } from "react-router-dom";  // Import useNavigate
+import CreateEvents from './CreateEvents'
 
 const Events = () => {
   const [events, setEvents] = useState([]);
   const [searchQuery, setSearchQuery] = useState({ zipCode: "", city: "" });
+  const navigate = useNavigate();  // Use useNavigate
 
   useEffect(() => {
     fetchEvents();
@@ -27,7 +27,7 @@ const Events = () => {
         params: searchQuery
       });
 
-      window.location.href = "https://www.globalgiving.org/search/?size=25&nextPage=1&sortField=sortorder&loadAllResults=true";
+      navigate("https://www.globalgiving.org/search/?size=25&nextPage=1&sortField=sortorder&loadAllResults=true");  // Use navigate
     } catch (error) {
       console.error("Failed to fetch events:", error);
     }
@@ -115,7 +115,7 @@ const Events = () => {
         ))}
       </div>
 
-  
+      {/* Example usage of CreateEvents component */}
       <CreateEvents />
     </div>
   );
