@@ -87,7 +87,7 @@ const Events = () => {
         <button type="submit">Affiliated with Global Giving</button>
       </form>
       
-      <Link to="/createEvents">Let's Host Event or Campaign Together</Link> 
+      <Link to="/createEvents">Let's Host Event or Campaign Together!</Link> 
 
       <h2>OR</h2>
       
@@ -120,7 +120,7 @@ const Events = () => {
             </div>
           ))
         ) : (
-          <p>No events found</p>
+          <p>See you there!</p>
         )}
       </div>
     </div>
