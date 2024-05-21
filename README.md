@@ -69,16 +69,21 @@ The project will focus on building the MVP (Minimum Viable Product) with the fol
 
 [HUMANITY HUB (HH).pptx](https://github.com/yana1al/HumanityHub/files/15270118/HUMANITY.HUB.HH.pptx)
 
-### Deploy @ Heroku(link available soon)
+### Deploy @ Heroku:
+[Humanity Hub](https://humanity-hub1-3599a88da879.herokuapp.com/)
 
 ## Developer: Alima Sharma
 [LinkedIn](https://www.linkedin.com/in/alimasharma/)
 
 
- # Backend link : [Here](https://github.com/yana1al/HumanityHub_backend)
+ # Backend link : 
+ [Here](https://github.com/yana1al/HumanityHub_backend)
+
  #Backend Deployed: [Heroku](https://humanity-hub-back-0e67c67407b5.herokuapp.com/)
 
  #Credit: 
+  A Big Shout Out to our Instructors: John A Jacob & Jan Horak and GA Team
+  [Youtube](https://www.youtube.com/watch?v=rWiYi9v8JFU&t=14s)
  [Home page img](https://www.pngitem.com/middle/hJxwhm_transparent-praying-clipart-open-praying-hands-clipart-hd/)
  [Stripe](https://dashboard.stripe.com/test/dashboard)
  [Global Giving](https://www.globalgiving.org/)
@@ -88,4 +93,7 @@ The project will focus on building the MVP (Minimum Viable Product) with the fol
  [LQBTQ IMG](https://www.google.com/search?q=cute+lgbt+wallpaper&udm=2&sa=X&ved=2ahUKEwiLldPxmZuGAxXNOjQIHdLrDD4QrNwCegQIWhAA&biw=976&bih=689&dpr=2#vhid=dlOEabZbZtIjsM&vssid=mosaic)
  [Webinar IMG](https://www.google.com/search?q=non+profit+poster&sca_esv=2d8b49fe239ead85&sca_upv=1&udm=2&biw=976&bih=689&sxsrf=ADLYWILo59t9iFB3dKgaZB3NRgBnEYFT1g%3A1716173057252&ei=AblKZuGGD9qI0PEP1bGE2AY&oq=non+pr&gs_lp=Egxnd3Mtd2l6LXNlcnAiBm5vbiBwcioCCAIyChAAGIAEGEMYigUyChAAGIAEGEMYigUyChAAGIAEGEMYigUyChAAGIAEGEMYigUyChAAGIAEGEMYigUyBRAAGIAEMgoQABiABBhDGIoFMgoQABiABBhDGIoFMgoQABiABBhDGIoFMgsQABiABBixAxiDAUi9RFC3CViFIXAEeACQAQCYAVqgAf8EqgEBOLgBAcgBAPgBAZgCDKACvAWoAgrCAgcQIxgnGOoCwgIEECMYJ8ICCBAAGIAEGLEDwgIOEAAYgAQYsQMYgwEYigXCAgsQABiABBixAxiKBZgDBpIHAjEyoAehMA&sclient=gws-wiz-serp#vhid=_DKCKBS1B_FsXM&vssid=mosaic)
  [Spring Festival Event](https://ybca.org/event/sfballetschool-spring-festival-2024/)
- A Big Shout Out to our Instructors: John A Jacob & Jan Horak and GA Team
+
+ ChatGPT for some debuggings
+ Prior Projects and Assignments. 
+
