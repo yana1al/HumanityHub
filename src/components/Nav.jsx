@@ -8,15 +8,10 @@ const Nav = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
-  const token = localStorage.getItem("token");
-  const user = JSON.parse(localStorage.getItem("user")); // Assuming user details are stored in localStorage
-
-  // Define isAuthenticated based on the existence of token and user
-  const isAuthenticated = !!token && !!user;
+  const isAuthenticated = localStorage.getItem("token");
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    localStorage.removeItem("user");
     navigate("/login");
   };
 
@@ -42,9 +37,6 @@ const Nav = () => {
         break;
       case "resources":
         navigate("/resources");
-        break;
-      case "createEvents":
-        navigate("/createEvents");
         break;
       case "login":
         navigate("/login");
@@ -81,8 +73,7 @@ const Nav = () => {
           <div className="menu-item" onClick={() => handleMenuItemClick("about")}>About Us</div>
           {isAuthenticated && <div className="menu-item" onClick={() => handleMenuItemClick("donations")}>Donations</div>}
           {isAuthenticated && <div className="menu-item" onClick={() => handleMenuItemClick("events")}>Events</div>}
-           <div className="menu-item" onClick={() => handleMenuItemClick("resources")}>Resources</div>
-           {isAuthenticated && <div className="menu-item" onClick={() => handleMenuItemClick("createEvents")}>New Events</div>}
+          <div className="menu-item" onClick={() => handleMenuItemClick("resources")}>Resources</div>
           {isAuthenticated ? (
             <div className="menu-item" onClick={handleLogout}>LogOut</div>
           ) : (
