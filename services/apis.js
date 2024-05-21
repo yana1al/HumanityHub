@@ -58,4 +58,14 @@ export const createEvent = async (eventData) => {
   }
 };
 
+export const fetchTestimonies = async () => {
+  try {
+    const response = await Client.get("/api/testimonies");
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching testimonies:", error);
+    throw error;
+  }
+};
+
 export default Client;
