@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";  // Import useNavigate
+import { useNavigate } from "react-router-dom";
 
 const CreateEvents = () => {
   const navigate = useNavigate();  // Use useNavigate hook
