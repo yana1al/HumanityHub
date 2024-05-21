@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";  
+import { Link, useNavigate } from "react-router-dom";  // Import useNavigate
 
 
 const Events = () => {
@@ -35,7 +35,7 @@ const Events = () => {
 
   const fetchEvents = async () => {
     try {
-      const response = await axios.get("https://humanity-hub-back-0e67c67407b5.herokuapp.com/api/events");
+      const response = await axios.get("https://humanity-hub-back-0e67c67407b5.herokuapp.com");
       setEvents(response.data);
     } catch (error) {
       console.error("Failed to fetch events:", error);
