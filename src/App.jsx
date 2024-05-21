@@ -15,8 +15,7 @@ import PrivacyPolicyDetails from "./components/PrivacyPolicyDetails";
 import ConnectUs from "./components/ConnectUs";
 import SubscribeUs from "./components/SubscribeUs";
 import Volunteer from "./components/Volunteer";
-import AdminLogIn from "../pages/AdminLogIn";
-import Admin from "./components/Admin"; // Import the Admin component
+import Admin from "./components/Admin"; 
 import { checkSession } from "../services/auth";
 
 const App = () => {
@@ -69,12 +68,8 @@ const App = () => {
           <Route path="/googleLoginButton" element={<GoogleLoginButton setUser={setUser} />} />
           <Route path="/register" element={<Register setUser={setUser} />} />
           <Route path="/volunteer" element={<Volunteer />} />
+          <Route path="/admin"  element={<Admin />} />
 
-          
-          {isAdmin && <Route path="/admin" element={<Admin />} />}
-          
-          
-          <Route path="/adminLogin" element={<AdminLogIn />} />
         </Routes>
       </main>
       

@@ -349,7 +349,7 @@ footer {
   color: #3a3838;
   padding: 1px;
   text-align: center;
-  position: fixed;
+  /* position: fixed; */
   left: 0;
   bottom: 0;
   width: 100%;

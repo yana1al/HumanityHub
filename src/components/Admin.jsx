@@ -96,7 +96,7 @@ const Admin = () => {
 
   return (
     <div className="admin-container">
-      <h2>Admin Dashboard</h2>
+      <h2>Create Event</h2>
       <form onSubmit={handleSubmit}>
         <label>
           Title:
@@ -145,7 +145,7 @@ const Admin = () => {
           Zip Code:
           <input type="text" name="zipCode" value={eventData.location.zipCode} onChange={handleLocationChange} required />
         </label>
-        <button type="submit">Create Event</button>
+        <button type="submit">Post Event</button>
       </form>
     </div>
   );

@@ -82,7 +82,7 @@ const Nav = () => {
           {isAuthenticated && <div className="menu-item" onClick={() => handleMenuItemClick("donations")}>Donations</div>}
           {isAuthenticated && <div className="menu-item" onClick={() => handleMenuItemClick("events")}>Events</div>}
           <div className="menu-item" onClick={() => handleMenuItemClick("resources")}>Resources</div>
-          {isAdmin && <div className="menu-item" onClick={() => handleMenuItemClick("admin")}>Admin</div>}
+           <div className="menu-item" onClick={() => handleMenuItemClick("admin")}>Admin</div>
           {isAuthenticated ? (
             <div className="menu-item" onClick={handleLogout}>LogOut</div>
           ) : (
