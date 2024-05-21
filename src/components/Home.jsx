@@ -2,32 +2,45 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
-import axios from "axios";
-
+import Client, { fetchTestimonies } from "../../services/apis"; // Adjusted path
 
 const Home = () => {
+  const preMadeTestimonies = [
+    {
+      id: 1,
+      name: "Anupa Sharma",
+      testimony: "This platform changed my life!",
+      rating: 5,
+      donatedAmount: 1,
+    },
+    {
+      id: 2,
+      name: "Yana Bhandari",
+      testimony: "I'm grateful for the opportunities provided by this organization.",
+      rating: 5,
+      donatedAmount: 1,
+    },
+  ];
+
   const [testimonyFormData, setTestimonyFormData] = useState({
     name: "",
     testimony: "",
     rating: 5,
   });
-  const [testimonies, setTestimonies] = useState([
-    { id: 1, name: "Anupa Sharma", testimony: "This platform changed my life!", rating: 5, donatedAmount: 1 },
-    { id: 2, name: "Yana Bhandari", testimony: "I'm grateful for the opportunities provided by this organization.", rating: 5, donatedAmount: 1 }
-  ]);
+  const [testimonies, setTestimonies] = useState(preMadeTestimonies);
   const [editingTestimony, setEditingTestimony] = useState(null);
 
   useEffect(() => {
-    const fetchTestimonies = async () => {
+    const fetchTestimoniesData = async () => {
       try {
-        const response = await axios.get('https://humanity-hub-back-0e67c67407b5.herokuapp.com/api/testimonies');
-        setTestimonies(response.data);
+        const data = await fetchTestimonies();
+        setTestimonies((prevTestimonies) => [...prevTestimonies, ...data]);
       } catch (error) {
         console.error('Error fetching testimonies:', error);
       }
     };
 
-    fetchTestimonies();
+    fetchTestimoniesData();
   }, []);
 
   const renderStars = (rating) => {
@@ -55,14 +68,12 @@ const Home = () => {
     try {
       let response;
       if (editingTestimony) {
-        // Update existing testimony
-        response = await axios.put(`https://humanity-hub-back-0e67c67407b5.herokuapp.com/api/testimonies/${editingTestimony.id}`, testimonyFormData);
+        response = await Client.put(`/api/testimonies/${editingTestimony.id}`, testimonyFormData);
         setTestimonies(testimonies.map(testimony =>
           testimony.id === editingTestimony.id ? response.data : testimony
         ));
       } else {
-        // Add new testimony
-        response = await axios.post('https://humanity-hub-back-0e67c67407b5.herokuapp.com/api/testimonies', testimonyFormData);
+        response = await Client.post('/api/testimonies', testimonyFormData);
         setTestimonies([...testimonies, response.data]);
       }
       setEditingTestimony(null);
@@ -79,7 +90,7 @@ const Home = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://humanity-hub-back-0e67c67407b5.herokuapp.com/api/testimonies/${id}`);
+      await Client.delete(`/api/testimonies/${id}`);
       setTestimonies(testimonies.filter(testimony => testimony.id !== id));
     } catch (error) {
       console.error('Error deleting testimony:', error);
