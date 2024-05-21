@@ -37,7 +37,11 @@ const Events = () => {
   const fetchEvents = async () => {
     try {
       const response = await fetchAllEvents(); // Fetching all events from your API
-      setEvents(response);
+      if (Array.isArray(response)) {
+        setEvents(response);
+      } else {
+        console.error("Expected array but got:", response);
+      }
     } catch (error) {
       console.error("Failed to fetch events:", error);
     }
@@ -108,12 +112,16 @@ const Events = () => {
       </div>
       
       <div className="events-grid">
-        {events.map((event) => (
-          <div key={event.id} className="event-card">
-            <h3>{event.title}</h3>
-            <p>{event.description}</p>
-          </div>
-        ))}
+        {Array.isArray(events) && events.length > 0 ? (
+          events.map((event) => (
+            <div key={event.id} className="event-card">
+              <h3>{event.title}</h3>
+              <p>{event.description}</p>
+            </div>
+          ))
+        ) : (
+          <p>No events found</p>
+        )}
       </div>
     </div>
   );

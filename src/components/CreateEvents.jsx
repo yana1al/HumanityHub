@@ -100,7 +100,7 @@ const CreateEvents = () => {
 
   return (
     <div className="create-event-container">
-      <h1>Create an Event</h1>
+      <h1>Let's Host an Event or Campaign Together!</h1>
       <form onSubmit={handleSubmit}>
         <label>
           Title:
