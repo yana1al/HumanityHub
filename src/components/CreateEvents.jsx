@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useHistory } from "react-router-dom";  // Import useHistory
 
 const CreateEvents = () => {
+  const history = useHistory();  // Use useHistory hook
+
   const [eventData, setEventData] = useState({
     title: "",
     description: "",
@@ -53,7 +56,7 @@ const CreateEvents = () => {
           zipCode: ""
         }
       });
-      history.push("/events");
+      history.push("/events");  // Use history.push to navigate
     } catch (error) {
       console.error("Error creating event:", error);
     }
