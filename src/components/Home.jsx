@@ -26,6 +26,7 @@ const Home = () => {
     name: "",
     testimony: "",
     rating: 5,
+    donatedAmount: 1,
   });
   const [testimonies, setTestimonies] = useState(preMadeTestimonies);
   const [editingTestimony, setEditingTestimony] = useState(null);
@@ -44,11 +45,9 @@ const Home = () => {
   }, []);
 
   const renderStars = (rating) => {
-    const stars = [];
-    for (let i = 0; i < rating; i++) {
-      stars.push(<FontAwesomeIcon key={i} icon={faStar} className="star-icon" />);
-    }
-    return stars;
+    return Array.from({ length: rating }, (_, i) => (
+      <FontAwesomeIcon key={i} icon={faStar} className="star-icon" />
+    ));
   };
 
   const handleChange = (e) => {
@@ -61,31 +60,30 @@ const Home = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    const testimonyData = {
-      name: testimonyFormData.name,
-      testimony: testimonyFormData.testimony,
-      rating: testimonyFormData.rating,
-      donatedAmount: 1, // Ensure the subsidy amount is included in the form data
-    };
 
     if (!testimonyFormData.name || !testimonyFormData.testimony) {
       alert("Please provide your name and testimony.");
       return;
     }
+
+    const testimonyData = {
+      ...testimonyFormData,
+      donatedAmount: 1,
+    };
+
     try {
       let response;
       if (editingTestimony) {
-        response = await Client.put(`/api/testimonies/${editingTestimony.id}`, testimonyFormData);
+        response = await Client.put(`/api/testimonies/${editingTestimony.id}`, testimonyData);
         setTestimonies(testimonies.map(testimony =>
           testimony.id === editingTestimony.id ? response.data : testimony
         ));
       } else {
-        response = await Client.post('/api/testimonies', testimonyFormData);
+        response = await Client.post('/api/testimonies', testimonyData);
         setTestimonies([...testimonies, response.data]);
       }
       setEditingTestimony(null);
-      setTestimonyFormData({ name: "", testimony: "", rating: 5 });
+      setTestimonyFormData({ name: "", testimony: "", rating: 5, donatedAmount: 1 });
     } catch (error) {
       console.error('Error submitting testimony:', error);
     }
@@ -93,7 +91,12 @@ const Home = () => {
 
   const handleEdit = (testimony) => {
     setEditingTestimony(testimony);
-    setTestimonyFormData(testimony);
+    setTestimonyFormData({
+      name: testimony.name,
+      testimony: testimony.testimony,
+      rating: testimony.rating,
+      donatedAmount: testimony.donatedAmount,
+    });
   };
 
   const handleDelete = async (id) => {
@@ -110,7 +113,7 @@ const Home = () => {
       <div className="welcome-message">
         <Link to="/about">Want to Know Us? Hop on In!</Link>
       </div>
-      
+
       <div className="testimonies-container">
         <div className="testimonies" style={{ marginTop: '20px' }}>
           <h3>Testimonies</h3>
@@ -123,13 +126,17 @@ const Home = () => {
               <p>- {testimony.name}</p>
               <p>Subsidy: ${testimony.donatedAmount}</p>
               <div className="testimony-actions">
-                <button onClick={() => handleEdit(testimony)}><FontAwesomeIcon icon={faEdit} /></button>
-                <button onClick={() => handleDelete(testimony.id)}><FontAwesomeIcon icon={faTrash} /></button>
+                <button onClick={() => handleEdit(testimony)}>
+                  <FontAwesomeIcon icon={faEdit} />
+                </button>
+                <button onClick={() => handleDelete(testimony.id)}>
+                  <FontAwesomeIcon icon={faTrash} />
+                </button>
               </div>
             </div>
           ))}
         </div>
-        
+
         <div className="how-did-we-do">
           <div className="background-image"></div>
           <h3>Any Suggestions?</h3>
@@ -150,7 +157,6 @@ const Home = () => {
                 ))}
               </select>
             </label>
-            <input type="hidden" name="subsidy" value="1" />
             <button type="submit">{editingTestimony ? "Update" : "Post & Donate"}</button>
           </form>
         </div>
