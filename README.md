@@ -75,6 +75,12 @@ The project will focus on building the MVP (Minimum Viable Product) with the fol
 ## Developer: Alima Sharma
 [LinkedIn](https://www.linkedin.com/in/alimasharma/)
 
+## Future Updates: 
+ 1. Google OAuth recovery(able to add API however, my account hasnot been verified by google, so it shows 400 error)
+ 2. Add more CRUD functions 
+ 3. Add API from ZOOM for Happy Hours( I tried a lot and there are so many ZOOM API, i couldnt fighure out so left for future project)
+ 4. Improve App layouts and textue.
+ 5. Add AWS for Create events
 
  # Backend link : 
  [Here](https://github.com/yana1al/HumanityHub_backend)
@@ -82,7 +88,7 @@ The project will focus on building the MVP (Minimum Viable Product) with the fol
  #Backend Deployed: [Heroku](https://humanity-hub-back-0e67c67407b5.herokuapp.com/)
 
  #Credit: 
-  A Big Shout Out to our Instructors: John A Jacob & Jan Horak and GA Team
+  A Big Shout Out to our Instructors: #John A Jacob & Jan Horak and GA Team
   [Youtube](https://www.youtube.com/watch?v=rWiYi9v8JFU&t=14s)
  [Home page img](https://www.pngitem.com/middle/hJxwhm_transparent-praying-clipart-open-praying-hands-clipart-hd/)
  [Stripe](https://dashboard.stripe.com/test/dashboard)
@@ -94,6 +100,6 @@ The project will focus on building the MVP (Minimum Viable Product) with the fol
  [Webinar IMG](https://www.google.com/search?q=non+profit+poster&sca_esv=2d8b49fe239ead85&sca_upv=1&udm=2&biw=976&bih=689&sxsrf=ADLYWILo59t9iFB3dKgaZB3NRgBnEYFT1g%3A1716173057252&ei=AblKZuGGD9qI0PEP1bGE2AY&oq=non+pr&gs_lp=Egxnd3Mtd2l6LXNlcnAiBm5vbiBwcioCCAIyChAAGIAEGEMYigUyChAAGIAEGEMYigUyChAAGIAEGEMYigUyChAAGIAEGEMYigUyChAAGIAEGEMYigUyBRAAGIAEMgoQABiABBhDGIoFMgoQABiABBhDGIoFMgoQABiABBhDGIoFMgsQABiABBixAxiDAUi9RFC3CViFIXAEeACQAQCYAVqgAf8EqgEBOLgBAcgBAPgBAZgCDKACvAWoAgrCAgcQIxgnGOoCwgIEECMYJ8ICCBAAGIAEGLEDwgIOEAAYgAQYsQMYgwEYigXCAgsQABiABBixAxiKBZgDBpIHAjEyoAehMA&sclient=gws-wiz-serp#vhid=_DKCKBS1B_FsXM&vssid=mosaic)
  [Spring Festival Event](https://ybca.org/event/sfballetschool-spring-festival-2024/)
 
- ChatGPT for some debuggings
+ ChatGPT for some debuggings,
  Prior Projects and Assignments. 
 

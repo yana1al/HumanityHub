@@ -129,11 +129,13 @@ main {
 }
 
 .home-container {
-  margin: 10px;
+  margin: 1px;
   padding: 20px;
   border: 2px solid #64704385;
   border-radius: 100px;
-  /* position: relative; */
+  background-image: url('./IMG_1341.jpeg');
+  background-size:cover;
+  background-repeat: no-repeat;
   
 }
 
@@ -175,34 +177,30 @@ main {
   display: flex;
   flex-direction: column;
   background: -moz-linear-gradient(to right, #b1c0ca, rgb(192, 171, 181));
-  position: relative;
-  border-radius: 70px;
+  position:relative;
+  border-radius: 40px;
+  background-image: url('./meToo.jpeg');
+  background-size:75rem;
+  background-repeat: no-repeat;
+ 
 }
 
-.background-image {
-  position:absolute;
-  top: 0;
-  right: 0;
-  width: 450px; 
-  height: 103%;
-  background-image: url('./homepage.png');
-  background-position:2rem;
-  background-size:30rem;
-  background-repeat: no-repeat;
-  
-}
 
 .testimonies {
   background: linear-gradient(to right, #b1c0ca, rgb(216, 212, 219));
-  margin-bottom: 70px;
+  margin-bottom: 1010px;
   padding: 30px;
   text-align: justify;
-  width: calc(100% - 200px);
+  width: calc(40% - 200px);
   border-radius: inherit;
 }
 
 .how-did-we-do {
-  width: calc(60% - 70px);
+  width: calc(50% - 100px);
+  background: linear-gradient(to right, #b1c0ca, rgb(216, 212, 219));
+  border-radius: inherit;
+  padding: 30px;
+  
 }
 
 .partnered-with,
