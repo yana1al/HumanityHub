@@ -2,24 +2,18 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
-import Client, { fetchTestimonies } from "../../services/apis"; // Adjusted path
+import Client, { fetchTestimonies } from "../../services/apis"; 
 
 const Home = () => {
   const preMadeTestimonies = [
     {
       id: 1,
-      name: "Anupa Sharma",
+      name: "Yana SB",
       testimony: "This platform changed my life!",
       rating: 5,
       donatedAmount: 1,
     },
-    {
-      id: 2,
-      name: "Yana Bhandari",
-      testimony: "I'm grateful for the opportunities provided by this organization.",
-      rating: 5,
-      donatedAmount: 1,
-    },
+    
   ];
 
   const [testimonyFormData, setTestimonyFormData] = useState({
