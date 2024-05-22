@@ -142,6 +142,7 @@ const Home = () => {
                 ))}
               </select>
             </label>
+            <input type="hidden" name="subsidy" value="1" />
             <button type="submit">{editingTestimony ? "Update" : "Post & Donate"}</button>
           </form>
         </div>
