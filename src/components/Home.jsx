@@ -61,6 +61,14 @@ const Home = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    const testimonyData = {
+      name: testimonyFormData.name,
+      testimony: testimonyFormData.testimony,
+      rating: testimonyFormData.rating,
+      donatedAmount: 1, // Ensure the subsidy amount is included in the form data
+    };
+
     if (!testimonyFormData.name || !testimonyFormData.testimony) {
       alert("Please provide your name and testimony.");
       return;
