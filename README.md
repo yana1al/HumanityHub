@@ -65,6 +65,12 @@ The project will focus on building the MVP (Minimum Viable Product) with the fol
  <img width="1020" alt="wireframe1" src="https://github.com/yana1al/HumanityHub/assets/160801353/e56f1ec9-a0c9-46ea-a5a3-f6c4a787874c">
  <img width="1079" alt="Wireframe2" src="https://github.com/yana1al/HumanityHub/assets/160801353/049c615f-081e-443f-bb8b-3c9cf1ac6d8c">
 
+
+## FinalProductSample:
+![Home Page](./src/Home.png)
+![Donation Page](./src/donation.png)
+![Resources Page](./src/resource.png)
+
 ## Powerpoint:
 
 [HUMANITY HUB (HH).pptx](https://github.com/yana1al/HumanityHub/files/15270118/HUMANITY.HUB.HH.pptx)
@@ -76,11 +82,13 @@ The project will focus on building the MVP (Minimum Viable Product) with the fol
 [LinkedIn](https://www.linkedin.com/in/alimasharma/)
 
 ## Future Updates: 
- 1. Google OAuth recovery(able to add API however, my account hasnot been verified by google, so it shows 400 error)
- 2. Add more CRUD functions 
- 3. Add API from ZOOM for Happy Hours( I tried a lot and there are so many ZOOM API, i couldnt fighure out so left for future project)
+ 1. Google OAuth recovery(able to add API however, my account hasnot been verified by google, so it shows 400 error).
+ 2. Add more CRUD functions.
+ 3. Add API from ZOOM for Happy Hours( I tried a lot and there are so many ZOOM API, i couldnt fighure out so left for future project).
  4. Improve App layouts and textue.
- 5. Add AWS for Create events
+ 5. Add AWS for Create Events.
+ 6. Add more functions.
+ 7. Make it secure.
 
  # Backend link : 
  [Here](https://github.com/yana1al/HumanityHub_backend)
